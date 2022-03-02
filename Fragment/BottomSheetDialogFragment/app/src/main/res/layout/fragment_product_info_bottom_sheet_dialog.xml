@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="product"
+            type="com.example.bottomsheetdialogfragmentexample.ProductModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ProductInfoBottomSheetDialogFragment">
+
+        <TextView
+            android:id="@+id/product_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@{product.name}"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/divider_start_pivot"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="상품명" />
+
+        <View
+            android:id="@+id/divider_product_info"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="18dp"
+            android:background="#707070"
+            app:layout_constraintEnd_toEndOf="@id/divider_end_pivot"
+            app:layout_constraintStart_toStartOf="@id/divider_start_pivot"
+            app:layout_constraintTop_toBottomOf="@id/product_name_text_view" />
+
+        <TextView
+            android:id="@+id/date_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="구입 날짜"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@id/divider_start_pivot"
+            app:layout_constraintTop_toBottomOf="@id/divider_product_info" />
+
+        <TextView
+            android:id="@+id/date_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@{product.date}"
+            app:layout_constraintBottom_toBottomOf="@id/date_title_text_view"
+            app:layout_constraintStart_toEndOf="@id/date_title_text_view"
+            app:layout_constraintTop_toTopOf="@id/date_title_text_view"
+            tools:text="2022.03.02" />
+
+        <TextView
+            android:id="@+id/count_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="수량"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@id/divider_start_pivot"
+            app:layout_constraintTop_toBottomOf="@id/date_text_view" />
+
+        <TextView
+            android:id="@+id/count_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(product.cnt)}"
+            app:layout_constraintBottom_toBottomOf="@id/count_title_text_view"
+            app:layout_constraintStart_toStartOf="@id/date_text_view"
+            app:layout_constraintTop_toTopOf="@id/count_title_text_view"
+            tools:text="333" />
+
+        <TextView
+            android:id="@+id/option_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="옵션"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@id/divider_start_pivot"
+            app:layout_constraintTop_toBottomOf="@id/count_text_view" />
+
+        <TextView
+            android:id="@+id/option_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{product.option}"
+            app:layout_constraintBottom_toBottomOf="@id/option_title_text_view"
+            app:layout_constraintStart_toStartOf="@id/date_text_view"
+            app:layout_constraintTop_toTopOf="@id/option_title_text_view"
+            tools:text="옵션 설명" />
+
+        <View
+            android:id="@+id/divider_product_info_bottom"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="18dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="@id/divider_end_pivot"
+            app:layout_constraintStart_toStartOf="@id/divider_start_pivot"
+            app:layout_constraintTop_toBottomOf="@id/option_title_text_view" />
+
+        <TextView
+            android:id="@+id/total_price_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="총 결제 금액"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/divider_start_pivot"
+            app:layout_constraintTop_toBottomOf="@id/divider_product_info_bottom" />
+
+        <TextView
+            android:id="@+id/total_price_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{product.price}"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/total_price_title_text_view"
+            app:layout_constraintEnd_toEndOf="@id/divider_end_pivot"
+            app:layout_constraintTop_toTopOf="@id/total_price_title_text_view"
+            tools:text="20,000원" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/close_button"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:text="확인"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/divider_end_pivot"
+            app:layout_constraintStart_toStartOf="@id/divider_start_pivot"
+            app:layout_constraintTop_toBottomOf="@id/total_price_title_text_view" />
+
+        <View
+            android:id="@+id/divider_start_pivot"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias=".05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/divider_end_pivot"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias=".95"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
