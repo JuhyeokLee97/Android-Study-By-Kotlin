@@ -1,19 +1,21 @@
-개요
-게시판에 글이 보여질 때, 내용이 많은 글에 대해서는 글줄임(...)을 통해 내용의 일부만 보여주고, 게시글 아이템의 높이를 일정하게 유지한다.
+## 개요
+
+게시판에 글이 보여질 때, 내용이 많은 글에 대해서는 글줄임(...)을 통해 내용의 일부만 보여주고, 게시글 아이템의 높이를 일정하게 유지한다.  
 유기적으로 사용자가 내용 전체를 보고 일부만 볼 수 있도록, 글줄임(...) 설정 이벤트를 구현한다.
 
-실행화면
+### 실행화면
 
+## 프로젝트 구조(이미지)
 
-프로젝트 구조(이미지)
-DataBinding을 사용함.
+**DataBinding**을 사용함.
 
+## Code
 
+### \[DataBinding 셋팅\] build.gradle(:app)
 
-Code
-[DataBinding 셋팅] build.gradle(:app)
-DataBinding 사용을 위해 gradle에 dataBinding { endabled true }를 추가한다.
+**DataBinding** 사용을 위해 gradle에 `dataBinding { endabled true }`를 추가한다.
 
+```
 android {
     compileSdk 31
     ...
@@ -21,16 +23,24 @@ android {
         enabled true
     }
 }
-[게시글 데이터] PostModel.kt
+```
+
+### \[게시글 데이터\] PostModel.kt
+
+```
 data class PostModel(
     var id: Long,
     var userName: String,
     var postScript: String
 )
-[게시글 아이템 Layout] item_post.xml
-태그: View들을 binding해 사용하기 위해 DataBinding에서는 필수적이다.
-, 태그: DataBinding을 통해 게시글 아이템(PostModel) 의 값을 자동으로 연결시킨다.
+```
 
+### \[게시글 아이템 Layout\] item\_post.xml
+
+**태그:** View들을 **binding**해 사용하기 위해 **DataBinding**에서는 필수적이다.  
+**, 태그:** **DataBinding**을 통해 **게시글 아이템(PostModel)** 의 값을 자동으로 연결시킨다.
+
+```
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -96,7 +106,11 @@ data class PostModel(
             app:layout_constraintTop_toBottomOf="@id/tvOption" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
-[게시글 RecyclerView Adapter] PostAdapter.kt
+```
+
+### \[게시글 RecyclerView Adapter\] PostAdapter.kt
+
+```
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -177,7 +191,11 @@ class PostAdapter : ListAdapter<PostModel, PostAdapter.ViewHolder>(diffUtil) {
         }
     }
 }
-[RecyclerView 셋팅] activity_main.xml
+```
+
+### \[RecyclerView 셋팅\] activity\_main.xml
+
+```
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -223,7 +241,11 @@ class PostAdapter : ListAdapter<PostModel, PostAdapter.ViewHolder>(diffUtil) {
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
-MainActivity.kt
+```
+
+### MainActivity.kt
+
+```
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.textviewstudy.databinding.ActivityMainBinding
@@ -275,10 +297,13 @@ class MainActivity : AppCompatActivity() {
         return postList
     }
 }
-마무리하며
-회사에서 프로젝트를 진행하던 중, 정보를 소개하는 글을 담는 TextView를 구현하는데 있어 앱(웹)에서 흔히 볼 수 있는 "글..." 형태의 말줄임을 구현해야하는 작업을 맡은 적이 있었다.
-구글링 결과, TextView의 속성 중 maxLine과 ellipsize를 통해서 말줄임(...) 형태를 구현할 수 있다는 것을 알았다.
-하지만 더 나아가 (...)형태가 된 TextView를 펼치고 줄이고 할 수 있는 기능이 필요해 구글링 해봤지만, 자세히 설명되어 있지 않아 글을 정리하게 됐다.
+```
 
-특정 상품 또는 업체 설명하는 상세 페이지에서, 기본 정보를 TextView에서 보여줄 때 사용하면 용이할 것 같다.
-리뷰를 보여주는 리스트 아이템에서 내용을 담는 TextView에 사용하면 용이할 것 같다.
+### 마무리하며
+
+회사에서 프로젝트를 진행하던 중, 정보를 소개하는 글을 담는 **TextView**를 구현하는데 있어 앱(웹)에서 흔히 볼 수 있는 "글..." 형태의 말줄임을 구현해야하는 작업을 맡은 적이 있었다.  
+구글링 결과, **TextView**의 속성 중 **maxLine**과 **ellipsize**를 통해서 말줄임(...) 형태를 구현할 수 있다는 것을 알았다.  
+하지만 더 나아가 (...)형태가 된 **TextView**를 펼치고 줄이고 할 수 있는 기능이 필요해 구글링 해봤지만, 자세히 설명되어 있지 않아 글을 정리하게 됐다.
+
+-   특정 상품 또는 업체 설명하는 상세 페이지에서, 기본 정보를 TextView에서 보여줄 때 사용하면 용이할 것 같다.
+-   리뷰를 보여주는 리스트 아이템에서 내용을 담는 TextView에 사용하면 용이할 것 같다.
