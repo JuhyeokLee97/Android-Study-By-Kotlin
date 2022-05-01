@@ -5,8 +5,9 @@
 `배송업체`와 `송장번호`를 입력 후, `배송조회` 버튼 클릭 시 **네이버**에서 택배의 배송 상태를 추적한다.
 
 ### 실행영상
-
-![](https://user-images.githubusercontent.com/40654227/166145994-f6e7a6ff-8687-4862-b6dd-9a10f30f4d1b.gif)
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/40654227/166145994-f6e7a6ff-8687-4862-b6dd-9a10f30f4d1b.gif"/>
+</p>
 
 ## 프로젝트 구조
 
