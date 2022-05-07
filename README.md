@@ -25,3 +25,5 @@
 
 #### [갤러리 접근: 프로필 이미지 변경](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/edit/main/%EA%B0%A4%EB%9F%AC%EB%A6%AC%20%EC%A0%91%EA%B7%BC:%20%ED%94%84%EB%A1%9C%ED%95%84%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EB%B3%80%EA%B2%BD.md)
 
+#### [style.xml 사용 예제] (https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20style.xml%20%EC%82%AC%EC%9A%A9%20%EC%98%88%EC%A0%9C.md)
+
