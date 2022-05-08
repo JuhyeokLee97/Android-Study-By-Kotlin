@@ -25,5 +25,22 @@
 
 #### [갤러리 접근: 프로필 이미지 변경](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/edit/main/%EA%B0%A4%EB%9F%AC%EB%A6%AC%20%EC%A0%91%EA%B7%BC:%20%ED%94%84%EB%A1%9C%ED%95%84%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EB%B3%80%EA%B2%BD.md)
 
-#### [style.xml 사용 예제] (https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20style.xml%20%EC%82%AC%EC%9A%A9%20%EC%98%88%EC%A0%9C.md)
+#### [style.xml 사용 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20style.xml%20%EC%82%AC%EC%9A%A9%20%EC%98%88%EC%A0%9C.md)
 
+#### [공유하기 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/%EA%B3%B5%EC%9C%A0%ED%95%98%EA%B8%B0%20%EC%98%88%EC%A0%9C.md)
+
+#### [FCM 예제 - Part1 (Firebase 프로젝트 만들기, 앱 등록)](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/FCM%20%EC%98%88%EC%A0%9C%20-%20Part1%20(Firebase%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EB%A7%8C%EB%93%A4%EA%B8%B0%2C%20%EC%95%B1%20%EB%93%B1%EB%A1%9D).md)
+
+#### [FCM 예제 - Part2 (앱 매니페스트 수정, FCM Token 등록, Notification 송수신)](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/FCM%20%EC%98%88%EC%A0%9C%20-%20Part2%20(%EC%95%B1%20%EB%A7%A4%EB%8B%88%ED%8E%98%EC%8A%A4%ED%8A%B8%20%EC%88%98%EC%A0%95%2C%20%20FCM%20Token%20%EB%93%B1%EB%A1%9D%2C%20Notification%20%EC%86%A1%EC%88%98%EC%8B%A0).md)
+
+#### [Retrofit Header 추가](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Retrofit%20Header%20%EC%B6%94%EA%B0%80.md)
+
+#### [문자열 리소스(strings.xml) 사용 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/%EB%AC%B8%EC%9E%90%EC%97%B4%20%EB%A6%AC%EC%86%8C%EC%8A%A4(strings.xml)%20%EC%82%AC%EC%9A%A9%20%EC%98%88%EC%A0%9C.md)
+
+#### [바텀 내비게이션 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/%EB%B0%94%ED%85%80%20%EB%82%B4%EB%B9%84%EA%B2%8C%EC%9D%B4%EC%85%98%20%EC%98%88%EC%A0%9C.md)
+
+#### [원형 버튼 만들기](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/%EC%9B%90%ED%98%95%20%EB%B2%84%ED%8A%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0.md)
+
+#### [카카오 SDK V2 로그인 - part1(프로젝트 셋업)](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/%EC%B9%B4%EC%B9%B4%EC%98%A4%20SDK%20V2%20%EB%A1%9C%EA%B7%B8%EC%9D%B8%20-%20part1(%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%85%8B%EC%97%85).md)
+
+#### [카카오 SDK V2 로그인 - part2(코드).md](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/%EC%B9%B4%EC%B9%B4%EC%98%A4%20SDK%20V2%20%EB%A1%9C%EA%B7%B8%EC%9D%B8%20-%20part2(%EC%BD%94%EB%93%9C).md)
