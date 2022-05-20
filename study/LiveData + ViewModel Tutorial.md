@@ -200,3 +200,13 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
+### 학습
+UI Controller(Activity, Fragment)의 목적
+ - 기본적으로 UI 데이터 표시
+ - 사용자 작업에 반응
+ - 권한 요청과 같은 운영체제 커뮤니케이션
+
+UI Controller 부하
+원인: UI Controller에 DB나 Network(server)에서 데이터 로드를 요구하는 경우.
+
+https://developer.android.com/topic/libraries/architecture/viewmodel?hl=ko
