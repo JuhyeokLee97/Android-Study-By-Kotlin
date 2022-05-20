@@ -200,7 +200,8 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-### 학습
+## 학습
+### [Jetpack.ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel?hl=ko)
 UI Controller(Activity, Fragment)의 목적
  - 기본적으로 UI 데이터 표시
  - 사용자 작업에 반응
@@ -208,5 +209,6 @@ UI Controller(Activity, Fragment)의 목적
 
 UI Controller 부하
 원인: UI Controller에 DB나 Network(server)에서 데이터 로드를 요구하는 경우.
+결과: UI를 관리하는 클래스가 너무 커진다. UI 컨트롤러에 과도한 책임을 할당하면 다른 클래스로 작업이 위임되지 않고, 단일 클래스가 혼자서 앱의 작업을 모두 처리하려고 할 수 있습니다. 또한 이런 방법으로 UI 컨트롤러에 과도한 책임을 할당하면 테스트가 훨씬 더 어려워집니다.
 
-https://developer.android.com/topic/libraries/architecture/viewmodel?hl=ko
+=> UI 컨트롤러 로직에서 뷰 데이터 소유권을 분리하는 방법이 훨씬 쉽고 효율적입니다.
