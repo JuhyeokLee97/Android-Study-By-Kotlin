@@ -1,4 +1,5 @@
 # LiveData + ViewModel Tutorial
+#### 참고). [ViewModel 이란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/LiveData%20+%20ViewModel/ViewModel.md)
 ## Jetpack.ViewModel과 LiveData를 이용한 옵저버 패턴 
 ### 개요
 <P>
