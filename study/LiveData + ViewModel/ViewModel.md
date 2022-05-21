@@ -2,11 +2,8 @@
 
 ## ViewModel 사용 이유
 <p>
-  <strong> 
-    
-    ``UI Controller``의 데이터를 캡슐화하여 앱 구성이 변경되어도 데이터를 유지하기 위함이다.
-    
-  </strong>
+  
+  <strong>``UI Controller의 데이터를 캡슐화하여 앱 구성이 변경되어도 데이터를 유지하기 위함이다.`` </strong>
   
   ### ``UI Controller 부하``
   **원인**: UI Controller에 DB나 Network에서 데이터 로드를 요구하는 경우.</br>
@@ -19,8 +16,12 @@
   - 기본적으로 UI 데이터 표시
   - 사용자 작업에 반응
   - 권한 요청과 같은 운영체제 커뮤니케이션
+    
+</p>
+
+## ViewModel 데이터 로드
+<p align="center">
   
-  
-  
-  
+  <img src="https://user-images.githubusercontent.com/40654227/169655950-89594d2f-73bd-43a0-9f57-4b144db4e86e.png"/>
+
 </p>
