@@ -29,8 +29,10 @@
 ## ViewModel 기본 구현
 <p>
   
-  description...
-  
+아키텍쳐 구성요소는 UI Data 준비를 담당하는 UI Controller에 ``ViewModel`` UI Data 준비를 위해 제공한다.</br>
+``ViewModel``객체는 앱 구성이 변경되는 동안에도 데이터를 자동으로 보관하고 다음 Activity(or Fragment)에서 기존 ``ViewModel``의 데이터를 즉각적으로 사용할 수 있다.</br></br>
+예를 들어 앱에서 사용자 목록을 표시해야 한다면 아래 샘플 코드에서 설명된 대로 사용자 목록 데이터를 확보하여 Activity(or Fragment) 대신 ``ViewModel``에 저장(관리)할 수 있다. 
+ 
 </p>
 
 ### ViewModel 구현
