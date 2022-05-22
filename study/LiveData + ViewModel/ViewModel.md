@@ -25,3 +25,56 @@
   <img src="https://user-images.githubusercontent.com/40654227/169655950-89594d2f-73bd-43a0-9f57-4b144db4e86e.png"/>
 
 </p>
+
+## ViewModel 기본 구현
+<p>
+  
+  description...
+  
+</p>
+
+### ViewModel 구현
+``` kotlin
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+
+data class User(
+    val id: Long,
+    val name: String,
+    val age: Int,
+)
+
+class MyViewModel : ViewModel() {
+    private val _users: MutableLiveData<List<User>> by lazy {
+        MutableLiveData<List<User>>().also { loadUsers() }
+    }
+
+    val users: LiveData<List<User>>
+        get() = _users
+
+    private fun loadUsers() {
+        // `Users Data`를 읽기 위한 비동기 처리 수행
+    }
+}
+```
+
+### Activity(UI Controller) 구현
+``` kotlin
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val model = ViewModelProvider(this).get(MyViewModel::class.java)
+        model.users.observe(this, Observer<List<User>>{ users ->
+            // Update UI
+        })
+    }
+}
+```
