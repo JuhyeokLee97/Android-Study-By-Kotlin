@@ -1,0 +1,47 @@
+{
+    "items":[
+        {
+            "id": 1,
+            "name" : "Special edition Three-headed Monkey",
+            "description": "Special edition Three-headed Monkey is finally here",
+            "price": 14100
+        },
+        {
+            "id": 2,
+            "name" : "Special edition Rubber Chicken",
+            "description": "Special edition Rubber Chicken is recommended by Stan S. Stanman",
+            "price": 29900
+        },
+        {
+            "id": 3,
+            "name" : "Special edition Pint of Grog",
+            "description": "Special edition Pint of Grog is the best sold product on Mêlée Island",
+            "price": 17700
+        },
+        {
+            "id": 4,
+            "name" : "Special edition Monocle",
+            "description": "Special edition Monocle is 💯",
+            "price": 15200
+        },
+        {
+            "id": 5,
+            "name" : "New Three-headed Monkey",
+            "description": "New Three-headed Monkey is finally here",
+            "price": 15000
+        },
+        {
+            "id": 6,
+            "name" : "New Rubber Chicken",
+            "description": "New Rubber Chicken is recommended by Stan S. Stanman",
+            "price": 12000
+        },
+        {
+            "id": 7,
+            "name" : "New Pint of Grog",
+            "description": "New Pint of Grog is the best sold product on Mêlée Island",
+            "price": 3700
+        }
+        
+    ]
+}
