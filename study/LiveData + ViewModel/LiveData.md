@@ -117,4 +117,53 @@ class MainActivity : AppCompatActivity() {
 
 
 ### LiveData Objects 업데이트하기
+
+<p>
+
+LiveData에는 저장된 데이터를 public 하게 업데이트하는 방법은 없다.</br></br>
+``MutableLiveData`` 클래스는 ``setValue(T)`` 그리고 ``postValue(T)``를 public 하게 제공한다.</br></br>
+그래서 LiveData의 데이터를 수정하기 위해서는 ''setValue(T)`` 또는 ``postValue(T)``를 사용해야한다.</br></br>
+대게 ``MutableLiveData``는 ``ViewModel``에서 정의(사용)하고 ``Observer``에게는 immutable한 ``LiveData``를 준다.</br>
+
+</p>
+
+``` kotlin
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var viewModel: NameViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // create NameViewModel
+        viewModel = ViewModelProvider(this).get(NameViewModel::class.java)
+
+        // Create the observer with updates the UI
+        val nameObserver = Observer<String>{ newName ->
+            binding.nameTextView.text = newName
+        }
+
+        // Observe the LiveData
+        // Passing in this activity as the LifecycleOwner and the observer
+        viewModel.currentName.observe(this, nameObserver)
+
+        // Set Listener ClickEvent To Button For Update LiveData
+        binding.button.setOnClickListener {
+            val anotherName = "John Doe"
+            viewModel.currentName.value = anotherName
+        }
+    }
+}
+```
+
+위 코드에서는 ``setValue(T)``방식을 사용했는데, 그 결과 ``numberObserver``가 ``John Doe`` 값과 함께 ``onChanged()``함수를 호출한다.</br></br>
+이 예시에서는 버튼이 눌렸을 때만을 보여주는 거지만, ``setValue(T)`` 또는 ``postValue(T)``는 네트워크 요청 또는 DB 로드 완료에 대한 응답으로 ``name``을 업데이하기 위해 호출될 수도 있다.</br></br>
+어떠한 경우에도 ``setValue()`` 또는 ``postValue()``를 호출하면 Observer의 트리거가 발동되면서 UI가 업데이트 된다.</br></br>
+><strong>참고</strong></br></br>
+>기본 쓰레드에서 <strong>LiveData</strong> 객체를 업데이트하려면 ``setValue(T)`` 함소를 호출해야한다.</br>
+>코드가 worker 쓰레드에서 실행된다면 대신 ``postValue(T)`` 메서드를 사용하여 <strong>LiveData</strong> 객체를 업데이트할 수 있다.
+>
 ### Coroutines + LiveData
