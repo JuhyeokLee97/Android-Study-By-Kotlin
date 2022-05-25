@@ -45,6 +45,35 @@ LiveData는 관련된 ``lifecycle status``의 변경을 관찰하기 때문에 �
 - LiveData는 UI Controller에서 변경사항을 구독할 수 있게한다. 즉  LiveData 객체의 데이터가 변경되면, 구독하고 있는 UI를 자동으로 업데이트 시킬 수 있다.
 
 ### LiveData Object 만들기
+
+<p>
+ 
+ LiveData는 ``Collection``를 구현하는 ``List``와 같은 객체를 비롯하여 모든 데이터와 함께 사용할 수 있다.</br>
+ LiveData 객체는 일반적으로 ``ViewModel`` 객체 내에 저장된다.
+ 
+</p>
+
+### Code
+``` kotlin
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+
+class NameViewModel: ViewModel() {
+    
+    // Create a LiveData with a String
+    val currentName: MutableLiveData<String> by lazy{
+        MutableLiveData<String>()
+    }
+    
+    // Rest of the ViewModel...
+}
+```
+
+><strong>참고</strong></br>
+>UI를 업데이트 하는데 사용되는 <strong>LiveData</strong> 객체는 꼭 Activity or Fragment가 아닌 <strong>ViewModel</strong>에 저장되어야한다.</br></br>
+><strong>이유</strong></br>
+> - Activity와 Fragment 클래스가 너무 커지거나 복잡해지지 않게 하기 위해서. 즉, UI Controller에서는 데이터 표시만을 담당하고 데이터 상태를 관리하지 않게 하기 위해서이다.</br>
+> - LiveData 객체를 고유의 Activity or Fragment에 제한하지 않고 분리하여, 앱의 Configuration이 변겨오디더라도 LiveData 객체를 유지할 수 있다.</br>
 ### LiveData Object 관찰하기
 ### LiveData Objects 업데이트하기
 ### Coroutines + LiveData
