@@ -35,6 +35,15 @@ LiveData는 관련된 ``lifecycle status``의 변경을 관찰하기 때문에 �
 
 ## LiveData 사용법
 ### 개요
+1. 특정 객체의 데이터를 보유할 ``LiveData``의 객체를 생성한다.(이 작업은 일반적으로 ``ViewModel``클래스 내에서 이루어진다.)</br></br>
+
+2. ``onChanged()`` 함수를 정의하는 ``Observer`` 객체를 만든다. 이 함수는 ``LiveData`` 객체가 보유한 데이터 변경 시 발생하는 작업을 제어한다.(일반적으로 Activity or Fragment 같은 ``UI Controller``에 ``Observer``객체를 만든다.)</br></br>
+
+3. ``observe()`` 함수를 사용하여 ``LiveData`` 객체에 ``Observer``객체를 연결한다. ``Observe()`` 함수는 ``LifecycleOwner`` 객체를 사용한다. 이렇게 하면 ``Observer`` 객체가 ``LiveData`` 객체를 구독하여 변경사항에 대한 알림을 받는다.(일반적으로 Activity or Fragment 같은 ``UI Controller``에 ``Observer`` 객체를 연결한다.</br></br>
+
+- ``LiveData`` 객체에 저장된 값을 변경하면 ``LifecycleOwner``가 active 상태인 경우 등록된 모든 관찰자에게 트리거가 간다.
+- LiveData는 UI Controller에서 변경사항을 구독할 수 있게한다. 즉  LiveData 객체의 데이터가 변경되면, 구독하고 있는 UI를 자동으로 업데이트 시킬 수 있다.
+
 ### LiveData Object 만들기
 ### LiveData Object 관찰하기
 ### LiveData Objects 업데이트하기
