@@ -34,6 +34,13 @@ LiveData는 관련된 ``lifecycle status``의 변경을 관찰하기 때문에 �
 참고). [LiveData 확장](https://developer.android.com/topic/libraries/architecture/livedata?hl=ko#extend_livedata)
 
 ## LiveData 사용법
+### 실행 영상
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/40654227/170381041-75617335-f013-4ed9-a872-0798212522c5.gif"
+     width="270" height="500"/>
+
+</p>
 ### 개요
 1. 특정 객체의 데이터를 보유할 ``LiveData``의 객체를 생성한다.(이 작업은 일반적으로 ``ViewModel``클래스 내에서 이루어진다.)</br></br>
 
