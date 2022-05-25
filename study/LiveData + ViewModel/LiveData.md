@@ -74,6 +74,47 @@ class NameViewModel: ViewModel() {
 ><strong>이유</strong></br>
 > - Activity와 Fragment 클래스가 너무 커지거나 복잡해지지 않게 하기 위해서. 즉, UI Controller에서는 데이터 표시만을 담당하고 데이터 상태를 관리하지 않게 하기 위해서이다.</br>
 > - LiveData 객체를 고유의 Activity or Fragment에 제한하지 않고 분리하여, 앱의 Configuration이 변겨오디더라도 LiveData 객체를 유지할 수 있다.</br>
+
 ### LiveData Object 관찰하기
+<p>
+
+ 대부분 앱 lifecycle 중에서 ``onCreate()`` 에서 ``LiveData`` 객체 관찰을 시작하기에 적절하다.</br></br>
+ 
+ <strong>이유</strong></br>
+ - Activity or Fragment에서의 ``onResume()`` 함수에서 중복 호출하지 앟도록 하기 위해서이다.
+ - Activity or Fragment의 상태 값이 ``Active``되는 즉시 보여질 수 있는 데이터가 포함되도록 하기 위함이다.
+</br></br>
+일반적으로 LiveData는 데이터가 변경될 때 ``active observer``에게만 업데이트를 전달한다. </br>
+Observer가 ``inactive``에서 ``active`` 상태로 변경될 때에도 업데이트를 전달받는다.</br>
+또한 Obserer가 ''inactive''에서 ''active'' 상태로 변경되는게 두 번인경우, 마지막으로 ``active`` 상태가 된 이후 값이 변경된 경우에만 업데이트를 받는다.
+
+</p>
+
+#### Code
+``` kotlin
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var viewModel: NameViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // create NameViewModel
+        viewModel = ViewModelProvider(this).get(NameViewModel::class.java)
+
+        // Create the observer with updates the UI
+        val nameObserver = Observer<String>{ newName ->
+            nameTextView.text = newName
+        }
+
+        // Observe the LiveData
+        // Passing in this activity as the LifecycleOwner and the observer
+        viewModel.currentName.observe(this, nameObserver)
+    }
+}
+```
+
+
 ### LiveData Objects 업데이트하기
 ### Coroutines + LiveData
