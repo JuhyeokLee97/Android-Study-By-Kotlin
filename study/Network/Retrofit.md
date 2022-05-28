@@ -87,13 +87,86 @@ Call<List<Repo>> repos = service.listRepos("octocat");
 </p>
 
 ### URL MANIPULATION
+<p>
+
+Request URL은 함수의 파라미터를 통해 동적으로 바뀌는 값을 사용하기도 한다. URL에 표기할 때에는 ``{ }`` 중괄호를 사용한다. 그리고 함수의 파라미터에서는 ``@Path("")`` ``annotation``을 사용한다.
+
+</p>
+
+#### Path Param
+``` Java
+@GET("group/{id}/users")
+Call<List<User>> groupList(
+	@Path("id") int groupId
+);
+```
+
+#### Query Param
+``Query Parameters``도 Request에 추가할 수 있다. ``@Query("")`` ``annotation``을 사용한다.
+```java
+@GET("group/{id}/users")
+Call<List<User>> groupList(
+	@Path("id") int groupId,
+	@Query("sort") String sort
+);
+
+```
+
+#### Complex Query Param - ``Map``
+``` java
+@GET("group/{id}/users")
+Call<List<User>> groupList(
+	@Path("id") int groupId,
+	@QueryMap Map<String, String> options
+);
+```
 
 ### REQUEST BODY
+<p>
+
+객체를 HTTP request body로 사용되기 위해 ``@Body`` ``annotation``을 이용하여 body를 추가할 수 있다.
+
+``` java
+@POST("users/new")
+CALL<User> craeteUser(
+	@Body User user
+);
+```
+
+``User user`` 객체는 ``Retrofit`` 객체로 변환되다.
+
+</p>
 
 ### FORM ENCODED AND MULTIPART
+<p>
+
+``Form-encoded`` 데이터는 ``FormUrlEncoded`` ``annotation``을 이용해서 함수에 추가할 수 있다.
+각 각의 ``key-value``는 ``@Field``를 사용하면 된다.
+
+``` java
+@FormUrlIncoded
+@POST("user/edit")
+Call<User> updateUser(
+	@Field("first_name") String first,
+	@Field("last_name") String last
+);
+```
+</p>
+
+<p>
+
+<strong>Multipart request</strong>은 ``@Multipart``를 명시한 후, ``@Part`` ``annotation``을 이용하여 파라미터를 정의해주면 된다.
+
+``` java
+@Multipart
+@PUT("user/photo")
+Call<User> updateUser(
+	@Part("photo") RequestBody photo,
+	@Part("description) RequestBody description)
+);
+```
+Multipart를 사용할 때는 ``Retrofit`` 자체 converter를 이용하거나 자체적으로 구현한 ``RequestBody``를  이용해  ``Serialization``을 다룬다.
+
+</p>
 
 ### HEADER MANIPUATION
-
-### 동기 vs 비동기
-
-
