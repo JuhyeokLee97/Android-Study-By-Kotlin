@@ -1,5 +1,5 @@
 
-# RefreshLayout
+# SwipeRefreshLayout
 
 ## 개요
 ### ``Swiperefreshlayout``를 이용하면 스와이프(드래그)하여 새로고침 UI 패언틀 구현할 수 있다.
