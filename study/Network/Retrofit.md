@@ -172,3 +172,47 @@ Multipart를 사용할 때는 ``Retrofit`` 자체 converter를 이용하거나 �
 </p>
 
 ### HEADER MANIPUATION
+	
+<p>
+
+정적인 ``header``들을 추가할 때에는, ``@Headers`` ``annotation``을 사용하면 된다.
+	
+``` kotlin
+@Headers("Cache-Control: max-age=640000")
+@GET("widget/list")
+fun widgetList(): Call<List<Widget>>
+```
+	
+``` kotlin
+@Headers(
+    "Accept: application/vnd.github.v3.full+json",
+    "User-Agent: Retrofit-Sample-App"
+)
+@GET("user/{username}")
+fun getUser(
+    @Path("username") username: String,
+): Call<User>	
+```
+	
+</p>
+<p>
+
+동적인 ``header``들을 추가할 때에는, ``@Header``를 파라미터처럼 사용하면 된다. 
+
+``` kotlin
+@GET("user")
+fun getUser(
+    @Header("Authorization") authorization:String
+):Call<User>
+```
+
+``` kotlin
+@GET("user")
+fun getUser(
+    @HeaderMap header: Map<String, String>
+): Call<User>
+```
+
+
+>모든 <strong>request</strong>에 추가되는 <strong>Headers</strong> 같은 경우는 <strong>OkHttp interceptor</strong>을 통해 대체될 수 있다.
+
