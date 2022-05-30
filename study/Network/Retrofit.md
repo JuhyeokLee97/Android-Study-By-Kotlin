@@ -25,30 +25,32 @@
 <p>
 
 <strong>HTTP API를 Interface로 구현할 수 있다.</strong>
-``` java
-public interface GitHubService {
-  @GET("users/{user}/repos")
-  Call<List<Repo>> listRepos(@Path("user") String user);
+``` kotlin
+interface GitHubService {
+    @GET("users/{user}/repos")
+    fun listRepos(
+        @Path("user") user: String
+    )
 }
 ```
 </p>
 <p>
 
 <strong>``Retrofit`` class는 위에서 정의한 ``GitHubService`` Interface의 구현체를 생성한다.</strong>
-``` java
-Retrofit retrofit = new Retrofit.Builder()
+``` Kotlin
+val retrofit = Retrofit.Builder()
     .baseUrl("https://api.github.com/")
-    .build();
+    .build()
 
-GitHubService service = retrofit.create(GitHubService.class);
+val service = retrofit.create(GitHubService::class.java)
 ```
 
 </p>
 <p>
 
 <strong>각각의 ``GitHubService``에서 만들어진 ``Call``은 동기적 또는 비동기적으로 ``HTTP request``를 해당 웹 서버에 요청할 수 있다.</strong>
-``` java
-Call<List<Repo>> repos = service.listRepos("octocat");
+``` kotlin
+val repos = service.listRepos("octocat")
 ```
 
 </p>
@@ -94,11 +96,11 @@ Request URL은 함수의 파라미터를 통해 동적으로 바뀌는 값을 �
 </p>
 
 #### Path Param
-``` Java
+``` Kotlin
 @GET("group/{id}/users")
-Call<List<User>> groupList(
-	@Path("id") int groupId
-);
+fun groupList(
+    @Path("id") groupId: Int
+): Call<List<User>>
 ```
 
 #### Query Param
@@ -113,12 +115,12 @@ Call<List<User>> groupList(
 ```
 
 #### Complex Query Param - ``Map``
-``` java
+``` Kotlin
 @GET("group/{id}/users")
-Call<List<User>> groupList(
-	@Path("id") int groupId,
-	@QueryMap Map<String, String> options
-);
+fun groupList(
+    @Path("id") groupId: Int,
+    @QueryMap option: Map<String, String>
+): Call<List<User>>
 ```
 
 ### REQUEST BODY
@@ -126,11 +128,11 @@ Call<List<User>> groupList(
 
 객체를 HTTP request body로 사용되기 위해 ``@Body`` ``annotation``을 이용하여 body를 추가할 수 있다.
 
-``` java
+``` kotlin
 @POST("users/new")
-CALL<User> craeteUser(
-	@Body User user
-);
+fun createUser(
+    @Body user: User
+): Call<User>
 ```
 
 ``User user`` 객체는 ``Retrofit`` 객체로 변환되다.
@@ -143,13 +145,13 @@ CALL<User> craeteUser(
 ``Form-encoded`` 데이터는 ``FormUrlEncoded`` ``annotation``을 이용해서 함수에 추가할 수 있다.
 각 각의 ``key-value``는 ``@Field``를 사용하면 된다.
 
-``` java
-@FormUrlIncoded
+``` Kotlin
+@FormUrlEncoded
 @POST("user/edit")
-Call<User> updateUser(
-	@Field("first_name") String first,
-	@Field("last_name") String last
-);
+fun updateUser(
+    @Field("first_name") first: String,
+    @Field("last_name") last: String
+): Call<User>
 ```
 </p>
 
@@ -157,13 +159,13 @@ Call<User> updateUser(
 
 <strong>Multipart request</strong>은 ``@Multipart``를 명시한 후, ``@Part`` ``annotation``을 이용하여 파라미터를 정의해주면 된다.
 
-``` java
+``` Kotlin
 @Multipart
 @PUT("user/photo")
-Call<User> updateUser(
-	@Part("photo") RequestBody photo,
-	@Part("description) RequestBody description)
-);
+fun updateUser(
+    @Part("photo") photo: RequestBody,
+    @Part("description") description: RequestBody
+): Call<User>
 ```
 Multipart를 사용할 때는 ``Retrofit`` 자체 converter를 이용하거나 자체적으로 구현한 ``RequestBody``를  이용해  ``Serialization``을 다룬다.
 
