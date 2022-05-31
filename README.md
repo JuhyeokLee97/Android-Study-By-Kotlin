@@ -1,5 +1,7 @@
 # 나만의 안드로이드 개발 기록지
-
+## [🎨 Pattern](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/Pattern)
+### [ 생성패턴](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/Pattern/Creational%20Pattern)
+#### [Singleton Pattern](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Pattern/Creational%20Pattern/Singleton%20Pattern.md)
 ## [📖 LiveData + ViewModel](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/LiveData%20%2B%20ViewModel)
 #### [ViewModel](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/LiveData%20%2B%20ViewModel/ViewModel.md)
 #### [LiveData](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/LiveData%20%2B%20ViewModel/LiveData.md)
