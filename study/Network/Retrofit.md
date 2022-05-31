@@ -11,7 +11,7 @@
 > 
 > [Retrofit ``HEADER`` 추가하기 In Kotlin](https://devgeek.tistory.com/)
 > 
-> [Retrofit ``Interceptor``를 이용한 Header 추가 In Kotlin](https://devgeek.tistory.com/)
+> [Retrofit ``Interceptor``를 이용한 Header 추가 In Kotlin](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Network/Retrofit%20%2B%20Interceptor%20%EC%98%88%EC%A0%9C.md)
 
 ## 개요
 <p>
