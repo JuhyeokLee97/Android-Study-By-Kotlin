@@ -1,6 +1,6 @@
 # Retrofit Singleton
-> [Singleton Pattern 이란]()
-> [Retrofit 이란]()
+> [Singleton Pattern 이란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/edit/main/study/Pattern/Creational%20Pattern/Singleton%20Pattern.md)</br>
+> [Retrofit 이란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Network/Retrofit.md)
 ## 왜 Retrofit을 Singletone으로?
 <p>
   Singleton Class가 사용되는 이유는 일반적으로  객체를 생성하면 시스템 리소스가 객체가 생성되는 만큼 사용되기 때문이다. 그래서 각각의 객체를 생성해 리소스를 사용하기보다는 하나의 객체를 생성해 필요할 때마다 객체를 생성하지 않고 같은 객체를 사용하는 것이다.
