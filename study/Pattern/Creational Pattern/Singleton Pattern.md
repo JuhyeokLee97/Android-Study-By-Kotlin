@@ -16,6 +16,7 @@
 Singleton Class 는 오직 하나의 객체만이 생성되고 어디서나 사용될 수 있는 클래스이다.
 
 NetworkService, DatabaseService 등 오직 하나의 객체만 필요한 경우에 사용된다.
+> [Retrofit2 Singleton 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Network/Retrofit%20Singleton.md)
 
 Singleton Class가 사용되는 이유는 일반적으로  객체를 생성하면 시스템 리소스가 객체가 생성되는 만큼 사용되기 때문이다. 그래서 각각의 객체를 생성해 리소스를 사용하기보다는 하나의 객체를 생성해 필요할 때마다 객체를 생성하지 않고 같은 객체를 사용하는 것이다.
 </p>
