@@ -1,4 +1,4 @@
-# [Singleton Class in Kotlin](https://blog.mindorks.com/how-to-create-a-singleton-class-in-kotlin)
+# [Singleton Class in Kotlin](https://devgeek.tistory.com/52)
 
 ## 개요
 <p>
