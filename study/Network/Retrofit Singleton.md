@@ -1,5 +1,5 @@
 # Retrofit Singleton
-> [Singleton Pattern 이란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/edit/main/study/Pattern/Creational%20Pattern/Singleton%20Pattern.md)</br>
+> [Singleton Pattern 이란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Pattern/Creational%20Pattern/Singleton%20Pattern.md)</br>
 > [Retrofit 이란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Network/Retrofit.md)
 ## 왜 Retrofit을 Singletone으로?
 <p>
