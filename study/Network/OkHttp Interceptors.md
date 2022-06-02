@@ -2,9 +2,11 @@
 ## 개요
 	
 <p>
-	`Interceptors`란 network 통신에서 요청에 대해 `monitor`, `rewrite` 그리고 `retry` 할 수 있는 강력한 메카니즘이다.
+	
+`Interceptors`란 network 통신에서 요청에 대해 `monitor`, `rewrite` 그리고 `retry` 할 수 있는 강력한 메카니즘이다.
 
 </p>
+
 
 #### Sample Interceptor Code
 	
