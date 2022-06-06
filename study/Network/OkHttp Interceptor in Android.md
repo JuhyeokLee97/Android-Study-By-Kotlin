@@ -57,18 +57,17 @@ class devgeekInterceptor: Interceptor{
         when (response.code()) {  
             400 -> {  
                 // Show Bad Request Error Message 
-			}  
+	    }  
             401 -> {  
                 // Show UnauthorizedError Message  
-  
-		    }  
+	    }  
             403 -> {  
                 // Show Forbidden Message  
-  		    }  
-  		    404 ->{
-				// Show NotFound Message
-			}
-			// ... and so on
+   	    }  
+  	    404 ->{
+		// Show NotFound Message
+	    }
+	    // ... and so on
         }  
   
         return response  
@@ -78,7 +77,13 @@ class devgeekInterceptor: Interceptor{
 
 <p>
 
-desc...
+
+1. 먼저, `chain.request()`로부터 `request`를 받는다.
+2. `chain.proceed()`에 `request`를 담아 보내, 서버로 부터 온 `response`를 저장한다.
+3. `proceed(request)` 여기서, `response code`를 확인하고 원하는 동작을 수행한다.
+
+예를 들어 `401 Error(Unauthroized)`를 받는다면, 로그아웃과 같은 동작을 수행하면 된다. 
+
 
 </p>
 
@@ -87,5 +92,31 @@ desc...
 ## What should I do now
 
 ## Adding a Header, such as an Access Token, in a central location
+
+<p>
+
+만약 API 통신을 구현해야 하는데 모든 API 통신에 <strong>Authorization Header</strong>를 포함해야 한다면, 각각의 API에 넣어줄 수도 있고 <strong>Interceptor를 이용할 수 있다.</strong>
+
+``` kotlin
+class UserAuth: Interceptor{  
+    override fun intercept(chain: Interceptor.Chain): Response {  
+        val requestBuilder = chain.request().newBuilder()  
+        var auth = ""  // get from localStorage
+  
+	    requestBuilder.addHeader("Auth", auth)  
+        requestBuilder.addHeader("User-Agent", "Plz-Sample-App")  
+  
+        return chain.proceed(requestBuilder.build())  
+    }  
+}
+
+```
+1. 먼저 `chain.request()`로 부터 `request`를 받아 `.newBuilder()` `requestBuilder`를 생성한다.
+2. 다음 `local storage`에서 `header token`을 읽어온다.
+3. `requestBuilder`에 `addHeader(K, V)`를 이용하여 헤더 정보를 담는다.
+4. `chain.proceed()`에 `requestBuilder`를 담아 요청보낸다.
+
+</p>
+
 
 ## Refreshing the Access Token in a Single Location
