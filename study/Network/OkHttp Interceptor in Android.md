@@ -99,7 +99,7 @@ class UserAuth: Interceptor{
         val requestBuilder = chain.request().newBuilder()  
         var auth = ""  // get from localStorage
   
-	    requestBuilder.addHeader("Auth", auth)  
+	requestBuilder.addHeader("Auth", auth)  
         requestBuilder.addHeader("User-Agent", "Plz-Sample-App")  
   
         return chain.proceed(requestBuilder.build())  
