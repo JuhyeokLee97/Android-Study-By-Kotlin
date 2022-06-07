@@ -1,5 +1,5 @@
 # [OkHttp Interceptor in Android](https://www.geeksforgeeks.org/okhttp-interceptor-in-android/)
-> [OkHttp Interceptor란...]()
+> [OkHttp Interceptor란...]()</br>
 > [Retrofit + OkHttp Interceptor 예제]()
 
 ## 개요
@@ -87,10 +87,6 @@ class devgeekInterceptor: Interceptor{
 
 </p>
 
-## Kepping the response in the cache
-
-## What should I do now
-
 ## Adding a Header, such as an Access Token, in a central location
 
 <p>
@@ -118,5 +114,3 @@ class UserAuth: Interceptor{
 
 </p>
 
-
-## Refreshing the Access Token in a Single Location
