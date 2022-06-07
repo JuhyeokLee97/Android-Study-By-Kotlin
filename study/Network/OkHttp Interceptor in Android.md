@@ -1,6 +1,6 @@
 # [OkHttp Interceptor in Android](https://www.geeksforgeeks.org/okhttp-interceptor-in-android/)
-> [OkHttp Interceptor란...]()</br>
-> [Retrofit + OkHttp Interceptor 예제]()
+> [OkHttp Interceptor란...](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Network/OkHttp%20Interceptors.md)</br>
+> [Retrofit + OkHttp Interceptor 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Network/Retrofit%20%2B%20Interceptor%20%EC%98%88%EC%A0%9C.md)
 
 ## 개요
 <p>
