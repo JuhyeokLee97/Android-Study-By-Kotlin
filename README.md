@@ -1,14 +1,35 @@
 # 나만의 안드로이드 개발 기록지
 ## [🎨 Pattern](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/Pattern)
+
+<details>
+  
+  <summary>Click to toggle contents of <strong>Pattern</strong></summary>
+
 ### [ 생성패턴](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/Pattern/Creational%20Pattern)
 #### [Singleton Pattern](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Pattern/Creational%20Pattern/Singleton%20Pattern.md)
+  
+</details>
+
+
 ## [📖 LiveData + ViewModel](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/LiveData%20%2B%20ViewModel)
+
+<details>
+  
+  <summary>Click to toggle contents of <strong>LiveData + ViewModel</strong></summary>
+
 #### [ViewModel](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/LiveData%20%2B%20ViewModel/ViewModel.md)
 #### [LiveData](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/LiveData%20%2B%20ViewModel/LiveData.md)
 #### [Tutorial](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/LiveData%20%2B%20ViewModel/Tutorial.md)
 #### [Android Architecture Components Basic Sample](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/LiveData%20%2B%20ViewModel/AAC%20Basic%20Sample)
+  
+</details>  
+
 
 ## [📲 View](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/View)
+<details>
+  
+  <summary>Click to toggle contents of <strong>View</strong></summary>
+
 #### [WebView](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/WebView.md)
 #### [Android EditText 키보드 내리기](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/Android%20EditText%20%ED%82%A4%EB%B3%B4%EB%93%9C%20%EB%82%B4%EB%A6%AC%EA%B8%B0%20(kotlin).md)
 #### [RecyclerView](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/Android(Kotlin)%20RecyclerView%20Example.md)
@@ -19,9 +40,16 @@
 #### [바텀 내비게이션 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/%EB%B0%94%ED%85%80%20%EB%82%B4%EB%B9%84%EA%B2%8C%EC%9D%B4%EC%85%98%20%EC%98%88%EC%A0%9C.md)
 #### [SwipeRefreshLayout - 당겨서 새로고침](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/SwipeRefreshLayout%20-%20%EB%8B%B9%EA%B2%A8%EC%84%9C%20%EC%83%88%EB%A1%9C%EA%B3%A0%EC%B9%A8.md)
 #### [Fragment Lifecycle](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/Fragment%20%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0.md)
+  
+</details>
+
 
 
 ## [🛠 Service](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/Service)
+<details>
+  
+  <summary>Click to toggle contents of <strong>Service</strong></summary>
+
 #### [공유하기 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Service/%EA%B3%B5%EC%9C%A0%ED%95%98%EA%B8%B0%20%EC%98%88%EC%A0%9C.md)
 #### [배송추적 WebView](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Service/Android%20%EB%B0%B0%EC%86%A1%EC%B6%94%EC%A0%81%20WebView%20in%20Kotlin.md)
 #### [사진 첨부 From Activity](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Service/%EC%82%AC%EC%A7%84%20%EC%B2%A8%EB%B6%80%20From%20Activity.md)
@@ -32,23 +60,49 @@
 #### [카카오 SDK V2 로그인 - part1(프로젝트 셋업)](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Service/%EC%B9%B4%EC%B9%B4%EC%98%A4%20SDK%20V2%20%EB%A1%9C%EA%B7%B8%EC%9D%B8%20-%20part1(%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%85%8B%EC%97%85).md)
 #### [카카오 SDK V2 로그인 - part2(코드).md](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Service/%EC%B9%B4%EC%B9%B4%EC%98%A4%20SDK%20V2%20%EB%A1%9C%EA%B7%B8%EC%9D%B8%20-%20part2(%EC%BD%94%EB%93%9C).md)
 
+</details>
+
+
 
 ## [☁ Network](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/Network)
+<details>
+  
+  <summary>Click to toggle contents of <strong>Network</strong></summary>
+  
 #### [Retrofit Header 추가](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Network/Retrofit%20Header%20%EC%B6%94%EA%B0%80.md)
 #### [Retrofit Documents](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Network/Retrofit.md)
 #### [Retrofit Singleton 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Network/Retrofit%20Singleton.md)
 #### [Retrofit + Interceptor 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Network/Retrofit%20%2B%20Interceptor%20%EC%98%88%EC%A0%9C.md)
 #### [OkHttp Interceptor in Android](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Network/OkHttp%20Interceptor%20in%20Android.md)
 
+</details>
+
+
 
 ## [⚙ Utility](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/Utility)
+
+<details>
+  
+  <summary>Click to toggle contents of <strong>Utility</strong></summary>
+
 #### [style.xml 사용 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Utility/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20style.xml%20%EC%82%AC%EC%9A%A9%20%EC%98%88%EC%A0%9C.md)
 #### [문자열 리소스(strings.xml) 사용 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Utility/%EB%AC%B8%EC%9E%90%EC%97%B4%20%EB%A6%AC%EC%86%8C%EC%8A%A4(strings.xml)%20%EC%82%AC%EC%9A%A9%20%EC%98%88%EC%A0%9C.md)
 #### [Android DB - SharedPreferences 예제(Kotlin)](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Utility/Android%20DB%20-%20SharedPreferences%20%EC%98%88%EC%A0%9C(Kotlin).md)
 
+  
+</details>
+
 
 ## [⚠ Error](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/Error)
+
+<details>
+  
+  <summary>Click to toggle contents of <strong>Error</strong></summary>
+
 #### [키보드 생성 시, Bottom Navigation Hide](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Error/Android%20%ED%82%A4%EB%B3%B4%EB%93%9C%20%EC%83%9D%EC%84%B1%20%EC%8B%9C,%20Bottom%20Navigation%20Hide.md)
+
+</details>
+
 
 
 
