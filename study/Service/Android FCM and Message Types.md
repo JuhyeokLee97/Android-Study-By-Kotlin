@@ -1,7 +1,7 @@
 # Android FCM and Message Types
-> [Android FCM 프로젝트 셋팅]()
-> [Android FCM 기본 예제]()
-> [Android FCM 클릭 이벤트]()
+> [Android FCM 프로젝트 셋팅](https://devgeek.tistory.com/5)</br>
+> [Android FCM 기본 예제](https://devgeek.tistory.com/6)</br>
+> [Android FCM 클릭 이벤트]()</br>
 
 ### 들어가며
 Android App 개발 프로젝트를 진행하는 중, Notification 개발을 맡았다. 앱이 `Foreground` 일 때는 내가 원하대로 Notification 클릭 이벤트(특정 화면 호출|이동)가 동작했지만, 앱의 상태가 `Background`인 경우에는 Notification은 잘 왔지만 클릭 이벤트가 동작하지 않았다. `Foreground`상태를 처리하는 예제는 무수히 많았지만, `Background`에서 이벤트처리 관련해서는 정보 찾는데 어려웠어서 `Background`에서의 Notifiaction 클릭 이벤트 처리를 위한 기본 배경 지식을 정리하려 한다. 
@@ -48,12 +48,38 @@ FCM에서는 2가지 타입의 메시지가 있다.
 
 </p>
 <p>
+ 
 앱의 상태가 `Foreground`이라면 `onMessageReceived()` 메서드에서 데이터 값들을 커스텀 하여 알림을 만들 수도 있다.</br>
 하지만 `Background`라면 `onMessageReceived()` 메서드가 <strong>호출되지 않고</strong> 안드로이드에서 기본적으로 알림을 만든다.
 
 </p>
 
+## Data Message
+<p>
 
+원하는 `custom key-value` 옵션을 설정하여 Client App에 Data를 전달한다.</br>
+
+예를 들면 아래 JSON 포맷의 코드는  Data Message의 예시이다. 여기서 정보는 공통 `data` 키에 캡슐화되어 있으며 Client App은 데이터를 파싱해서 사용해야 한다.
+
+``` json
+{
+  "message":{
+    "token":"bk3RNwTe3H0:CI2k_HHwgIpoDKCIZvvDMExUdFQ3P1...",
+    "data":{
+      "Nick" : "Mario",
+      "body" : "great match!",
+      "Room" : "PortugalVSDenmark"
+    }
+  }
+}
+```
+</p>
+
+<p>
+
+앱의 상태(`Foreground` or `Background`)와 상관 없이 `onMessageReceived()` 메서드가 호출된다. Data를 받고 `RemoteMessage.data["key"]` 처럼 value 값을 파싱해서 쓸 수 있다.
+
+</p>
 
 ### 참고 블로그(문서)
 > [[Android]FCM Background Push ](https://solly29.github.io/android/Android-Firebase/)</br>
