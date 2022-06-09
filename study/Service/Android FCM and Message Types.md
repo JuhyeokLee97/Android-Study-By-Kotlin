@@ -10,7 +10,7 @@ Android App 개발 프로젝트를 진행하는 중, Notification 개발을 맡�
 ## FCM 이란
 <p>
 
-Firebase Cloud Messaging (FCM)은 </br>
+Firebase Cloud Messaging (FCM)은 무료로 메시지를 안정적으로 전송할 수 있는 교차 플랫폼 메시징 솔루션이다. </br>
 
 </p>
 
