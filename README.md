@@ -5,8 +5,12 @@
   
   <summary>Click to toggle contents of <strong>Pattern</strong></summary>
 
-### [ 생성패턴](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/Pattern/Creational%20Pattern)
+## [ 생성패턴](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/Pattern/Creational%20Pattern)
 #### [Singleton Pattern](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Pattern/Creational%20Pattern/Singleton%20Pattern.md)
+----
+## [아키텍쳐 패턴](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/Pattern/Architectural%20Pattern)
+#### [What is MVVM](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Pattern/Architectural%20Pattern/What%20is%20MVVM.md)
+  
   
 </details>
 
