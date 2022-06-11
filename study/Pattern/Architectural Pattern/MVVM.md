@@ -10,11 +10,12 @@
 
 	<img src="https://media.geeksforgeeks.org/wp-content/uploads/20201002215007/MVVMSchema.png"/>
 	
-MVVM pattern has some similarities with the MVP(Model — View — Presenter) design pattern as the Presenter role is played by ViewModel. However, the drawbacks of the MVP pattern has been solved by MVVM in the following ways:
+MVVM 패턴은 MVP(Model - View - Presenter) 디자인과 비슷한 점이 있는데, Presenter의 역할을 ViewModel이 한다는 것이다. 하지만 MVP 패턴의 단점이 MVVM을 통해서 아래와 같이 해결되었다.
 
-1.  ViewModel does not hold any kind of reference to the View.
-2.  Many to 1 relationship exist between View and ViewModel.
-3.  No triggering methods to update the View.
+1. ViewModel은 어떠한 View도 참조하고 있지 않다.
+2. View와 ViewModel 사이의 관계는 N:1이 된다. 즉 여러 View에서 하나의 ViewModel을 사용할 수 있다.
+3. 더 이상 View에서 Data를 업데이트 하라는 트리거가 필요하지 않다.
+  
 </p>
 
 ## MVVM 프로젝트 셋팅
@@ -23,7 +24,3 @@ MVVM pattern has some similarities with the MVP(Model — View — Presenter) de
 
 
 </p>
-
-
-## 참고자료
-> [MVVM (Model View ViewModel) Architecture Pattern in Android](https://www.geeksforgeeks.org/mvvm-model-view-viewmodel-architecture-pattern-in-android/)
