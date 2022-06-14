@@ -1,4 +1,6 @@
 ## Application() 이란
+https://developer.android.com/reference/android/app/Application
+
 ## 사용 예제
 ### Push 알림, Background vs Foreground
 
