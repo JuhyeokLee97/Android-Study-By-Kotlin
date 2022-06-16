@@ -15,12 +15,54 @@
 가장 대표적으로는 <strong>첫 번째 Activity를 만들기 전에 실행해야 하는 특수 작업</strong>이 될 수 있다.
 
 
-다음에는 Application을 활용한 예제를 정리한 내용이다.
+다음에는 Kotlin으로 Application을 활용한 예제를 정리한 내용이다.
 
 </p>
 
-### [Background vs Foreground 실행(Push 알림, Background vs Foreground)]()
+## [Background vs Foreground 실행(Push 알림, Background vs Foreground)]()
+<p>
+  
+  Push 알림을 구현하게 되면, Background 상태에서의 액션과 Foreground 상태에서의 액션을 구분해야할 때가 있다.
+  예를 들어 Foreground 상태에서는 앱의 특정 Activity를 실행시킬 수 있지만, Background 상태에서는 Splash 화면을 보여준 이후에 특정 Activity로 이동하도록 구현해야할 수도 있다. 이때 앱의 상태값을 확인하여 분기처리 할 수 있는데, Application 클래스를 상속받는 클래스를 통해 상태값을 관리할 수 있다.
+  
+</p>
 
+#### MyApplication.kt: Application, Livecycleobser 상속
+<p>
+
+  `Application 상속`: Application Class 사용을 위해 상속 받아 구현한다.
+  `LifecycleObserver 상속`: 앱의 상태 값(`Foreground/Background`)을 관리하기 위해 상속 받아 구현한다.
+
+</p>  
+
+``` kotlin
+class MyApplication : Application(), LifecycleObserver {
+
+    override fun onCreate() {
+        super.onCreate()
+
+        ProcessLifecycleOwner.get().lifecycle.addObserver(this)
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    fun onAppBackgrounded() { isForeground = false }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    fun onAppForegrounded() { isForeground = true}
+    
+    companion object {
+        var isForeground = false
+    }
+}
+```
+
+<p>
+  
+  ``ProcessLifecycleOwner.get().lifecycle.addObserver(this)``를 통해 앱의 생명주기 옵저빙을 추가한다.
+  그리고 ``isForeground`` 변수를 통해 앱의 ``Foreground/Background``상태 값을 구분하여 로직을 처리할 수 있다.
+
+</p>
+  
 ### [kakao Login Init]()
 ### [FCM device token 확인]()
 
