@@ -19,7 +19,7 @@
 
 </p>
 
-## [Background vs Foreground 실행(Push 알림, Background vs Foreground)]()
+## Background vs Foreground 실행(Push 알림, Background vs Foreground)
 <p>
   
   Push 알림을 구현하게 되면, Background 상태에서의 액션과 Foreground 상태에서의 액션을 구분해야할 때가 있다.
@@ -63,9 +63,3 @@ class MyApplication : Application(), LifecycleObserver {
 
 </p>
   
-### [kakao Login Init]()
-### [FCM device token 확인]()
-
-#### 참고 블로그
-> [Application Class란? + 활용](https://uroa.tistory.com/43)</br>
-> [Application 클래스란?](https://onlyfor-me-blog.tistory.com/374)
