@@ -90,9 +90,13 @@
   
   <summary>Click to toggle contents of <strong>Utility</strong></summary>
 
-#### [style.xml 사용 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Utility/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20style.xml%20%EC%82%AC%EC%9A%A9%20%EC%98%88%EC%A0%9C.md)
-#### [문자열 리소스(strings.xml) 사용 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Utility/%EB%AC%B8%EC%9E%90%EC%97%B4%20%EB%A6%AC%EC%86%8C%EC%8A%A4(strings.xml)%20%EC%82%AC%EC%9A%A9%20%EC%98%88%EC%A0%9C.md)
-#### [Android DB - SharedPreferences 예제(Kotlin)](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Utility/Android%20DB%20-%20SharedPreferences%20%EC%98%88%EC%A0%9C(Kotlin).md)
+  #### [style.xml 사용 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Utility/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20style.xml%20%EC%82%AC%EC%9A%A9%20%EC%98%88%EC%A0%9C.md)
+
+  #### [문자열 리소스(strings.xml) 사용 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Utility/%EB%AC%B8%EC%9E%90%EC%97%B4%20%EB%A6%AC%EC%86%8C%EC%8A%A4(strings.xml)%20%EC%82%AC%EC%9A%A9%20%EC%98%88%EC%A0%9C.md)
+  
+  #### [Android DB - SharedPreferences 예제(Kotlin)](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Utility/Android%20DB%20-%20SharedPreferences%20%EC%98%88%EC%A0%9C(Kotlin).md)
+  
+  #### [Application Class란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Utility/Application()%20in%20kotlin.md)
 
   
 </details>
