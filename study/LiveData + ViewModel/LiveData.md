@@ -128,10 +128,14 @@ class MainActivity : AppCompatActivity() {
 
 <p>
 
-LiveData에는 저장된 데이터를 public 하게 업데이트하는 방법은 없다.</br></br>
-``MutableLiveData`` 클래스는 ``setValue(T)`` 그리고 ``postValue(T)``를 public 하게 제공한다.</br></br>
-그래서 LiveData의 데이터를 수정하기 위해서는 ''setValue(T)`` 또는 ``postValue(T)``를 사용해야한다.</br></br>
-대게 ``MutableLiveData``는 ``ViewModel``에서 정의(사용)하고 ``Observer``에게는 immutable한 ``LiveData``를 준다.</br>
+LiveData에는 저장된 데이터를 public 하게 업데이트하는 방법은 없다. 
+</br></br>
+
+`MutableLiveData` 클래스는 `setValue(T)` 그리고 `postValue(T)`를 public 하게 제공한다.
+</br></br>
+그래서 LiveData의 데이터를 수정하기 위해서는 `setValue(T)` 또는 `postValue(T)`를 사용해야한다.
+</br></br>
+대게 `MutableLiveData`는 `ViewModel`에서 정의(사용)하고 `Observer`에게는 immutable한 `LiveData`를 준다.</br>
 
 </p>
 
