@@ -23,6 +23,12 @@
 </p>
 
 ### Unit Test란?
+<p>
+
+`Unit Test`란 작성한 코드를 작은 부분으로 나누어 테스트하는 것을 말한다. 우리가 만드는 프로그램은 대게 여러 `class`들을 갖는다. 더 나아가 클래스 내에서는 `Business Logic`을 함수로 나누어 개발을 한다. `Unit`이란 코드의 작은 조각이라고 이야기하는데 이 `Unit`은 `method`, `class` 또는 `component`가 될 수 있다. <strong>`Unit Test`의 목적은 각각의 `Unit`의 Logic을 확인하는 것이다.</strong>
+
+</p>
+
 
 #### 참고 블로그
 > [Android Unit Testing Basics](https://betterprogramming.pub/android-unit-testing-basics-3e7075a432a1)
