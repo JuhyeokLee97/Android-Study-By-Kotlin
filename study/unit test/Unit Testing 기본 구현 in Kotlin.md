@@ -26,7 +26,7 @@
 
 <p>
     
-    안드로이드 신규 프로젝트를 생성하게 되면 기본적인 **JUnit**과 **Test**를 위한 의존성이 추가되어 있다.
+   안드로이드 신규 프로젝트를 생성하게 되면 기본적인 **JUnit**과 **Test**를 위한 의존성이 추가되어 있다.
     이번에는 매우 기본적인 **Unit Test**를 진행하기 때문에 추가적인 의존성을 추가할 필요는 없다.
     
 </p>
@@ -35,7 +35,7 @@
 프로젝트를 생성했을 때의 기본 값이다.
     
 ```kotlin
-    dependencies {
+dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
