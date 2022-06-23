@@ -1,10 +1,9 @@
-
-## [Unit Testing in Android using JUnit](https://www.geeksforgeeks.org/unit-testing-in-android-using-junit/)
+> [Android Unit Test란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/unit%20test/Unit%20Test.md)</br>
+<!-- > [UnitTest Annotation 정리]() -->
 
 ## 개요
 ### Unit Test
-> [Android Unit Test란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/unit%20test/Unit%20Test.md)
-> UnitTest Annotation 정리
+
 <p>
 
 ``Unit testing``은 개발자로 하여금 에러가 없는 좋은 코드를 만들 수 있도록 도와준다. 
@@ -15,8 +14,12 @@
 ### 기능 설명
 <p>
 
- 
-테스트할 내용... 주석을 정리하자
+ - 사용자에게 `사용자 이름`, `비밀번호`, `비밀번호 확인`을 입력받는 상황을 가정한다.
+ - 사용자가 입력을 완료 했을 때, 정상적으로 완료 했는지 검사하는 기능(`validRegistrationInput`)이 있다.
+	 - 실패1: `사용자 이름` 또는 `비밀번호` 또는 `비밀번호 확인` 입력 중 빈 값이 있는 경우
+	 - 실패2: `비밀번호` 입력 값이 2자리 미만인 경우
+	 - 실패3: `비밀번호`와 `비밀번호 확인` 값이 다른 경우
+	 - 실패4: 입력된 `사용자 이름`이 중복되는 경우
 
 </p>
 
@@ -210,3 +213,6 @@ class RegistrationUtilTest{
 작성한 5가지의 테스트 모두 통과했다.
 
 <img src="https://user-images.githubusercontent.com/40654227/175025177-c27bf2c2-9e57-4061-9906-7d4e0c68e2ed.png"/>
+
+### 참고
+[Unit Testing in Android using JUnit](https://www.geeksforgeeks.org/unit-testing-in-android-using-junit/)
