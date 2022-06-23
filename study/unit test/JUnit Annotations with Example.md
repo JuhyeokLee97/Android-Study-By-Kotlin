@@ -15,7 +15,6 @@
 
 ## Annotation 정리
 
-This annotation can be used if you want to execute some statements after each [Test Case](https://www.guru99.com/test-case.html) for e.g resetting variables, deleting temporary files ,variables, etc.
 |Annotations|Description|
 |--|--|
 |@Test|실행할 테스트임을 명시한다.|
@@ -23,6 +22,13 @@ This annotation can be used if you want to execute some statements after each [T
 |@BeforeClass| 클래스의 모든 테스트 케이스 전에 한 번 실행됨을 명시한다.|
 |@After|`@Test` 테스트 케이스가 종료된 후 실행됨을 명시한다.|
 |@AfterClass|클래스의 모든 테스트 케이스가 실행된 후 한 번 실행됨을 명시한다.|
+
+<p align="center">
+	
+<img src="https://user-images.githubusercontent.com/40654227/175248682-a82de8f6-ac5e-4913-829c-726b7c1ec36e.png" width=500/>
+	
+</p>
+
 
 ## JUnit Annotations 예제
 
@@ -108,3 +114,7 @@ class AnnotationTest {
 	- executed after all test cases
 ```
 
+
+#### 참고
+> [JUnit Annotations Tutorial with Example: What is @Test and @After](https://www.guru99.com/junit-annotations-api.html)</br>
+> [JUnit – Basic annotation examples](https://mkyong.com/unittest/junit-4-tutorial-1-basic-usage/)
