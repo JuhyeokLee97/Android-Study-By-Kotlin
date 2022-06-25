@@ -1,4 +1,4 @@
-# Android DataBinding: Tutorial -1: DataBinding
+# Android DataBinding: Tutorial -1 DataBinding
 
 ## 개요
 
