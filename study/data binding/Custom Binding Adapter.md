@@ -63,6 +63,15 @@ android {
     }
 
 ```
+#### ProgressBar in `Layout`
+``` xml
+        <ProgressBar
+            isVisible="@{isLoading}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ...
+        />
+```
 
 
 ### CustomBindingAdapter 구현: ImageView.load
@@ -96,6 +105,19 @@ android {
   
 </p>
 
+#### ImageView in `Layout`
+``` xml
+
+        <ImageView
+            android:id="@+id/imageView"
+            imageUrl="@{imageUrl}"
+            isVisible="@{!isLoading}"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            ...
+         />
+```
+
 ### CustomBindingAdapter 구현: TextView.text
 
 #### Code in `MyBindingAdpater.kt`
@@ -105,4 +127,16 @@ android {
     fun bindPrice(view: TextView, price: Int) {
         view.text = "${price}원"
     }
+```
+
+#### TextView in `Layout`
+``` xml
+
+        <TextView
+            isVisible="@{!isLoading}"
+            price="@{price}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ...
+        />
 ```
