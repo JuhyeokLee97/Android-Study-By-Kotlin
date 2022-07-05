@@ -8,12 +8,18 @@
 
 <p>
 
+  `Custom Binding Adapter`를 이용하여, 썸네일을 담당하는 이미지뷰에 이미지를 로드하고 가격을 담당하는 텍스트뷰에 정수를 입력하면 `원`을 추가하여 보여지도록 하는 리스트를 만든다. 
 
 </p>
 
-#### 실행영상
+#### 실행화면
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/40654227/177325296-0e067369-9bc3-485b-bfc7-e74a7633c282.png"/>
+</p>  
 
 ## 프로젝트 구조
+![프로젝트 구조](https://user-images.githubusercontent.com/40654227/177324546-a7c006ab-2289-49d9-9d52-05e6b8c8a83a.png)
 
 ## build.gradle(Module)
 
