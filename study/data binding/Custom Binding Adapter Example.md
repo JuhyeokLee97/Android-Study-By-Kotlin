@@ -1,8 +1,8 @@
 # Custom Binding Adapter Example(RecyclerView) in Kotlin
 
-> [DataBinding]()</br>
-> [Binding Adapter]()</br>
-> [Custom Binding Adapter]()</br>
+> [DataBinding](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/data%20binding/DataBinding%20Tutorial-1:%20DataBinding%20%EC%9D%B4%EB%9E%80.md)</br>
+> [Binding Adapter](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/data%20binding/Binding%20Adpater.md)</br>
+> [Custom Binding Adapter](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/data%20binding/Custom%20Binding%20Adapter.md)</br>
 
 ## 개요
 
@@ -16,10 +16,6 @@
 ## 프로젝트 구조
 
 ## build.gradle(Module)
-
-<p>
-
-</p>
 
 1. **CustomBindingAdapter** 구현을 위해 `kotlin-kapt`를 아래와 같이 `build.gradle(Module)` 파일의 **plugins**에 추가한다.
 ```kotlin
@@ -165,7 +161,7 @@ data class ProductModel(
 ```
 
 ## MyBindingAdapter.kt: Custom Binding Adapter
-> [Custom Binding Adapter]()
+> [Custom Binding Adapter](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/data%20binding/Custom%20Binding%20Adapter.md)
 ``` kotlin
 import android.widget.ImageView
 import android.widget.TextView
