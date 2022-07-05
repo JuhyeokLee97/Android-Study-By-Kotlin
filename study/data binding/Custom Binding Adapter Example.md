@@ -41,9 +41,11 @@ android {
 ## AndroidManifest.xml
 
 <p>
-외부에서 이미지를 읽어오기 위해 **인터넷 권한 설정**을 허용해준다
+  
+외부에서 이미지를 읽어오기 위해 **인터넷 권한 설정**을 허용해준다.</br>
 권한 설정은 아래와 같이 ``<uses-permission android:name="android.permission.INTERNET" />``를 <manifest> 태그 안에 넣어준다.
-</p>
+
+  </p>
 
 ``` xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
