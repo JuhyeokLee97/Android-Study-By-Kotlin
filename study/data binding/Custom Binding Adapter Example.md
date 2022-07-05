@@ -41,7 +41,8 @@ android {
 ## AndroidManifest.xml
 
 <p>
-인터넷 권한 설정을 위해~~
+외부에서 이미지를 읽어오기 위해 **인터넷 권한 설정**을 허용해준다
+권한 설정은 아래와 같이 ``<uses-permission android:name="android.permission.INTERNET" />``를 <manifest> 태그 안에 넣어준다.
 </p>
 
 ``` xml
@@ -59,9 +60,8 @@ android {
 </manifest>
 ```
 
-## activity_main.xml: UI...
+## activity_main.xml
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -149,7 +149,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-## ProductModel.kt
+## ProductModel.kt: RecyclerView item type
 
 ``` kotlin
 data class ProductModel(
@@ -162,7 +162,7 @@ data class ProductModel(
 
 ```
 
-## MyBindingAdapter.kt
+## MyBindingAdapter.kt: Custom Binding Adapter
 > [Custom Binding Adapter]()
 ``` kotlin
 import android.widget.ImageView
