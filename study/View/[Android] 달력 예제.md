@@ -108,9 +108,12 @@ class MainActivity : AppCompatActivity() {
         val disabledDates = hashSetOf<CalendarDay>()
         disabledDates.add(CalendarDay.from(2022, 7, 12))
 
-        binding.calendarView.addDecorator(DayDisableDecorator(disabledDates, today))
         binding.calendarView.apply {
+            // 휴무일 지정을 위한 Decorator 설정
+            addDecorator(DayDisableDecorator(disabledDates, today))
+            // 요일을 지정하귀 위해 {"월", "화", ..., "일"} 배열을 추가한다.
             setWeekDayLabels(arrayOf("월", "화", "수", "목", "금", "토", "일"))
+            // 달력 상단에 `월 년` 포맷을 수정하기 위해 TitleFormatter 설정
             setTitleFormatter(MyTitleFormatter())
         }
 
@@ -121,7 +124,6 @@ class MainActivity : AppCompatActivity() {
         override fun format(day: CalendarDay?): CharSequence {
             val simpleDateFormat =
                 SimpleDateFormat("yyyy.MM", Locale.US) //"February 2016" format
-
 
             return simpleDateFormat.format(Calendar.getInstance().getTime())
         }
