@@ -149,6 +149,32 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
+#### 휴무일 지정(Disable 처리) - CalendarView에 Decorator 설정을 위한 DayViewDecorator 인터페이스 구현
+``` kotlin
+    inner class DayDisableDecorator : DayViewDecorator {
+        private var dates = HashSet<CalendarDay>()
+        private var today: CalendarDay
+
+        constructor(dates: HashSet<CalendarDay>, today: CalendarDay) {
+            this.dates = dates
+            this.today = today
+        }
+
+        override fun shouldDecorate(day: CalendarDay): Boolean {
+            // 휴무일 || 이전 날짜
+            return dates.contains(day) || day.isBefore(today)
+        }
+
+        override fun decorate(view: DayViewFacade?) {
+            view?.let { it.setDaysDisabled(true) }
+        }
+    }
+```
+
+ - `dates`: 휴무일을 저장하는 Set
+ - `today`: 현재 날짜를 저장하는 변수
+ - `shouldDecorate(day)`: 해당 날짜가 `dates` Set에 포함되어있거나 `today` 보다 과거이면 Decorate가 되기위해 `true`값을 반환한다.
+ - `decorate(view)`: `shouldDecorate`함수를 통해서 `true`값을 갖는 날짜 view에 `disable`처리를 한다.
 
 
 
