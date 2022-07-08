@@ -16,7 +16,14 @@
 - 휴무일 개념으로 특정 날짜의 상태를 `disable` 처리한다.
 - 현재 일을 기준으로 과거의 날짜의 상태를 `disable` 처리한다.
 
-### 실행 영상
+### 실행 화면
+
+<p>
+  <img src="https://user-images.githubusercontent.com/40654227/177912198-15bf228b-aa7a-4da5-9282-6b7b0aae2750.png" height=300 align+"left" />
+  <img src="https://user-images.githubusercontent.com/40654227/177912218-e0e160ea-1868-4461-a976-78a08b5a488e.png" height=300 align+"center" />
+</p>  
+  
+
 
 ## 예제 구현
 ### Gradle Scripts\settings.gradle: `Jitpack Repository`추가
