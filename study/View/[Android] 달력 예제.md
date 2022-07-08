@@ -38,3 +38,117 @@ dependencies {
     implementation 'com.github.prolificinteractive:material-calendarview:2.0.1'
 }
 ```
+
+### build.gradle(Module): ViewBinding 추가
+``` kotlin
+android {
+    ...
+    buildFeatures{
+        viewBinding true
+    }
+}
+```
+
+### themes.xml: 달력 텍스트 스타일 수정하기 위한 소스 추가
+`themes.xml` 파일에 달력 텍스트 스타일을 수정하기 위해 사용할 `<style name="TextStyleSemiBold15"/>`를 추가한다
+``` xml
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.SampleCalenderView" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        ...
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="TextStyleSemiBold15">
+        ...
+    </style>
+</resources>
+```
+
+### activity_main.xml: CalendarView 추가
+``` xml
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:mcv_selectionColor="#00F"
+        app:mcv_weekDayTextAppearance="@style/TextStyleSemiBold15"
+        app:mcv_showOtherDates="all" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+ - `app:mcv_selectionColor="#00F"`: 캘린더에서 날짜를 선택 했을 때, 선택된 날짜에 처리되는 색이다.
+ - `app:mcv_weekDayTextAppearance="@style/TextStyleSemiBold15"`: 캘린더의 날짜 텍스트 스타일을 설정한다.
+ - `app:mcv_showOtherDates="all"`: 달력 뷰에 보여지는 날짜의 스타일을 지정한다. `all`을 선택하면 해당 달의 `이전`, `이후`의 날짜도 보여준다.
+
+### MainActivity.kt
+``` kotlin
+class MainActivity : AppCompatActivity() {
+
+    lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val today = CalendarDay.today()
+
+        val disabledDates = hashSetOf<CalendarDay>()
+        disabledDates.add(CalendarDay.from(2022, 7, 12))
+
+        binding.calendarView.addDecorator(DayDisableDecorator(disabledDates, today))
+        binding.calendarView.apply {
+            setWeekDayLabels(arrayOf("월", "화", "수", "목", "금", "토", "일"))
+            setTitleFormatter(MyTitleFormatter())
+        }
+
+        DateFormatTitleFormatter()
+    }
+
+    inner class MyTitleFormatter : TitleFormatter {
+        override fun format(day: CalendarDay?): CharSequence {
+            val simpleDateFormat =
+                SimpleDateFormat("yyyy.MM", Locale.US) //"February 2016" format
+
+
+            return simpleDateFormat.format(Calendar.getInstance().getTime())
+        }
+
+    }
+
+    inner class DayDisableDecorator : DayViewDecorator {
+        private var dates = HashSet<CalendarDay>()
+        private var today: CalendarDay
+
+        constructor(dates: HashSet<CalendarDay>, today: CalendarDay) {
+            this.dates = dates
+            this.today = today
+        }
+
+        override fun shouldDecorate(day: CalendarDay): Boolean {
+            // 휴무일 || 이전 날짜
+            return dates.contains(day) || day.isBefore(today)
+        }
+
+        override fun decorate(view: DayViewFacade?) {
+            view?.let { it.setDaysDisabled(true) }
+        }
+    }
+}
+```
+
+
+
+
