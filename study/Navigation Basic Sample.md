@@ -7,9 +7,12 @@
 <img src="https://user-images.githubusercontent.com/40654227/178662795-c8def067-878e-45ab-a41e-0c2f3a30f837.png" height=500/>
 </p>
 
-## 코드
+# Navigation Basic Sample
 
-### build.gradle(Module)
+## 구현 예제
+
+### build.gradle(:app)
+#### `ViewBinding` 의존성 추가
 ``` kotlin
 android {
     ...
@@ -17,7 +20,10 @@ android {
         viewBinding true
     }
 }
+```
 
+#### `Navigation` 의존성 추가
+``` kotlin
 dependencies {
     ...
     /** Jetpack Navigation Library */
@@ -25,6 +31,25 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.0'
     ...
 }
+```
+### res/navigation/nav_graph.xml: `Navigation Graph`생성
+#### 파일 생성 방법
+해당 프로젝트에서 아래와 같이 `res/navigation/`에 각 `Fragment`들의 관계를 나타낼 `Navigation Graph`를 생성한다.
+
+`nav_graph.xml`파일을 생성하기 위해서 `res` 디렉토리에서 `New/Android Resource File`를 선택한 후, 파일 생성 창에서 `Resource Type` 값을 `Navigation`으로 선택하여 만들어준다.
+
+<img src="https://user-images.githubusercontent.com/40654227/178743072-2c410b7a-ed9d-4cb4-b534-c4d85a4e8f7e.png"/>
+<img src="https://user-images.githubusercontent.com/40654227/178743820-ea78d605-f470-4f76-b144-f14416d13824.png"/>
+
+### Code
+파일 생성 시, 아래와 같이 기본 코드를 확인할 수 있다.
+``` xml
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"  
+  xmlns:app="http://schemas.android.com/apk/res-auto"  
+  android:id="@+id/nav_graph">  
+  
+</navigation>
+```
 
 ```
 ### nav_graph.xml
