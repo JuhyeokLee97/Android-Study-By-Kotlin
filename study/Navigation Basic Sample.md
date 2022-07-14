@@ -122,61 +122,8 @@ dependencies {
 </p>
 
 
-
-```
-### nav_graph.xml
+### activity_main.xml: `NavHostFragment` 생성
 ``` xml
-<?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
-
-    <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.example.navigationbasicsample.MainFragment"
-        android:label="MainFragment"
-        tools:layout="@layout/fragment_main">
-
-        <action
-            android:id="@+id/action_mainFragment_to_redFragment"
-            app:destination="@id/redFragment"
-            app:enterAnim="@android:anim/fade_in" />
-        <action
-            android:id="@+id/action_mainFragment_to_greenFragment"
-            app:destination="@id/greenFragment"
-            app:enterAnim="@android:anim/fade_in" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/redFragment"
-        android:name="com.example.navigationbasicsample.RedFragment"
-        android:label="RedFragment"
-        tools:layout="@layout/fragment_red">
-        <action
-            android:id="@+id/action_redFragment_to_greenFragment"
-            app:destination="@id/greenFragment"
-            app:enterAnim="@android:anim/fade_in" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/greenFragment"
-        android:name="com.example.navigationbasicsample.GreenFragment"
-        android:label="GreenFragment"
-        tools:layout="@layout/fragment_green">
-        <action
-            android:id="@+id/action_greenFragment_to_redFragment"
-            app:destination="@id/redFragment"
-            app:enterAnim="@android:anim/fade_in" />
-    </fragment>
-
-</navigation>
-```
-
-### activity_main.xml
-``` xml
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -191,22 +138,26 @@ dependencies {
         android:layout_height="match_parent"
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph" />
+
 </LinearLayout>
 ```
 
-### MainActity.kt
+- `FragmentContainerView`: desc...
+	-  `android:name="androidx.navigation.fragment.NavHostFragment"`: desc...
+	- `app:defaultNavHost="true"`: desc...
+	- `app:navGraph`: desc...
+
+### MainActivity.kt
 ``` kotlin
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-    }
+class MainActivity : AppCompatActivity() {  
+    override fun onCreate(savedInstanceState: Bundle?) {  
+        super.onCreate(savedInstanceState)  
+        setContentView(R.layout.activity_main)  
+    }  
 }
 ```
 
-### fragment_main.xml
+### fragment_main.xml: `Go To RedFragment`, `Go To GreenFragment` 버튼 생성
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -264,7 +215,7 @@ class MainActivity : AppCompatActivity() {
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-### MainFragment.kt
+### MainFragment.kt: 
 ``` kotlin
 class MainFragment : Fragment() {
 
@@ -290,6 +241,10 @@ class MainFragment : Fragment() {
 
 }
 ```
+
+- `findNavController().navigate(R.id.action_mainFragment_to_redFragment)`: desc...
+	- `findNavController()`: desc...
+	- `navigate()`: desc...
 
 ### fragment_red.xml
 ``` xml
