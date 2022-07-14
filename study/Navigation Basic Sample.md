@@ -51,6 +51,78 @@ dependencies {
 </navigation>
 ```
 
+### Code 구현
+`nav-graph.xml` 파일을 구현하기 위해 3가지 프레그먼트(`MainFragment`, `RedFragment`, `GreenFragment`)를 생성한다.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/40654227/178903049-05f6355a-981f-491a-956a-583c63919ea2.png" align="top&left" height=300 />
+<img src="https://user-images.githubusercontent.com/40654227/178903180-6197b408-3d58-4e75-b774-5ed856e89008.png" align="top&right" height=300/>
+</p>
+
+<p>
+
+``` xml
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.navigationbasicsample.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+
+        <action
+            android:id="@+id/action_mainFragment_to_redFragment"
+            app:destination="@id/redFragment"
+            app:enterAnim="@android:anim/fade_in" />
+        <action
+            android:id="@+id/action_mainFragment_to_greenFragment"
+            app:destination="@id/greenFragment"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/redFragment"
+        android:name="com.example.navigationbasicsample.RedFragment"
+        android:label="RedFragment"
+        tools:layout="@layout/fragment_red">
+        <action
+            android:id="@+id/action_redFragment_to_greenFragment"
+            app:destination="@id/greenFragment"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/greenFragment"
+        android:name="com.example.navigationbasicsample.GreenFragment"
+        android:label="GreenFragment"
+        tools:layout="@layout/fragment_green">
+        <action
+            android:id="@+id/action_greenFragment_to_redFragment"
+            app:destination="@id/redFragment"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
+
+</navigation>
+```
+
+ - `<fragment>`
+	 - `id`: fragment의 `id`를 지정한다.
+	 - `name`: 해당 프레그먼트의 패키지 주소를 포함한 프래그먼트 이름을 입력한다.
+	 - `label`: fragment의 `label`을 지정한다.
+	 - `tools:layout`: `nav_graph.xml`에서 해당 프래그먼트에 보여질 Layout을 지정한다.
+ - `<action>`: 프래그먼트간의 이동
+	 - `id`: action의 `id`를 지정한다.
+	 - `destination`: 이동할(도착지점) 프래그먼트의 `id`값을 입력한다.
+	 - `enterAnim`: 프래그먼트 전환 시, 사용할 애니메이션을 입력한다.**(선택사항)**
+
+</p>
+
+
+
 ```
 ### nav_graph.xml
 ``` xml
