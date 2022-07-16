@@ -7,7 +7,8 @@
 <img src="https://user-images.githubusercontent.com/40654227/179151419-81346481-ff7d-40e4-bee2-9e94bebcbc85.png" height=500/>
 </p>
 
-# Navigation Basic Sample
+### 실행 화면
+<img src="https://user-images.githubusercontent.com/40654227/179336731-89aa9953-e900-4327-8383-e29c87ee3317.gif" height=400 />
 
 ## 구현 예제
 
