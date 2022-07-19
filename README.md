@@ -162,21 +162,3 @@
   #### [JUnit Annotations with Example.md](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/unit%20test/JUnit%20Annotations%20with%20Example.md)
   
 </details>
-
-
-## [👩‍🎨 DataBinding](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/data%20binding)
-
-<details>
-  
-  <summary>Click to toggle contents of <strong>DataBinding</strong></summary>
-
-  #### [Android DataBinding](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/data%20binding/DataBinding%20Tutorial-1:%20DataBinding%20%EC%9D%B4%EB%9E%80.md)
-  #### [Binding Adpater](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/data%20binding/Binding%20Adpater.md)
-  #### [Custom Binding Adapter](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/data%20binding/Custom%20Binding%20Adapter.md)
-  #### [Custom Binding Adapter Example](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/data%20binding/Custom%20Binding%20Adapter%20Example.md)
-  
-</details>
-
-
-
-
