@@ -22,7 +22,11 @@ AndroidX의 `ViewPager2` 위젯을 이용하면 **스와이프 뷰**를 만들 �
 </p>
 
 ``` xml
-<androidx.viewpager2.widget.ViewPager2    xmlns:android="http://schemas.android.com/apk/res/android"    android:id="@+id/pager"    android:layout_width="match_parent"    android:layout_height="match_parent" />
+<androidx.viewpager2.widget.ViewPager2 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
 ```
 
 <p>
