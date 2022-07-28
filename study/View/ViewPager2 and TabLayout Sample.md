@@ -1,7 +1,3 @@
-
-# [ViewPager2를 사용하여 탭으로 스와이프 뷰 만들기](https://developer.android.com/guide/navigation/navigation-swipe-view-2?hl=ko)
-[참고 블로그](https://codechacha.com/ko/android-tablayout-with-viewpager2/)
-
 # ViewPager2 and TabLayout Sample
 
 ## 개요
@@ -29,6 +25,8 @@ android {
 ### activity_main.xml
 - `TabLayout`: 탭 생성을 위한 View
 - `ViewPager2`: 탭과 연결 될 View
+
+
 ``` xml
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
