@@ -5,12 +5,13 @@
 
 ## 개요
 ### 앱 설명
-
+**ViewPager2**와 **TabLayout**을 사용해 탭 클릭을 통해서 뷰가 스와이프되고, 스와이프를 뷰가 변하고 활성화되는 탭도 바뀌는 앱을 만들어보려고 한다.
 ### 실행영상
 
 ## Code
 
-### build.gradle(Module)
+### build.gradle(Module): ViewBinding 추가
+**ViewBinding** 사용을 위해 `build.gradle(:Module)`파일에서 `android { }` 태그의 속성 값으로 아래와 같이 `ViewBinding`을 허용해준다.
 ``` kotlin
 android {
     ...
@@ -22,6 +23,8 @@ android {
 ```
 
 ### activity_main.xml
+- `TabLayout`: 탭 생성을 위한 View
+- `ViewPager2`: 탭과 연결 될 View
 ``` xml
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -51,7 +54,7 @@ android {
 
 
 
-### fragment_first.xml
+### fragment_first.xml: `ViewPager2`에 연결될 **FragmentFirst** Layout
 ``` xml
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -90,7 +93,7 @@ class FirstFragment : Fragment() {
 }
 ```
 
-### fragment_second.xml
+### fragment_second.xml: `ViewPager2`에 연결될 **SecondFragment** Layout
 ``` xml
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -129,7 +132,7 @@ class SecondFragment : Fragment() {
 }
 ```
 
-### fragment_third.xml
+### fragment_third.xml: `ViewPager2`에 연결될 **ThirdFragment** Layout
 ``` xml
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
