@@ -1,3 +1,4 @@
+
 # [ViewPager2를 사용하여 탭으로 스와이프 뷰 만들기](https://developer.android.com/guide/navigation/navigation-swipe-view-2?hl=ko)
 [참고 블로그](https://codechacha.com/ko/android-tablayout-with-viewpager2/)
 
@@ -7,6 +8,9 @@
 ### 앱 설명
 **ViewPager2**와 **TabLayout**을 사용해 탭 클릭을 통해서 뷰가 스와이프되고, 스와이프를 뷰가 변하고 활성화되는 탭도 바뀌는 앱을 만들어보려고 한다.
 ### 실행영상
+
+<img src="https://user-images.githubusercontent.com/40654227/181502043-85a4af4b-51ea-4732-9fa1-c90c6fbe44de.gif" height=400/>
+
 
 ## Code
 
