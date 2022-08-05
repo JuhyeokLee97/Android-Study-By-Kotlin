@@ -40,6 +40,14 @@ android {
 }
 ```
 
+3. 이미지 로드에 **Coil.load**사용을 위해 ``implementation 'io.coil-kt:coil:1.1.0'``를 아래와 같이 `build.gradle(Module)` 파일의 **dependencies{}** 에 추가한다.
+``` kotlin
+dependencies {
+    ...
+    implementation 'io.coil-kt:coil:1.1.0'
+}
+```
+
 ## AndroidManifest.xml
 
 <p>
