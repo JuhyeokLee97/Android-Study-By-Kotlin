@@ -1,3 +1,5 @@
+## DecimalFormat Example
+
 `` String.format("%s", DecimalFormat("#,###").format(item.purchaseCost)) `` 
 # DecimalFormat
 
