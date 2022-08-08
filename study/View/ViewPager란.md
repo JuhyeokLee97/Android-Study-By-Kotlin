@@ -15,6 +15,7 @@
 
 <p>
 
+
 **ViewPager**에 보여질 페이지들을 연결시키기 위해서는 **Adapber**를 구현해야한다.
 **PagerAdapter**는 **FragmentPagerAdapter**와 **FragmentStatePagerAdapter**에 의해 확장된 기본 클래스이다.
 
@@ -31,7 +32,7 @@
 이번 포스팅에서 ViewPager Adapter를 구현하는데 있어, **FragmentPagerAdapter**를 사용한다.
 
 ## 실행영상
-<img src="" height=400/>
+<img src="https://user-images.githubusercontent.com/40654227/183327423-43989139-0ec4-4aac-b946-2d8c92a794b0.gif" height=400/>
 
 ## Code
 ### MyViewPagerAdapter.kt: `Adapter`구현, `FragmentPagerAdapter`상속
@@ -70,8 +71,13 @@ class MyViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     override fun getPageTitle(position: Int): CharSequence= fragmentTitles[position]
 }
 ```
-### Create 3 Fragments For 3 Pages
-----
+#### 함수 설명
+- `getCount()`: 보여질 프래그먼트 목록의 개수를 반환한다.
+- `getItem(position: Int)`: `position`에 해당하는 프래그먼트를 반환한다.
+- `getPageTitle(position: Int)`: `getItem(position)`함수와 비슷하게, `position`에 해당하는 타이틀을 반환한다.
+- `add(fragment: Fragment, title: String)`: 이 함수는 `fragments`와 `fragmentTittles` 리스트에 데이터를 저장한다.
+
+## Create 3 Fragments For 3 Pages
 ### FirstFragment.kt
 ``` kotlin
 class FirstFragment : Fragment() {
