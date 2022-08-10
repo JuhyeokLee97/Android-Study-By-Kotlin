@@ -7,12 +7,12 @@
 - **ViewPager2** 객체에는 페이지 간 전환을 위한 스와이프 동작이 내장되어 있으며 기본적으로 화면 슬라이드 애니메이션을 표시하므로 직접 애니메이션을 만들 필요가 없다.
 - **ViewPager2**는 표시할 새 페이지의 요소로 `FragmentStateAdapter` 객체를 사용한다.
 ### 실행 영상
-<img src="" height=400/>
+<img src="https://user-images.githubusercontent.com/40654227/183792261-cb9fa3b0-a5d0-4b1c-b7b3-d404302fe94b.gif" height=400/>
 
-
-## Code
 ### 프로젝트 구조
 <img src="https://user-images.githubusercontent.com/40654227/183388013-4442e4d9-26fc-4f10-ba47-240a98792d36.png" height=300/>
+
+## Code
 
 ### ViewPagerAdapter.kt
 ``` kotlin
