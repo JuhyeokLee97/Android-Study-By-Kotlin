@@ -21,16 +21,34 @@ Activity에서 `ViewModelProvider`를 통해 아래와 같이 ViewModel 객체�
 #### ViewModel 생성
 ``` kotlin
 class MainActivity : AppCompatActivity(){
-    ...
+    ..
     val viewModel = ViewModelProvider(this@MainActivity).get(MainViewModel::class.java)
-    ...
+    ..
 }
 ```
 
 `ViewModelProvider(this@MainActivity)`: 파라미터로 MainActivity(View)를 전달함으로써 해당 ViewModel의 lifecycle은 MainActivity를 따른다.
 `get(MainViewModel::class.java)`: MainActivity의 Lifecycle를 따르는 ViewModel **MainViewModel**를 생성한다.
 
-### 방법2: `by ViewModels()`
+### 방법2: `by viewModels()`
+`by ViewModels()`를 사용하면 `ViewModelProvider`를 사용하지 않고 ViewModel을 **지연 생성**할 수 있다.
+#### ViewModel
+``` kotlin
+class MainViewModel : ViewModel() {
+    val result = MutableLiveData<String>("init value")
+}
+```
+Activity에서 `by viewModels()`를 통해 아래와 같이 ViewModel 객체를 생성할 수 있다.
+#### ViewModel 생성
+``` kotlin
+class MainActivity : AppCompatActivity(){
+    ..  
+    val viewModel: MainViewModel by viewModels()
+    ..
+}
+```
+`by`: 코트린의 **위임** 키워드를 활용하여... desc
+`by viewModels()`; 해당 ViewModel를 초기화하는 View(Activity or Fragment)의 Lifecycle를 따른다.
 
 ### 방법3: `by activityViewModels()`
 
