@@ -37,7 +37,7 @@ MVP가 아키텍쳐 패턴으로 많이 사용되는 이유는 모듈성과 테�
 ### Presenter: Model과 View 사이의 매개체
    - Model로부터 데이터를 가져와서 UI에 보여줄 수 있도록 데이터 가공한다.
    - View의 상태를 관리한다.
-   - 사용자로부터 발생한(View Action) 액션을 받는다. ⇒ View에서 Action이 발생하면 Presenter를 통해서 처리한다. ⇒ View의 EventListener에서 Presenter의 함수를 통해 처리한다.
+   - 사용자로부터 발생한(View Action) 액션을 받는다.
 
 ## MVP 아키텍쳐 특징
 1. 각 레이어간의 통신(View-Presenter, Presenter-Model)은 interface를 통해서 이루어진다.
