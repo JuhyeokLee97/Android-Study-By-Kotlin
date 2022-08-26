@@ -1,6 +1,9 @@
 # MVP 패턴이란?
 **Model**, **View**, **Presenter**로 구성된 아키텍쳐 패턴이다.
 
+<img src="https://user-images.githubusercontent.com/40654227/186917489-5100c0f5-4795-4064-bc38-acde358cbe62.png" width=600/>
+
+
 ## 등장 배경
 처음에 안드로이드 개발을 시작하는 사람이라면 앱에서 사용되는 (비지니스)로직들이 모두 Activity(Fragment)에 작성할 것이다. 
 이런 개발 접근 방식은 `Activity` 가 거의 모든 UI와 데이터 처리가지 하게 된다.
