@@ -1,19 +1,41 @@
-## MyContract.kt
+# MVP Basic Sample
+## 개요
+
+### [MVP란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Pattern/Architectural%20Pattern/What%20is%20MVP.md)
+Model, View, Presenter로 구성된 아키텍쳐 패턴이다.</br>
+<img src="https://user-images.githubusercontent.com/40654227/186917489-5100c0f5-4795-4064-bc38-acde358cbe62.png" width=600 align="center"/>
+
+### 앱 설명
+MVP 패턴을 사용하여 `PLUS` 버튼과 `MINUS` 버튼을 눌러 숫자가 보여지는 `TextView`에 증가(감소) 된 값을 변경시킵니다.
+
+### 앱 실행 화면
+<img src="https://user-images.githubusercontent.com/40654227/186933560-452a3fd7-cac2-4350-907c-8c2749d67461.gif" height=300/>
+
+### 프로젝트 구조
+<img src=""/>
+
+## Code
+### MyContract.kt
+Contract란...
+
 ``` kotlin
 interface MyContract {
 
     interface View{
+        /** when changed number is being fetched, set on number_text_view */
         fun showNumberText(number: Int)
     }
 
     interface Presenter{
+        /** when the plus_button is clicked, this method is called */
         fun plusNumber()
+        /** when the minus_button is clicked, this method is called */
         fun minusNumber()
     }
 
     interface Model{
-        /** 계산이 완료 된 후, 실행되는 callback 함수 */
         interface OnCalculatedCallback{
+            /** Once this Model's `plusNumber` or `minusNumber` complete its execution, this `onCalculated` is called */
             fun onCalculated(number: Int)
         }
         fun plusNumber(onCalculatedCallback: OnCalculatedCallback)
@@ -23,15 +45,18 @@ interface MyContract {
 }
 ```
 
-## MyModel.kt
+### MyModel.kt: MyContract.Model를 상속받아 구현한 Model 클래스
+
 ``` kotlin
 class MyModel : MyContract.Model {
     private var number = 0
+    /** when user clicks on the `plus` button, this method invoke */
     override fun plusNumber(onCalculateCallback: MyContract.Model.OnCalculatedCallback) {
         number++
         onCalculateCallback.onCalculated(number)
     }
 
+    /** when user clicks on the `minus` button, this method invoke */
     override fun minusNumber(onCalculateCallback: MyContract.Model.OnCalculatedCallback) {
         number--
         onCalculateCallback.onCalculated(number)
@@ -40,15 +65,17 @@ class MyModel : MyContract.Model {
 }
 ```
 
-## MyPresenter.kt
+### MyPresenter.kt: MyContract.Presenter와 MyContract.Model.OnCalculatedCallback을 상속받아 구현한 Presenter 클래스
 ``` kotlin
 class MyPresenter(_view: MyContract.View, _model: MyContract.Model): MyContract.Presenter, MyContract.Model.OnCalculatedCallback {
     private val view = _view
     private val model = _model
 
+    /** when the `plus` button is clicked, get the number from model and show the number by `this(onCalculated method)` */
     override fun plusNumber() {
         model.plusNumber(this)
     }
+    /** when the `minus` button is clicked, get the number from model and show the number by `this(onCalculated method)` */
     override fun minusNumber() {
         model.minusNumber(this)
     }
@@ -59,7 +86,7 @@ class MyPresenter(_view: MyContract.View, _model: MyContract.Model): MyContract.
 }
 ```
 
-## MainActivity.kt
+### MainActivity.kt: MyContract.View를 상속받아 구현한 View 
 ``` kotlin
 class MainActivity : AppCompatActivity(), MyContract.View {
     private lateinit var binding: ActivityMainBinding
@@ -83,7 +110,7 @@ class MainActivity : AppCompatActivity(), MyContract.View {
 }
 ```
 
-## activity_main.xml
+### activity_main.xml
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
