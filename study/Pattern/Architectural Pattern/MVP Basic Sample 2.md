@@ -1,10 +1,40 @@
 # MVP Basic Sample
+
 ## 개요
-[MVP란]()
+
+### [MVP란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Pattern/Architectural%20Pattern/What%20is%20MVP.md)
+
+Model, View, Presenter로 구성된 아키텍쳐 패턴이다.</br>
+<img src="https://user-images.githubusercontent.com/40654227/186917489-5100c0f5-4795-4064-bc38-acde358cbe62.png" width=600 align="center"/>
+
+### 앱 설명
+MVP 아키텍쳐 패턴을 사용하여 `명언보기` 버튼을 누르면 명언을 랜덤하게 보여준다. 
+단 명언을 불러오는데 사용자 경험을 고려하여 실행중임을 명시하기 위해 **프로그래스바** 를 나타낸다.
+
+### 앱 실행 화면
+<img src="https://user-images.githubusercontent.com/40654227/187018130-91b3e9f0-7484-41b3-b486-ab3e388b6e2f.gif" height=600/>
+
 
 ## Code
+### 프로젝트 구조
+
 ### build.gradle(:app): ViewBinding 세팅
+``` xml
+android {
+    ...
+    buildFeatures{
+        viewBinding true
+    }
+    ...
+}
+```
+
 ### Contract.kt
+Contract Interface는 각각의 레이어가 통신할 수 있도록 다시 말해서 `View`-`Presenter`과 `Presenter`-Model`간에 연결을 설계하기 위해서 필요하다. 
+</br>
+
+Contract Interface는 `Model`, `View` 그리고 `Presenter`에서 사용될 추상함수를 포함해야한다.
+
 ``` kotlin
 interface Contract {
     interface View {
@@ -126,8 +156,7 @@ class MainPresenter(mainView: Contract.View, famousSayingModel: Contract.Model):
         app:layout_constraintBottom_toTopOf="@id/btnShowFamousSaying"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSubHeading"
-        tools:text="@string/famous_saying_1" />
+        app:layout_constraintTop_toBottomOf="@id/tvSubHeading" />
 
     <ProgressBar
         android:id="@+id/progressBar"
