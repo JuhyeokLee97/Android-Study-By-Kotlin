@@ -5,12 +5,15 @@
 ## 개요
 
 ### 앱 설명
+RecyclerView에서 **Multi-ViewHolder**를 이용하여 메신저 어플리케이션에서 보여지는 UI를 만든다.
 ### 실행화면
 <img src="https://user-images.githubusercontent.com/40654227/187210490-b3b7ff36-38b3-479a-9966-1e5a720bbd82.png" height=600/>
 
 ## Code
 ### 프로젝트 구조
-### build.gradle(:Module)
+<img src="https://user-images.githubusercontent.com/40654227/187449361-f79d9524-1f64-4100-965d-2beaee8cf852.png"/>
+
+### build.gradle(:Module): ViewBinding 셋팅
 ``` kotlin
 android {
     ...
@@ -19,7 +22,10 @@ android {
     }
 }
 ```
+
 ### MessageModel.kt
+RecyclerView 에서 
+
 ``` kotlin
 interface MessageModel {
     data class SenderMessage(
