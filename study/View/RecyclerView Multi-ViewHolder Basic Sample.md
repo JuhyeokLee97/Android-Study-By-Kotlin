@@ -24,7 +24,6 @@ android {
 ```
 
 ### MessageModel.kt
-RecyclerView 에서 
 
 ``` kotlin
 interface MessageModel {
@@ -38,7 +37,13 @@ interface MessageModel {
 }
 ```
 
+RecyclerView의 Multi-ViewHolder에서 사용할 아이템 아이템을 일반화 하기 위해서 Interface로 `MessageModel`를 만든다.
+그리고 사용할 아이템 타입을 정의하는 클래스를 정의하는데 `MessageModel`을 상속받는다. 
+
 ### item_sender_chat.xml
+
+`SenderViewHolder`에서 사용할 Layout을 구현한다.
+
 ``` xml
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -93,6 +98,7 @@ class SenderViewHolder(private val binding: ItemSenderChatBinding) :
 ```
 
 ### item_receiver_chat.xml
+`ReceiverViewHolder`에서 사용할 Layout을 구현한다.
 ``` xml
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -186,6 +192,9 @@ class ChatAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 }
 ```
+- `itemList = arrayListOf<MessageModel>()`: ViewHolder에 사용될 아이템을 일반화(`MessageModel`)한 리스트.(`MessageModel`을 상속받아 구현한 `SenderMessage` 또는 `ReceiverMessage` 모두 아이템이 될 수 있다.)
+- `getItemViewType(position: Int)`: `itemList[position]`의 타입이 **SenderMessage**인 경우, `TYPE_SENDER`를 반환하고 **ReceiverMessage**인 경우, `TYPE_RECEIVER`를 반환한다. 반환된 **viewYpe**을 통해서 `onCreateViewHolder(parent: ViewGroup, viewType: Int)`에서 ViewHolder를 생성할 때 사용한다.
+- `onCreateViewHolder(parent: ViewGroup, viewType: Int)`: **viewType**에 따른 `SenderViewHolder` 또는 `ReceiverViewHolder`를 생성하여 반환한다.
 
 ### activity_main.xml
 ``` xml
