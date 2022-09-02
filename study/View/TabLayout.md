@@ -15,6 +15,26 @@ For example:
 
 
 
-
-
 </p>
+
+## TabLayout.Indicator 설정: 밑줄 설정
+### Indicator 색상 설정: 밑줄 색상 설정
+`app:tabIndicatorColor`를 통해서 **Indicator** 색상을 설정 할 수 있다.
+``` xml
+<com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        ...
+        app:tabIndicatorColor="@color/black"/>
+```
+### Indicator 높이 설정: 밑줄 높이 설정
+`app:tabIndicatorHeight`를 통해서 **Indicator** 높이를 설정 할 수 있다.
+``` xml
+<com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"                                    
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        ...
+        app:tabIndicatorHeight="20dp"/>
+```
