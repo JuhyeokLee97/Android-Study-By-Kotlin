@@ -6,7 +6,11 @@
 이로 인해 각 항목을 구분짓는 구분선을 그리거나, 강조표시하거나 그리고 디자인적으로 그룹화하는 등을 할 수 있다고 한다.
 
 ### ItemDcoration을 이용하여 기본 Divider 만들기
-#### 실행영상
+#### 실행화면
+##### 적용 전(좌) 적용 후(우)
+<img src="https://user-images.githubusercontent.com/40654227/188630330-2c5a8b92-42bf-4125-a3f0-f1223fe025c1.png" width=200 align=left/>
+<img src="https://user-images.githubusercontent.com/40654227/188630668-ea4f37d8-00ab-48b1-a16f-121f9c0efd27.png" width=200 align=right/>
+
 
 
 ### ItemDecoration을 이용하여 Custon Divider 만들기
