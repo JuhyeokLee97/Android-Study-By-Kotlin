@@ -1,4 +1,4 @@
-# RecyclerView.ItemDecoration
+# RecyclerView.ItemDecoration Basic Sample
 
 ## RecyclerView.ItemDecoration 이란
 **RecyclerView.ItemDecoration**이란 안드로이드 개발 공식문서에 따르면, 
