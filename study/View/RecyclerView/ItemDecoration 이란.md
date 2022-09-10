@@ -11,4 +11,33 @@
 하지만 우리는 단순하게 **ItemDecoration**은 구분선을 넣기 위해 사용한다고만 생각하면 안된다.
 **ItemDeocration**은 그 이상의 의미를 갖는다. 구분선이라고 하면 이름 그대로 각 아이템 사이에서만 그려질 수 있는 것이다. 하지만 **ItemDecoration**은 아이템의 사면(상,하,좌,우)에서 그려질 수 있다. 그리고 개발자로 하여금 크기나 그림을 직접 컨트롤할 수 있도록 되어 있다. 그러므로 **ItemDecoration**은 구분선 또는 삽화라고 볼 수 있다.
 
-### Don't add dividers as views - It affets performance
+### 구분선을 View로서 추가하지 마세요 - 성능에 영향을 줍니다
+나를 포함한 몇몇 개발자들은 RecyclerView에 구분선을 넣는데 있어 간단하고 빠르게 하기 위해서 View로 추가하는 경우가 있었다.
+그 이유는 뻔했다. ListView에서 네이티브하게 구분선을 추가할 수 있는 방법을 제공했기 때문이다.
+아래 xml과 같이 구분선(divider)를 추가할 수 있다.
+
+``` xml
+<ListView
+    android:id="@+id/activity_home_list_view"
+    android:layout_width="match_parent" 
+    android:layout_height="match_parent"
+    android:divider="@android:color/black"
+    android:dividerHeight="8dp"/>
+
+```
+하지만 RecyclerView에서는 구분선(divider)를 직접적으로 추가할 수 없다.
+그래서 우리는 구분선을 그려줄 수 있는 **ItemDecoration**을 사용할 필요가 있다.
+하지만 또 개발자들은 **ItemDecoration**을 이용하지 않고 어렵긴 하지만 직접적으로 구분선을 View로서 추가하는 방법을 찾은 것이다.
+``` xml
+<LinearLayout android:orientation="vertical">
+    <LinearLayout android:orientation="horizontal">
+        <ImageView />
+        <TextView />
+    </LinearLayout>
+    <View
+        android:width="match_parent"
+        android:height="1dp"
+        android:background="#333" />
+</LinearLayout>
+```
+이렇게 
