@@ -53,5 +53,67 @@ layout에 구분선을 추가할 경우, 결국 View들의 개수가 증가되�
 구체적인 상황을 예로 든다면 아래 이미지와 같다.
 <img src="" height=600/>
 
+### 유연성의 한계
+구분선을 View로써 사용할 경우 컨트롤이 어렵다.
+해당 구분선에 대한 컨트롤은 단지 아이템 위치에 따른 `visibility`만을 조정할 수 있다.
+만약 `visibility` 이상의 동작을 조정하기 위해서는 **ItemDecoration**이 필요할 것이다.
+예를 들어 아래와 같이 각 항목의 카테고리를 나누어 구분선을 넣기 위해서는 **Item Decoration**을 사용해야한다.
+<img src="https://miro.medium.com/max/1080/1*VdxwtT2NKyLm3PkAxNwLvQ.png" height=600/>
 
+위의 이미지에서는 하나의 카테고리의 마지막 아이템의 구분선은 전체 영역을 차지하도록 되어 있고 이외의 구분선은 `margin`값이 `56dp`를 차지하도록 구현되어있다.
+아래는 이를 구현하기 위한 **ItemDercoration**의 `onDraw` 코드이다.
+(추후에 java -> kotlin 작업 필요)
+``` java
+@Override
 
+public void onDraw(Canvas canvas, RecyclerView parent, RecyclerView.State state) {
+
+canvas.save();
+
+final int leftWithMargin = convertDpToPixel(56);
+
+final int right = parent.getWidth();
+
+final int childCount = parent.getChildCount();
+
+for (int i = 0; i < childCount; i++) {
+
+final View child = parent.getChildAt(i);
+
+int adapterPosition = parent.getChildAdapterPosition(child);
+
+left = (adapterPosition == lastPosition) ? 0 : leftWithMargin;
+
+parent.getDecoratedBoundsWithMargins(child, mBounds);
+
+final int bottom = mBounds.bottom + Math.round(ViewCompat.getTranslationY(child));
+
+final int top = bottom - mDivider.getIntrinsicHeight();
+
+mDivider.setBounds(left, top, right, bottom);
+
+mDivider.draw(canvas);
+
+}
+
+canvas.restore();
+
+}
+```
+
+### ItemDecoration 사용하기
+**ItemDecoration**을 사용하는 건 정말 간단하다.
+**ItemDecoration** 클래스를 상속받는 클래스를 만들고, `getItemOffsets()` 그리고 `onDraw()` 함수들을 재구현하면 된다. **ItemDecoration**을 구현한 간단한 예제는 [여기]()를 참고하면 된다.
+
+그리고 내장 클래스로 **DividerItemDecoration**를 사용하면 쉽게 구분선을 RecyclerView에 적용시킬 수 있ㄷ.
+``` java
+DividerItemDecoration decoration = new DividerItemDecoration(getApplicationContext(), VERTICAL);
+
+recyclerView.addItemDecoration(decoration);
+```
+
+## 마무리하며...
+1. **Multiple ItemDecoration**은 하나의 RecyclerView에 적용이 가능하다.
+2. 모든 **Decoration**들은 아이템들이 그려지기 전에 그려진다. 예를 들어 각 View가 그려진 이후에 Decoartion을 그리고 싶다면, `onDraw()`함수 대신 `onDrawOver()` 함수를 재구현(**override**) 하면 된다.
+
+결국 다음에 여러분들이 RecyclerView 안에 구분선을 추가하기 원한다면 View로서 구분선을 추가하기보다는 **ItemDecoration**을 사용하기를 바란다.
