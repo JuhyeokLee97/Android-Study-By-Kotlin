@@ -51,13 +51,16 @@ layout에 구분선을 추가할 경우, 결국 View들의 개수가 증가되�
 
 만약 아이템에 특정한 애니메이션을 추가한다면, 해당 아이템에 애니메이션이 동작할 때 구분선(View)도 같이 동작하게 된다.
 구체적인 상황을 예로 든다면 아래 이미지와 같다.
-<img src="" height=600/>
+
+
+<img src="https://user-images.githubusercontent.com/40654227/189677182-db25d49c-c748-4de6-a15b-98e8963fab1c.gif" height=600/>
 
 ### 유연성의 한계
 구분선을 View로써 사용할 경우 컨트롤이 어렵다.
 해당 구분선에 대한 컨트롤은 단지 아이템 위치에 따른 `visibility`만을 조정할 수 있다.
 만약 `visibility` 이상의 동작을 조정하기 위해서는 **ItemDecoration**이 필요할 것이다.
 예를 들어 아래와 같이 각 항목의 카테고리를 나누어 구분선을 넣기 위해서는 **Item Decoration**을 사용해야한다.
+
 <img src="https://miro.medium.com/max/1080/1*VdxwtT2NKyLm3PkAxNwLvQ.png" height=600/>
 
 위의 이미지에서는 하나의 카테고리의 마지막 아이템의 구분선은 전체 영역을 차지하도록 되어 있고 이외의 구분선은 `margin`값이 `56dp`를 차지하도록 구현되어있다.
