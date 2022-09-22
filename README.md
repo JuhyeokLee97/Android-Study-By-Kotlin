@@ -61,6 +61,11 @@
   <summary>Click to toggle contents of <strong>View</strong></summary>
  
 ## [🎨 RecyclerView](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/View/RecyclerView)
+#### [Spannable 이란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/extension/Spannable%20%EC%9D%B4%EB%9E%80.md)
+#### [Spannable Click Event Example](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/extension/Spannable%20Click%20Event%20Example.md)
+----
+
+## [🎨 extension](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/View/extension)
 #### [RecyclerView Example](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/RecyclerView/RecyclerView%20Example.md)
 #### [DataBinding Example](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/RecyclerView/DataBinding%20Example.md)
 #### [ItemDecoration Basic Sample](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/RecyclerView/ItemDecoration%20Basic%20Sample.md)
