@@ -5,7 +5,8 @@
 여기서는 "안드로이드 개발을 공부하는 신입 개발자입니다. 궁금하시다면 여기로 오시면 제 블로그를 방문하실 수 있습니다." 문장에서 `여기`에 블로그 링크를 심어서 동작하도록 해보겠다.
 
 ### 앱 실행 화면
-![Spannable-Click-Event](https://user-images.githubusercontent.com/40654227/192087178-0a4eb208-e413-45f5-8c94-9ec7f657bcc4.gif)
+<img src="https://user-images.githubusercontent.com/40654227/192087178-0a4eb208-e413-45f5-8c94-9ec7f657bcc4.gif" height=550/>
+
 
 ## Code
 ### build.gradle(Module): ViewBinding 사용
