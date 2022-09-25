@@ -18,7 +18,8 @@
 `STOP SERVICE` 버튼을 누르게 되면, 실행 중이던 foregorund service가 종료되면서 해당 알림이 사라진다.
 
 ### 앱 실행화면
-<img src="" height=550/>
+<img src="https://user-images.githubusercontent.com/40654227/192124528-277f2f88-ad87-4910-8dd6-ea46c68d75cd.png" height=550 align="left"/>
+<img src="https://user-images.githubusercontent.com/40654227/192124526-00cb4f1d-6ab7-4055-b2a7-77166b122d8b.png" height=550 align="center"/>
 
 ## Code 
 ### build.gradle(:Module): ViewBinding 설정
@@ -85,6 +86,32 @@ class MyForegroundService : Service() {
         }
     }
 }
+```
+
+### Manifest.xml: 알림 권한 허용, Service 등록
+알림 권한 허용을 위해서 다음과 같은 코드를 `Manifest`에 추가해준다.
+
+``<uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>``
+
+
+그리고 위에서 만든 `MyForegroundService`를 다음과 같이 `<application>` 안에 등록한다.
+
+``<service android:name=".MyForegroundService"/>``
+
+``` xml
+<manifest 
+    ... >
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <application
+        ... >
+        <service android:name=".MyForegroundService"/>
+
+        ...
+    </application>
+
+</manifest>
 ```
 
 ### activity_main.xml
