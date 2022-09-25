@@ -3,10 +3,19 @@
 Android 12 또는 이상 버전에서는 CustomNotification이...
 
 ## 개요
-**Android 12**에서는 **Custom Notification**의 모양과 동작이 변경되었습니다.
-기존의 Custom Notification에서는 **전체 알림 영역**을 사용하고 **custom layout** 그리고 **custom style**을 제공했습니다. 
-하지만 이로 인해서 디바이스에서 레이아웃 호환성 문제를 일으킬 수 있는 **안티패턴**이 생겼다고 합니다.
 
+**Android 12**는 Custom Norification 모양과 동작이 완전히 바뀌게 되었다.</br>
+이전에는 Custom Notification은 전체적인 알림 영역을 사용할 수 있었고 우리가 만든 layout 그리고 style들을 지정할 수 있었지만, 
+이로 인해서 사용자에게 혼돈을 주거나 각각의 다른 디바이스에서의 호환성의 문제를 야기하게 되었다.
+
+Android 12를 타겟하고 있는 앱에서는 `custom content view`를 사용하는 Notification들은 더이상 알림의 전체 영역을 사용할 수 없게된다.</br>
+대신에 시스템이 기본 템플릿을 적용시킨다.
+기본 템플릿은 **Custom Notification**이 다른 Notification과 데코레이션이 같도록 한다. 예를들어 Notification의 아이콘이나 확장 지원
+> This template ensures that custom notifications have the same decoration as other notifications in all states, such as the notification's icon and expansion affordances (in the collapsed state) and the notification's icon, app name, and collapse affordance (in the expansion state). 
+이러한 동작은 `Notification.DecorationCustomViewStyle`과 거의 동일하다.
+
+
+[참고](https://developer.android.com/about/versions/12/behavior-changes-12)
 ### Android 12 구체적 변경사항
 
 - *custom content view*를 포함하는 알림은 전체 알림 영역을 사용하지 않습니다. 대신 시스템에서 제공하는 **표준 템플릿**을 사용합니다.
