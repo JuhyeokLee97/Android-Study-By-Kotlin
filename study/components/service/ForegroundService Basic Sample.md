@@ -1,8 +1,24 @@
 # ForegroundService Basic Sample
 
 ## 개요
+### Foreground Service
+**Foreground Service**에 대해 개발 공식 문서에서는 다음과 같이 설명한다.
+
+> Foreground services perform operations that are noticeable to user.
+>
+> Foreground services show a *status bar notification**, so that user are actively aware that your app is performing a task in the foreground and is consuming system resources.
+> 
+> Device that Android 12 (API level 31) or higher provide a streamlined experience for short-running foreground services. on these devices, the system wait 10 seconds before showing the notification associated with a foreground service.
+
+간단하게 내가 이해하기에는 개발적으로 사용자에게 특정 정보에 대해서 정보 전달을 **알림**(Notification) 방식으로 해야할 때 사용하는 것이 **Foreground Service**인 것 같다.
+
+### 앱 개요
+아래에서 만들 앱은 `START SERVICE` 그리고 `STOP SERVICE` 두 개의 버튼으로 foreground service 동작을 수행하도록 한다.
+`START SERVICE` 버튼을 누르게 되면, 알림(Notification)으로 앱 아이콘, 메세지 타이틀 그리고 메세지 콘텐츠 3가지 정보를 노출한다. 그리고 알림을 클릭 시, `MainActivity`로 이동하도록 한다.
+`STOP SERVICE` 버튼을 누르게 되면, 실행 중이던 foregorund service가 종료되면서 해당 알림이 사라진다.
 
 ### 앱 실행화면
+<img src="" height=550/>
 
 ## Code 
 ### build.gradle(:Module): ViewBinding 설정
@@ -10,7 +26,7 @@
 android {
     ...
     buildFeatures{
-        viewBinding true
+        viewBinding = true
     }
 }
 ```
@@ -18,14 +34,17 @@ android {
 ### MyForegroundService.kt
 ``` kotlin
 class MyForegroundService : Service() {
-    private val CHANNEL_ID = "ForegroundServiceChannel"
+    companion object{
+        const val CHANNEL_ID = "ForegroundServiceChannel"
+        const val NOTIFICATION_MESSAGE = "notificationMessage"
+    }
 
     @SuppressLint("RemoteViewLayout")
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
-        val notificationMessage = intent.getStringExtra("notificationMessage")
+        val notificationMessage = intent.getStringExtra(NOTIFICATION_MESSAGE)
 
         createNotificationChannel()
-        
+
         /** 알림 클릭 시, 보여질 [pendingIntent] 구현 */
         val notificationIntent = Intent(this, MainActivity::class.java)
         val pendingIntent =
@@ -37,7 +56,7 @@ class MyForegroundService : Service() {
             .setSmallIcon(R.drawable.ic_launcher_background)
             .setContentIntent(pendingIntent)
             .build()
-            
+
         startForeground(1, notification)
 
         return START_NOT_STICKY
@@ -115,12 +134,6 @@ class MyForegroundService : Service() {
 
 ### MainActivity.kt
 ``` kotlin
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import androidx.core.content.ContextCompat
-import com.example.foregroundservicesampleapplication.databinding.ActivityMainBinding
-
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
@@ -129,7 +142,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.apply {
+        binding.run {
             buttonStartService.setOnClickListener { startService() }
             buttonStopService.setOnClickListener { stopService() }
         }
@@ -138,7 +151,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun startService(){
         val serviceIntent = Intent(this, MyForegroundService::class.java)
-        serviceIntent.putExtra("inputExtra", "Foreground Service Example in Android")
+        serviceIntent.putExtra(MyForegroundService.NOTIFICATION_MESSAGE, "Foreground Service Example in Android")
 
         ContextCompat.startForegroundService(this, serviceIntent)
     }
