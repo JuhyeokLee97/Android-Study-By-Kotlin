@@ -1,11 +1,27 @@
 # 나만의 안드로이드 개발 기록지
+
+## [Components](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/components)
+<details>
+  
+  <summary>Click to toggle contents of <strong>Android Components</strong></summary>
+
+## [Activity]()
+## [Service](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/components/service)
+#### [Foreground Service](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/components/service/Foreground%20Service.md)
+#### [Foreground Service Basic Sample](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/components/service/ForegroundService%20Basic%20Sample.md)
+## [BroadCast Receiver]()
+## [ContentProvider]()
+
+  
+</details>
+
 ## [🎨 Pattern](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/Pattern)
 
 <details>
   
   <summary>Click to toggle contents of <strong>Pattern</strong></summary>
 
-## [ 생성패턴](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/Pattern/Creational%20Pattern)
+## [생성패턴](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/Pattern/Creational%20Pattern)
 #### [Singleton Pattern](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Pattern/Creational%20Pattern/Singleton%20Pattern.md)
 #### [Builder Pattern 이란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Pattern/Creational%20Pattern/Builder%20Pattern%EC%9D%B4%EB%9E%80.md)
 ----
@@ -14,6 +30,7 @@
 #### [What is MVP](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Pattern/Architectural%20Pattern/What%20is%20MVP.md)
 #### [MVP Basic Sample 1](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Pattern/Architectural%20Pattern/MVP%20Basic%20Sample%201.md)
 #### [MVP Basic Sample 2](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Pattern/Architectural%20Pattern/MVP%20Basic%20Sample%202.md)
+#### [What is Repository Pattern](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Pattern/Architectural%20Pattern/What%20is%20Repository%20Pattern.md)
   
 </details>
 
@@ -60,17 +77,20 @@
   
   <summary>Click to toggle contents of <strong>View</strong></summary>
  
-## [🎨 RecyclerView](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/View/RecyclerView)
+## [🎨 extension](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/View/RecyclerView)
 #### [Spannable 이란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/extension/Spannable%20%EC%9D%B4%EB%9E%80.md)
 #### [Spannable Click Event Example](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/extension/Spannable%20Click%20Event%20Example.md)
+
 ----
 
-## [🎨 extension](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/View/extension)
-#### [RecyclerView Example](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/RecyclerView/RecyclerView%20Example.md)
+## [🎨 RecyclerView](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/View/extension)
+
 #### [DataBinding Example](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/RecyclerView/DataBinding%20Example.md)
 #### [ItemDecoration Basic Sample](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/RecyclerView/ItemDecoration%20Basic%20Sample.md)
 #### [ItemDecoration 이란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/RecyclerView/ItemDecoration%20%EC%9D%B4%EB%9E%80.md)
+#### [ItemDecoration.getItemOffsets](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/RecyclerView/ItemDecoration.getItemOffsets.md)
 #### [Multi-ViewHolder Basic Sample](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/RecyclerView/Multi-ViewHolder%20Basic%20Sample.md)
+#### [RecyclerView Example](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/RecyclerView/RecyclerView%20Example.md)
 ----
   
 #### [WebView](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/WebView.md)
