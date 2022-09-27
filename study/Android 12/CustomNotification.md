@@ -9,30 +9,26 @@ Android 12 또는 이상 버전에서는 CustomNotification이...
 이로 인해서 사용자에게 혼돈을 주거나 각각의 다른 디바이스에서의 호환성의 문제를 야기하게 되었다.
 
 Android 12를 타겟하고 있는 앱에서는 `custom content view`를 사용하는 Notification들은 더이상 알림의 전체 영역을 사용할 수 없게된다.</br>
-대신에 시스템이 기본 템플릿을 적용시킨다.
-기본 템플릿은 **Custom Notification**이 다른 Notification과 데코레이션이 같도록 한다. 예를들어 Notification의 아이콘이나 확장 지원
-> This template ensures that custom notifications have the same decoration as other notifications in all states, such as the notification's icon and expansion affordances (in the collapsed state) and the notification's icon, app name, and collapse affordance (in the expansion state). 
+대신에 시스템이 표준 템플릿을 적용시킨다.
+기본 템플릿은 **Custom Notification**이 다른 Notification과 데코레이션이 같도록 한다. </br>
 이러한 동작은 `Notification.DecorationCustomViewStyle`과 거의 동일하다.
+
 
 
 [참고](https://developer.android.com/about/versions/12/behavior-changes-12)
 ### Android 12 구체적 변경사항
 
-- *custom content view*를 포함하는 알림은 전체 알림 영역을 사용하지 않습니다. 대신 시스템에서 제공하는 **표준 템플릿**을 사용합니다.
-    - Android 11 이하에서는 전체 알림 영역을 사용할 수 있습니다.
-- 표준 템플릿은 알림의 아이콘 및 확장과 앱 이름 그리고 축소 등 모든 상태에서 기존 알림과 같은 데코리에션을 갖습니다.
-    - Android 11 이하에서는 자체 레이아웃과 스타일을 사용할 수 있습니다.
-- 접힌 상태에서의 콘텐츠 최대 높이는 `48dp` 이고 가로 공간도 줄어들었습니다.
-    - Android 11 이하에서는 접힌 상태에서의 콘텐츠 최대 높이는 `106dp` 였습니다.
+- 접힌 상태에서의 콘텐츠 최대 높이는 `48dp` 이고 가로 공간도 줄어들었다.
+    - Android 11 이하에서는 접힌 상태에서의 콘텐츠 최대 높이는 `106dp` 이었다.
 - 모든 알림이 펼칠 수 있습니다.
-    - 기존에 `setCustomContentView` 를 사용했다면, `setBigContentView` 를 사용하여 접힌 상태와 펼쳐진 상태가 일관되도록 하는 것을 권장합니다.
+    - 기존에 `setCustomContentView` 를 사용했다면, `setBigContentView` 를 사용하여 접힌 상태와 펼쳐진 상태가 일관되도록 하는 것을 권장한다.
 
 
 ### 앱 설명
-Foreground Service를 통해서 Notification을 발송하는 앱이다...
-Foreground Service는 [여기]를 참고.
+Foreground Service를 통해서 Notification을 발송하는 앱이다.
+Foreground Service를 이용하는 부분이 이해가 안된다면 [여기](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/components/service/ForegroundService%20Basic%20Sample.md)를 참고.
 
-## setCustomContentView 사용 O AND setCustomContentBigView 사용 X
+# setCustomContentView 사용 O AND setCustomContentBigView 사용 X
 - 확장성이 사라지는 것 같다.
 - 접힌 상태에서의 콘텐츠 최대 높이는 `48dp` 이고 가로 공간도 줄어들었습니다.
 ### 실행화면
