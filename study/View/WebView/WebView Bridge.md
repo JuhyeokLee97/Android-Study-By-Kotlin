@@ -9,6 +9,8 @@
 ### 개요 
 
 #### 실행화면
+<img src="https://user-images.githubusercontent.com/40654227/192780407-497f6e1a-c2a1-42d2-b9fa-230a42553bef.gif" height=550/>
+
 
 ### Code
 
