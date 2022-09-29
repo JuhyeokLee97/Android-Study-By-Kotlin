@@ -66,3 +66,23 @@ with(person) {
 // James
 // 56
 ```
+
+## apply
+``` kotlin
+fun <T> T.apply(block: T.() -> Unit): T
+```
+
+`apply`는 T의 확장 함수이고, 블럭 함수의 입력을 람다 리시버로 받았기 때문에 블럭 안에서 객체의 프로퍼티를 호출할 때 it이나 this를 사용할 필요가 없다.</br>
+`run`과 유사하지만 블러게서 return 값을 받지 않으며 **자기 자신인 T를 반환한다는 점**이 다르다.
+
+``` kotlin
+val person = Person("", 0)
+val result = person.apply {
+    name = "Jhon"
+    age = 25
+}
+
+```
+
+앞에서 살펴 본 let, with, run 은 모두 맨 마지막 반환되는 값은 **R**이었다. 하지만 `apply`와 아래에서 살펴볼 `also`는 **T를 반환한다.**
+
