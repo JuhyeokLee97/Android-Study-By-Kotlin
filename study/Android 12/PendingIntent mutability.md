@@ -34,5 +34,22 @@ val pendingIntent = PendingIntent.getActivity(applicationContext, REQUEST_CODE, 
 
 ```
 
+## Mutable PendingIntent 만들기
+``` kotlin
+val pendingIntent = PendingIntent.getActivity(applicationContext, REQUEST_CODE, intent, PendingIntent.FLAG_MUTABLE)
+
+```
+다음과 같은 경우에는 **mutable**한 `PendingIntent`가 필요하다.
+- 직접적인 응답 액션이 포함된 Notification.
+  - 직접적인 응답은 `PendingIntent`의 클립 데이터를 수정할 필요가 있기 때문에 **mutable**한 `PendingIntent`를 사용해야한다.
+  - 예를 들면, 문자 메시지가 왔을 때 노티피케이션(알림)에서 직접 답장을 작성하는 것이 직접적으로 응답하는 경우다.
+  - <img src="https://developer.android.com/static/images/ui/notifications/reply-button_2x.png" height=150/>
+- `Car App Extender` 객체를 사용과 관련있는 Notification
+- `requestLocationUpdates()`를 사용하거나 비슷하게 디바이스의 위치 정보를 호출하는 API를 사용하는 경우. 
+  - **mutable** `PendingIntent`를 사용함으로써 시스템에서 `location lifecycle event` 정보들을 intent extra에 추가할 수 있다.
+- `AlarmManager`를 사용하는 스케줄링 알람.
+  - **mutable** `PendingIntent`를 사용함으로써 시스템에서 `EXTRA_ALARM_COUNT` 정보를 intent extra에 추가할 수 있다.
+ 
+
 [참고](https://developer.android.com/guide/components/intents-filters#DeclareMutabilityPendingIntent)
 
