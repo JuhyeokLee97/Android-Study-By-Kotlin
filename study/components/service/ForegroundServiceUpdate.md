@@ -1,37 +1,116 @@
+# ForegroundServiceUpdate
+
+## 개요
+
+### 앱 설명
+
+### 실행화면
+
+## Code
+
+### AndroidManifest.xml
+``` xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.devgeek.foregroundservicebasicsample">
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ForegroundServiceBasicSample"
+        tools:targetApi="31">
+        <service android:name=".MyForegroundService"/>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+```
+
+### GlobalApplication.kt
 ``` kotlin
-package com.example.foregroundservicesampleapplication
+class GlobalApplication: Application() {
 
-import android.annotation.SuppressLint
-import android.app.*
-import android.content.Intent
-import android.os.Build
-import android.os.CountDownTimer
-import android.os.IBinder
-import android.widget.RemoteViews
-import androidx.annotation.RequiresApi
-import androidx.core.app.NotificationCompat
-import java.lang.Exception
-import java.text.SimpleDateFormat
-import java.util.*
+    override fun onCreate() {
+        super.onCreate()
 
-/**
- * 1. ForegroundService Sample
- * 2. CustomNotification Sample Android 12 or higher
- * 3. Notification 상수 정리
- * 4. updateNotification
- */
+        createNotificationChannel()
+    }
+
+    /**
+     * 알림 채널 만들기
+     *
+     * Android O(API 26)에서 Notification Channel 개념이 추가되었다.
+     * 그래서 Android O이상의 디바이스에 Notification을 띄우려먼 먼저 Channel을 생성해야한다.
+     * 또한 NotificationChannel은 한 번만 생성하면 되기 때문에 Application()을 상속받는 [GlobalApplication] 에서 생성한다.
+     * */
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            /**
+             * [CHANNEL_ID]: 고유한 채널 ID
+             * [channelName]: 앱 알림 설정에서 확인할 수 있는 알림 채널 이름
+             * [importance]: 알림의 중요도 수준
+             */
+            val channelName = "Foreground Service Channel Name"
+            val importance = NotificationManager.IMPORTANCE_NONE
+            val serviceChannel = NotificationChannel(CHANNEL_ID, channelName, importance)
+
+            /** 알림 채널 등록 */
+            val manager = getSystemService(NotificationManager::class.java)
+            manager.createNotificationChannel(serviceChannel)
+        }
+    }
+
+    companion object{
+        const val CHANNEL_ID = "ForegroundServiceChannel"
+    }
+}
+```
+
+### MyForegroundService.kt
+``` kotlin
 @RequiresApi(Build.VERSION_CODES.M)
 class MyForegroundService : Service() {
-    private val CHANNEL_ID = "ForegroundServiceChannel"
+
     private var countDownTimer: CountDownTimer? = null
     private var limitSec = 60
 
     override fun onCreate() {
         initCountDownTimer()
     }
+
     @SuppressLint("RemoteViewLayout")
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
-        startForeground(1, buildNotification())
+        val notificationMessage = intent.getStringExtra(NOTIFICATION_MESSAGE)
+
+        /** 알림 클릭 시, 보여질 [pendingIntent] 구현 */
+        val notificationIntent = Intent(this, MainActivity::class.java)
+        val pendingIntent =
+            PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE)
+
+        val notification = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setContentTitle("Foreground Service")
+            .setContentText(notificationMessage)
+            .setSmallIcon(R.drawable.ic_launcher_background)
+            .setContentIntent(pendingIntent)
+            .build()
+
+        startForeground(1, notification)
 
         return START_NOT_STICKY
     }
@@ -53,7 +132,7 @@ class MyForegroundService : Service() {
 
         countDownTimer = object: CountDownTimer(60000L, 1000L){
             override fun onTick(millisUntilFinished: Long) {
-                updateNotification(0)
+                updateNotification()
                 limitSec--
             }
 
@@ -63,7 +142,7 @@ class MyForegroundService : Service() {
         }.start()
     }
 
-    private fun updateNotification(steps: Int) {
+    private fun updateNotification() {
         // 서비스가 죽은 상태에서 업데이트를 요청하는 경우를 위한 예외처리
         try {
             val mNotificationManager = getSystemService(NotificationManager::class.java)
@@ -73,11 +152,8 @@ class MyForegroundService : Service() {
         }
     }
 
-    private fun buildNotification(): Notification{
-//        val notificationMessage = intent.getStringExtra("notificationMessage")
+    private fun buildNotification(): Notification {
         val notificationMessage = "notificationMessage"
-
-        createNotificationChannel()
 
         val now = System.currentTimeMillis()
         val date = Date(now)
@@ -95,7 +171,7 @@ class MyForegroundService : Service() {
             setTextViewText(R.id.tvNotificationTitle, "My Foreground Service")
             setTextViewText(R.id.tvNotificationMessage, notificationMessage)
         }
-        // https://developer.android.com/training/notify-user/custom-notification?hl=ko
+
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setCustomContentView(notificationLayout)
             .setCustomBigContentView(notificationBigLayout)
@@ -105,23 +181,10 @@ class MyForegroundService : Service() {
 
         return notification
     }
-    /** 알림 채널 만들기 */
-    private fun createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            /**
-             * [CHANNEL_ID]: 고유한 채널 ID
-             * [channelName]: 앱 알림 설정에서 확인할 수 있는 알림 채널 이름
-             * [importance]: 알림의 중요도 수준
-             */
-            val channelName = "Foreground Service Channel Name"
-//            val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val importance = NotificationManager.IMPORTANCE_NONE
-            val serviceChannel = NotificationChannel(CHANNEL_ID, channelName, importance)
 
-            /** 알림 채널 등록 */
-            val manager = getSystemService(NotificationManager::class.java)
-            manager.createNotificationChannel(serviceChannel)
-        }
+    companion object{
+        const val CHANNEL_ID = "ForegroundServiceChannel"
+        const val NOTIFICATION_MESSAGE = "notificationMessage"
     }
 }
 ```
