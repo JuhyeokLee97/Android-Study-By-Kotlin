@@ -84,7 +84,6 @@ class GlobalApplication: Application() {
 
 ### MyForegroundService.kt
 ``` kotlin
-@RequiresApi(Build.VERSION_CODES.M)
 class MyForegroundService : Service() {
 
     private var countDownTimer: CountDownTimer? = null
@@ -94,23 +93,8 @@ class MyForegroundService : Service() {
         initCountDownTimer()
     }
 
-    @SuppressLint("RemoteViewLayout")
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
-        val notificationMessage = intent.getStringExtra(NOTIFICATION_MESSAGE)
-
-        /** 알림 클릭 시, 보여질 [pendingIntent] 구현 */
-        val notificationIntent = Intent(this, MainActivity::class.java)
-        val pendingIntent =
-            PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE)
-
-        val notification = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("Foreground Service")
-            .setContentText(notificationMessage)
-            .setSmallIcon(R.drawable.ic_launcher_background)
-            .setContentIntent(pendingIntent)
-            .build()
-
-        startForeground(1, notification)
+        buildNotification()
 
         return START_NOT_STICKY
     }
@@ -130,14 +114,13 @@ class MyForegroundService : Service() {
             limitSec = 60
         }
 
-        countDownTimer = object: CountDownTimer(60000L, 1000L){
+        countDownTimer = object: CountDownTimer(MILLIS_IN_FUTURE, COUNT_DOWN_INTERVAL){
             override fun onTick(millisUntilFinished: Long) {
                 updateNotification()
                 limitSec--
             }
 
-            override fun onFinish() {
-            }
+            override fun onFinish() {}
 
         }.start()
     }
@@ -153,30 +136,24 @@ class MyForegroundService : Service() {
     }
 
     private fun buildNotification(): Notification {
-        val notificationMessage = "notificationMessage"
-
         val now = System.currentTimeMillis()
         val date = Date(now)
         val sdf = SimpleDateFormat("yyyy-MM-dd, hh:mm:ss")
+
         /** 알림 클릭 시, 보여질 [pendingIntent] 구현 */
         val notificationIntent = Intent(this, MainActivity::class.java)
         val pendingIntent =
             PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE)
 
-        val notificationLayout = RemoteViews(packageName, R.layout.notification_foreground).apply {
-            setTextViewText(R.id.tvNotificationTitle, "My Foreground Service")
-            setTextViewText(R.id.tvNotificationMessage, sdf.format(date))
-        }
-        val notificationBigLayout = RemoteViews(packageName, R.layout.notification_foreground_big).apply {
-            setTextViewText(R.id.tvNotificationTitle, "My Foreground Service")
-            setTextViewText(R.id.tvNotificationMessage, notificationMessage)
-        }
+        val notificationTitle = "My Notification Title"
+        val notificationMessage = sdf.format(date)
 
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setCustomContentView(notificationLayout)
-            .setCustomBigContentView(notificationBigLayout)
+            .setContentTitle(notificationTitle)
+            .setContentText(notificationMessage)
             .setSmallIcon(R.drawable.ic_launcher_background)
             .setContentIntent(pendingIntent)
+            .setAutoCancel(true)
             .build()
 
         return notification
@@ -184,7 +161,35 @@ class MyForegroundService : Service() {
 
     companion object{
         const val CHANNEL_ID = "ForegroundServiceChannel"
-        const val NOTIFICATION_MESSAGE = "notificationMessage"
+        const val MILLIS_IN_FUTURE = 60000L
+        const val COUNT_DOWN_INTERVAL = 1000L
+    }
+}
+```
+
+### MainActivity.kt
+``` kotlin
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.run {
+            buttonStartService.setOnClickListener { startService() }
+        }
+
+    }
+
+    private fun startService(){
+        val serviceIntent = Intent(this, MyForegroundService::class.java)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            this.startForegroundService(serviceIntent)
+        }else{
+            this.startService(serviceIntent)
+        }
     }
 }
 ```
