@@ -26,7 +26,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ForegroundServiceBasicSample"
         tools:targetApi="31">
-        <service android:name=".MyForegroundService"/>
+        <service android:name=".MyForegroundService"
+                 android:foregroundServiceType="location"/>
+       
 
         <activity
             android:name=".MainActivity"
@@ -40,6 +42,8 @@
     </application>
 
 </manifest>
+
+
 ```
 
 ### GlobalApplication.kt
