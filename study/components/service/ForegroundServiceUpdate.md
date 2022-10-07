@@ -148,6 +148,7 @@ class MyForegroundService : Service() {
         val notificationTitle = "My Notification Title"
         val notificationMessage = sdf.format(date)
 
+        // todo: Builder에 들어가는 context(this)가 맞는지 확인
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle(notificationTitle)
             .setContentText(notificationMessage)
