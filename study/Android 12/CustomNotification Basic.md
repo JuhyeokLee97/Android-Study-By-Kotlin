@@ -1,5 +1,6 @@
 # CustomNotification 대응 - Basic
 
+[이거](https://developer.android.com/training/notify-user/custom-notification?hl=ko) 읽고 `setStyle`이 뭔지 이전 버전과는 어떻게 다른지 더 찾아보자.
 ## 개요
 
 **Android 12**는 Custom Norification 모양과 동작이 완전히 바뀌게 되었다.</br>
@@ -49,7 +50,8 @@ android {
 ```
 
 ### GlobalApplication.kt - Create Notification Channel
-Application Class를 상속받아 앱이 실행되면 Notification Cannel을 만든다.
+
+Notification 사용을 위해서 Application Class를 상속받아 앱이 실행되면 **Notification Cannel**을 만든다.
 
 ``` kotlin
 class GlobalApplication: Application() {
@@ -86,6 +88,9 @@ class GlobalApplication: Application() {
 
 ### MyForegroundService.kt
 포그라운드 서비스 구현을 위해 Service Class를 상속받아 Notification 생성을 구현한다.
+
+- `val notificationLayout`: `RemoteView`를 이용해 Notification 알림이 축소된 형태일 때의 ContentView를 생성한다.
+- `val notificationBifLayout`: `RemoteView`를 이용해 Notification 알림이 확장된 형태일 때의 ContentView를 생성한다.
 
 ``` kotlin
 class MyForegroundService : Service() {
