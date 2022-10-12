@@ -33,8 +33,19 @@ For example, a service can handle network transactions, play music, perform file
 > A background service performs an operation that isn't directly noticed by the user.
 > **백그라운드 서비스**는 사용자에게 즉각적으로 알리지 않아도 되는 동작을 수행한다.
 > For example, if an app used a service to compat its storage, that would usually be a background service.
+> 예를 들어 앱이 저장소를 압축하는 서비스를 사용하는 경우, 이 서비스는 대게 **백그라운드 서비스**이다.
+> 
+
+하지만 요즘은 백그라운드 서비스 보다는 **Jetpack** 에서 제공하는 `WorkManager`를 사용한다.
+간단하게 `WorkManager`를 설명하자면 **지속적인 작업에 권장되는 솔루션**으로 앱이 다시 시작되거ㅏ 시스템이 재부팅될 때 작업이 예약된 채로 남아 있으면 그 작업은 유지된다.
+대부분의 백그라운드 처리는 지속적인 작업을 통해 가장 잘 처리되야하므로 `WorkManger`는 백그라운드 권장하는 기본 API이다.
+
+[WorkManager 공식 문서](https://developer.android.com/topic/libraries/architecture/workmanager?hl=ko)
 
 ### 바운드(Bound)
 
+[참고 블로그](https://www.stechies.com/bound-service-example-android/)
+
+[참고 블로그2](https://proandroiddev.com/bound-and-foreground-services-in-android-a-step-by-step-guide-5f8362f4ae20)
 
 [참고](https://developer.android.com/guide/components/services)
