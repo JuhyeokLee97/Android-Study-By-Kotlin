@@ -26,11 +26,17 @@
 ## `android:exported` 명시를 위한 default export value
 
 ### In Activity
+공식 문서에서는 Activity에서의 exporting을 아래와 같이 설명한다.
 
 > This element sets whether the activity can be launched by components of other applications:
 > 
 > - If "`true`", the activity is accessible to any app, and is launchable by its exact class name.
 > - If "`false`", the activity can be launched only by components of the same application, applications with the same user ID, or privileged system components. **This is the default value when there are no intent filters.**
+
+Activity에서 `exporting`의 의미는 해당 Activity가 다른 앱의 컴포넌트에서 실행될 수 있는지를 나타낸다.</br>
+- `android:exported="true"`: 해당 Class 이름으로 접근한다면 어느 앱이나 접근할 수 있도록 한다.
+- `android:exported="false`: 같은 어플리케이션에서만 접근 가능하다.
+
 
 | has intent-filter | default exported value |
 | --- | --- |
@@ -38,11 +44,15 @@
 | X | false |
 
 ### In Service
+공식 문서에서는 Service에서의 exporting을 아래와 같이 설명한다.
 
 > Whether or not components of other applications can invoke the service or interact with it — `true` if they can, and `false` if not. When the value is `false`, only components of the same application or applications with the same user ID can start the service or bind to it.
-
-**The default value depends on whether the service contains intent filters.** **The absence of any filters means that it can be invoked only by specifying its exact class name.** This implies that the service is intended only for application-internal use (since others would not know the class name). So in this case, the default value is `false`. On the other hand, the presence of at least one filter implies that the service is intended for external use, so the default value is `true`.
 > 
+> **The default value depends on whether the service contains intent filters.** **The absence of any filters means that it can be invoked only by specifying its exact class name.** This implies that the service is intended only for application-internal use (since others would not know the class name). So in this case, the default value is `false`. On the other hand, the presence of at least one filter implies that the service is intended for external use, so the default value is `true`.
+
+Service에서 `exporting`의 의미는 해당 Service가 다른 앱의 컴포넌트에서 실행될 수 있는지를 나타낸다.</br>
+- `android:exported="true"`: 어느 앱의 컴포넌트에서 접근할 수 있도록 한다.
+- `android:exported="false`: 같은 어플리케이션에서만 접근 가능하다.
 
 | has intent-filter | default exported value |
 | --- | --- |
