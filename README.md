@@ -1,15 +1,22 @@
 # 나만의 안드로이드 개발 기록지
 
-## [Components](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/components)
+## [🧩 Components](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/components)
 <details>
   
   <summary>Click to toggle contents of <strong>Android Components</strong></summary>
 
-## [Activity]()
-## [Service](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/components/service)
+## [📱 Activity](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/components/activity)
+
+## [⚙️ Service](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/components/service)
+#### [Service란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/components/service/Service%EB%9E%80.md)
 #### [Foreground Service](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/components/service/Foreground%20Service.md)
 #### [Foreground Service Basic Sample](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/components/service/ForegroundService%20Basic%20Sample.md)
-## [BroadCast Receiver]()
+#### [Foreground Service Update](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/components/service/ForegroundServiceUpdate.md)
+#### [FCM 예제 - Part1 (Firebase 프로젝트 만들기, 앱 등록)](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/components/service/FCM%20%EC%98%88%EC%A0%9C%20-%20Part1%20(Firebase%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EB%A7%8C%EB%93%A4%EA%B8%B0%2C%20%EC%95%B1%20%EB%93%B1%EB%A1%9D).md)
+#### [FCM 예제 - Part2 (앱 매니페스트 수정, FCM Token 등록, Notification 송수신)](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/components/service/FCM%20%EC%98%88%EC%A0%9C%20-%20Part2%20(%EC%95%B1%20%EB%A7%A4%EB%8B%88%ED%8E%98%EC%8A%A4%ED%8A%B8%20%EC%88%98%EC%A0%95%2C%20%20FCM%20Token%20%EB%93%B1%EB%A1%9D%2C%20Notification%20%EC%86%A1%EC%88%98%EC%8B%A0).md)
+
+## [📫 BroadCast Receiver]()
+
 ## [ContentProvider]()
 
   
@@ -45,6 +52,11 @@
 #### [Binding Adapter 란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Jetpack/Data%20Binding/Binding%20Adpater.md)
 #### [Custom Binding Adapter 란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Jetpack/Data%20Binding/Custom%20Binding%20Adapter.md)
 #### [Custom Binding Adapter Example](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Jetpack/Data%20Binding/Custom%20Binding%20Adapter%20Example.md)
+
+----
+## [🕸 ViewModel](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/Jetpack/ViewModel)
+#### [Shared ViewModel in Kotlin](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Jetpack/ViewModel/Shared%20ViewModel%20Across%20Fragments.md)
+#### [ViewModel 객체 생성 방법](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Jetpack/ViewModel/ViewModel%20%EA%B0%9D%EC%B2%B4%20%EC%83%9D%EC%84%B1%20%EB%B0%A9%EB%B2%95.md)
 
 ----
 ## [📖 LiveData + ViewModel](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/Jetpack/LiveData%20%2B%20ViewModel)
@@ -122,8 +134,6 @@
 #### [사진 첨부 From Activity](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Service/%EC%82%AC%EC%A7%84%20%EC%B2%A8%EB%B6%80%20From%20Activity.md)
 #### [Naver Map - MapView 기본 사용 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Service/Android%20Naver%20Map%20-%20MapView%20%EA%B8%B0%EB%B3%B8%20%EC%82%AC%EC%9A%A9%20%EC%98%88%EC%A0%9C%20(Kotlin).md)
 #### [갤러리 접근: 프로필 이미지 변경](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Service/%EA%B0%A4%EB%9F%AC%EB%A6%AC%20%EC%A0%91%EA%B7%BC:%20%ED%94%84%EB%A1%9C%ED%95%84%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EB%B3%80%EA%B2%BD.md)
-#### [FCM 예제 - Part1 (Firebase 프로젝트 만들기, 앱 등록)](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Service/FCM%20%EC%98%88%EC%A0%9C%20-%20Part1%20(Firebase%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%95%B1%20%EB%93%B1%EB%A1%9D).md)
-#### [FCM 예제 - Part2 (앱 매니페스트 수정, FCM Token 등록, Notification 송수신)](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Service/FCM%20%EC%98%88%EC%A0%9C%20-%20Part2%20(%EC%95%B1%20%EB%A7%A4%EB%8B%88%ED%8E%98%EC%8A%A4%ED%8A%B8%20%EC%88%98%EC%A0%95,%20%20FCM%20Token%20%EB%93%B1%EB%A1%9D,%20Notification%20%EC%86%A1%EC%88%98%EC%8B%A0).md)
 #### [카카오 SDK V2 로그인 - part1(프로젝트 셋업)](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Service/%EC%B9%B4%EC%B9%B4%EC%98%A4%20SDK%20V2%20%EB%A1%9C%EA%B7%B8%EC%9D%B8%20-%20part1(%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%85%8B%EC%97%85).md)
 #### [카카오 SDK V2 로그인 - part2(코드).md](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Service/%EC%B9%B4%EC%B9%B4%EC%98%A4%20SDK%20V2%20%EB%A1%9C%EA%B7%B8%EC%9D%B8%20-%20part2(%EC%BD%94%EB%93%9C).md)
 
