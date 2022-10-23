@@ -29,4 +29,25 @@ JAVA 환경변수를 설정하지 않은 경우, 만약 터미널에서 Java를 
 
 <img width="613" alt="JDK dmg 설치" src="https://user-images.githubusercontent.com/40654227/197379784-14fe2d57-4b0f-4268-a5ae-0f026943dd9c.png">ㅎ
 
-### 2.
+다음과 같이 `JDK 11` 설치 위치를 확인할 수 있다.
+```
+/Library/Java/JavaVirtualMachines/jdk-11.0.16.jdk/Contents/Home/bin
+```
+
+### 2. PATH 설정
+`./bin` 을 PATH에 등록하기 위해서 터미널에서 해당 디렉토리로 이동한다.
+
+그리고 `vi ~/.zshrc` 명령어를 통해서 파일을 생성한다.
+
+위 명령어를 통해서 **zshrc**창이 실행되면 `i`키를 누른 후 환경변수를 등록하는 아래 명령어를 입력한다.
+`export PATH=${PATH}:/Library/Java/JavaCirturalMachines/jdk-11.0.16.jdk/Contents/Home/bin`
+
+![JDK 환경 변수 설정](https://user-images.githubusercontent.com/40654227/197387615-94ba88f5-d334-434c-8811-9e1b67e692cc.png)
+
+### 3. 마무리 확인
+터미널에서 `echo $path` 명령어를 실행하면 아래와 같이 JDK 경로가 설정 된 것을 확인할 수 있다.
+![JDK Path 설정 확인](https://user-images.githubusercontent.com/40654227/197387561-354b7fb3-91a5-4359-b101-72a267681438.png)
+
+
+
+
