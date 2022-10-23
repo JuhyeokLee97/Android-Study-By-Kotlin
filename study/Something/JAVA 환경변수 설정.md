@@ -22,4 +22,11 @@ JAVA 환경변수를 설정하지 않은 경우, 만약 터미널에서 Java를 
 특히 Java로 개발하는 경우 jdk > bin > **javac**(자바 컴파일러)를 통해서 프로젝트의 클래스 파일들을 컴파일하는데
 환경변수가 설정이 되어 있지 않으면 Eclipse, Android Studio와 같은 IDE에서 컴파일이 안되는 현상이 발생할 수 있다.
 
-## JAVA 환경 변수 
+## JAVA 환경 변수 설정 In Mac
+### 1. JDK 설치
+나는 `JDK 11`를 사용하기 위해서 Oracle에서 `macOS Arm 64 DMG Installer`를 다운받았다.
+설치 받은 파일을 실행 시켜 아래와 같은 `설치 마법사`를 통해서 `JDK 11`를 설치한다.
+
+<img width="613" alt="JDK dmg 설치" src="https://user-images.githubusercontent.com/40654227/197379784-14fe2d57-4b0f-4268-a5ae-0f026943dd9c.png">ㅎ
+
+### 2.
