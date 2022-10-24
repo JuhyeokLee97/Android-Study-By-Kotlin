@@ -27,7 +27,7 @@ JAVA 환경변수를 설정하지 않은 경우, 만약 터미널에서 Java를 
 나는 `JDK 11`를 사용하기 위해서 Oracle에서 `macOS Arm 64 DMG Installer`를 다운받았다.
 설치 받은 파일을 실행 시켜 아래와 같은 `설치 마법사`를 통해서 `JDK 11`를 설치한다.
 
-<img width="613" alt="JDK dmg 설치" src="https://user-images.githubusercontent.com/40654227/197379784-14fe2d57-4b0f-4268-a5ae-0f026943dd9c.png">ㅎ
+<img width="613" alt="JDK dmg 설치" src="https://user-images.githubusercontent.com/40654227/197379784-14fe2d57-4b0f-4268-a5ae-0f026943dd9c.png">
 
 다음과 같이 `JDK 11` 설치 위치를 확인할 수 있다.
 ```
