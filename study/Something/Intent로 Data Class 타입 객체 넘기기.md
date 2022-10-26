@@ -232,3 +232,4 @@ class UserInfoActivity : AppCompatActivity() {
 }
 ```
 
+[참고 블로그](https://woovictory.github.io/2019/01/03/Android-What-is-serialization/)
