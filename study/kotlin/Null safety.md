@@ -92,6 +92,22 @@ person?.department?.head = mansgersPool.getManager()
 ```
 
 
+## Elvis Operator
+우리가 nullable를 참조해야하는 경우, `b`처럼, 우리는 "`b`가 `null`이 아니라면 이것을 `null`이면 `non-null` 값을" 형태로 처리할 수 있다.
+``` kotlin
+val l: Int = if (b != null) b.length else -1
+```
+
+하지만 `if` 표현식을 사용하지 않는 대신에 우리는 ***Elvis Operator***(연산자) `?:`를 이용할 수 있다.
+``` kotlin
+val l = b?.length ?: -1
+```
+
+`?:` 연산자의 왼쪽에 있는 값이 `null`이 아니라면 ***Elivis*** 연산자는 왼쪽(`b.length`)에 있는 값을 반환한다.
+반면에 왼쪽에 있는 값이 `null`이라면 오른쪽(`-1`)에 있는 값을 반환한다.
+여기서 주의해야 할 것은 ***Elvis*** 연산자(`?:`) 우측에 나오는 표현식은 좌측에 있는 값이 `null`인 경우에만 연산된다.
+
+
 
 
 
