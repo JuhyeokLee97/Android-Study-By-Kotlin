@@ -3,15 +3,15 @@
 ## Nullable types and non-null types
 Kotlin 타입 시스템은 **null 참조의 위험성**을 제거하는데 초점이 맞혀있다
 
-Java를 포함하여 많은 프로그래밍 언어에서 가장 흔한 **pitfall** 중 하나는 `null` 값을 갖는 멤버에 접근함으로써 `null reference exception`
-을 초래하는 것이다. Java 에서는 이런 경우를 `NullPointException` 이나 줄여서 `NPE`로 부른다.
+Java를 포함하여 많은 프로그래밍 언어에서 가장 흔한 **위험** 중 하나는 `null` 값을 갖는 멤버에 접근함으로써 `null reference exception`을 초래하는 것이다. 
+Java 에서는 이런 경우를 `NullPointException` 이나 줄여서 `NPE`로 부른다.
 
 Kotlin에서 `NPE(NullPointException)`이 발생하는 경우는 아래와 같다.
 
 - `throw NullPointerException()`을 명시적으로 호출하는 경우.
-- `!!`를 사용한 경우
-
-...
+- non-null assertation 연산자 `!!`를 사용한 경우
+- 특정 변수를 생성자에서 초기화하지 않고 해당 변수를 다른 곳으로 보내거나 사용하는 경우.
+- 특정 클래스를 상속 받아서 사용하는데 부모 클래스에서 선언된 `open member`를 초기화 하지 않은 상태에서 부모 클래스의 생성자가 동작되고 해당 생성자에서 자식 클래스에서 초기화 하지 않은 멤버를 사용하는 경우. 
 
 
 Kotlin에서는 **타입 시스템**이 참조 변수의 `nullable` 형태를 판단한다. 다시 말해 해당 변수가 `null`를 갖을 수 있는지 또는 `null`값을 갖을 수 없는지를 판단한다. 예를 들어 설명한다면 일반적으로 `String` 타입의 변수는 `null`를 갖을 수 없다.
@@ -108,6 +108,28 @@ val l = b?.length ?: -1
 여기서 주의해야 할 것은 ***Elvis*** 연산자(`?:`) 우측에 나오는 표현식은 좌측에 있는 값이 `null`인 경우에만 연산된다.
 
 
+## The !! operator
+세번째 방법으로는 **non-null asseration** 연산자 `!!`를 사용하는 것이다.
+`!!` 연산자는 해당 값이 non-null 타입이라고 강제하는 것이고 만약 `null`인 경우에는 에러를 던진다.
+사용방법은 `b!!`와 같이 쓸 수 있고 `b`가 가지고 있는 값이 non-null이 아님을 강제하고 만약 `null`인 경우에는 **NPE**를 던진다.
+``` kotlin
+val l = b!!.length
+```
+
+## Safe casts
+일반적으로 캐스팅을 하는 경우 캐스팅 할 수 없는 타입이라면 `ClassCastException` 에러가 발생시킨다.
+안전하게 캐스팅하는 방법은 `ClassCastException`을 발생시켜 앱이 죽기 보다는 `null`를 반환하도록 하는 것이다.
+캐스팅 할 떄 `as?`와 같이 `?` 연산자를 추가하면 된다.
+``` kotlin
+val aInt: Int? = a as? Int
+```
+
+## Collections of a nullable type
+만약 nullable한 값을 갖는 컬렉션을 사용하는 경우에 non-null 원소만 필터링하려고 한다면 다음과 같이 `filterNotNull`를 이용할 수 있다.
+``` kotlin
+val nullableList: List<Int?> = listOf(1, 2, null, 4)
+val intList: List<Int> = nullableList.filterNotNull()
+```
 
 
 
