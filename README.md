@@ -197,3 +197,27 @@
   #### [JUnit Annotations with Example.md](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/unit%20test/JUnit%20Annotations%20with%20Example.md)
   
 </details>
+
+## [ My Failure](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/My%20Failure)
+
+<details>
+  
+  <summary>Click to toggle contents of <strong>My Failure</strong></summary>
+
+  #### [Project Build 안되는 이유 찾기](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/My%20Failure/Project%20Build%20%EC%95%88%EB%90%98%EB%8A%94%20%EC%9D%B4%EC%9C%A0%20%EC%B0%BE%EA%B8%B0.md)
+  
+  
+</details>
+
+## [ Something](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/Something)
+
+<details>
+  
+  <summary>Click to toggle contents of <strong>Something</strong></summary>
+
+  #### [Intent로 Data Class 타입 객체 넘기기](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Something/Intent%EB%A1%9C%20Data%20Class%20%ED%83%80%EC%9E%85%20%EA%B0%9D%EC%B2%B4%20%EB%84%98%EA%B8%B0%EA%B8%B0.md)
+  #### [JAVA 환경변수 설정](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Something/JAVA%20%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98%20%EC%84%A4%EC%A0%95.md)
+  #### [JDK 란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/Something/JDK%20%EB%9E%80.md)
+  
+  
+</details>
