@@ -1,3 +1,7 @@
 ## To Do List
 
-1. Permission Utils
+- [ ] Permission Utils
+- [ ] BasicDialog
+- [ ] Permission + Dialog
+- [ ] AlarmManager 란
+- [ ] WorkManager 란
