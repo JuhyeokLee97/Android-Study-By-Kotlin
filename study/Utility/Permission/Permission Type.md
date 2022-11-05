@@ -45,20 +45,6 @@
 
 </p>
 
-위험한 권한이라고도 알려져 있는 **runtime 권한**은 제한된 데이터에 대한 접근 허용과 다른 앱과 시스템에 상당히 영향을 줄 수 있는 제한된 동작 허용을 포함한다.
-그래서 **runtime** 권한은
-
-## Runtime Permissions
-Runtime permissions, also known as dangerous permissions, give your app additional access to restricted data or let your app perform restricted actions that more substantially affect the system and other apps. Therefore, you need to request runtime permissions in your app before you can access the restricted data or perform restricted actions. Don't assume that these permissions have been previously granted—check them and, if needed, request them before each access.
-
-When your app requests a runtime permission, the system presents a runtime permission prompt, as shown in figure 3.
-
-Many runtime permissions access private user data, a special type of restricted data that includes potentially sensitive information. Examples of private user data include location and contact information.
-
-The microphone and camera provide access to particularly sensitive information. Therefore, the system helps you explain why your app accesses this information.
-
-The system assigns the dangerous protection level to runtime permissions.
-
 ## Special Permissions
 Special permissions correspond to particular app operations. Only the platform and OEMs can define special permissions. Additionally, the platform and OEMs usually define special permissions when they want to protect access to particularly powerful actions, such as drawing over other apps.
 
@@ -67,6 +53,17 @@ The Special app access page in system settings contains a set of user-toggleable
 Each special permission has its own implementation details. The instructions for using each special permission appear on the permissions API reference page. The system assigns the appop protection level to special permissions.
 
 ## Permission Groups
+
+<p>
+
+  논리적으로 연관된 권한들은 하나의 <strong>그룹 권한</strong>으로 구성될 수 있다.
+  예를 들면 SMS를 보내고 받는 것에 대한 권한은 같은 그룹에 속해있을 것입니다. 왜냐하면 둘 다 SMS와의 상호작용과 관련되어있기 때문이다.
+  
+  <strong>permission group</strong>을 사용함으로써, 앱에서 사용자에게 연관되어 있는 권한들을 요청 할 때 보여지는 시스템 다이얼로그의 개수를 축소시킬 수 있게 됐다.
+  사용자에게 앱에 대한 권한을 요구하는 다이얼로그가 표시되면 동일한 그룹에 속한 권한이 같은 인터페이스에 표시된다.
+  하지만 권한들은 공지 없이 그룹이 변경될 수 있기 때문에 항상 특정 그룹에 포함되어있을 것이라고 가정하고 개발하면 안된다.
+  
+</p>
 
 Permissions can belong to permission groups. Permission groups consist of a set of logically related permissions. For example, permissions to send and receive SMS messages might belong to the same group, as they both relate to the application's interaction with SMS.
 
