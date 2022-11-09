@@ -69,3 +69,21 @@ Permissions can belong to permission groups. Permission groups consist of a set 
 
 Permission groups help the system minimize the number of system dialogs that are presented to the user when an app requests closely related permissions. When a user is presented with a prompt to grant permissions for an application, permissions belonging to the same group are presented in the same interface. However, permissions can change groups without notice, so don't assume that a particular permission is grouped with any other permission.
 
+---
+## 앱 권한 VS 시스템 권한
+
+### 앱 권한
+- 마이크
+- 연락처
+- 전화
+- 카메라
+- 통화 기록
+- 파일 및 미디어
+- SMS
+- 블루투스
+- 
+### 시스템 권한
+- 다른 앱 위에 표시
+- 정학한 알람(리마인더)
+- 백그라운드 위치 권한
+
