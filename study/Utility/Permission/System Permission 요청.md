@@ -12,4 +12,18 @@ Intent
 ```
 
 ### System Permisssion 요청 후, 설정 화면 자동 닫기
+``` kotlin
+(context as LifecycleOwner).lifecycleScope.launch {
+                repeat(40) {
+                    delay(500)
+                    // 해당 권한 허용되었는지 검사
+                    if (PermissionUtils.canScheduleExactAlarms(context)) {
+                      // 설정에서 권한 허용한 경우... ex). startActivity
+                        cancel()
+                        permissionListener.isGranted()
+                    }
+                }
+            }
+
+```
 
