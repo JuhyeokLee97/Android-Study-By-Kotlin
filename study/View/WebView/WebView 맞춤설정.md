@@ -10,6 +10,10 @@
   
 </p>
 
+``` kotlin
+webView.webViewClient = WebViewClient()
+```
+
 ### [WebViewClient](https://developer.android.com/reference/android/webkit/WebViewClient?hl=ko)
 <p>
   <strong>WebViewClient</strong>를 사용한 탐색 오류 또는 양식 제출 오류 등 콘텐츠 렌더링에 영향을 미치는 이벤트 처리. 
@@ -17,5 +21,13 @@
  
 </p>
 
+``` kotlin
+webView.webChromeClient = WebChromeClient()
+```
+
 ### [WebSettings](https://developer.android.com/reference/android/webkit/WebSettings?hl=ko)
 WebSettings를 수정하여 자바스크립트 사용 설정.
+
+``` kotlin
+webView.settings.javaScriptEnabled = true
+```
