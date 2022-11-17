@@ -14,61 +14,84 @@ lass MainActivity : AppCompatActivity() {
         binding.run {
             webview.settings.javaScriptEnabled = true
             webview.addJavascriptInterface(WebAppInterface(), "BlackJin")
-            webview.loadUrl("file:///android_asset/sample.html")
+//            webview.loadUrl("file:///android_asset/sample.html")
+            webview.loadUrl("file:///android_asset/sample2.html")
 
             button.setOnClickListener {
-//                webview.loadUrl("javascript:plus_num(" + edittext.text + ")")
-                webview.loadUrl("javascript:alert(안녕)")
+//                webview.loadUrl("javascript:foo()")
+                webview.loadUrl("javascript:test_foo('token-123', 'my id is', 'zeor@gmail.com')")
+
             }
+            textview.setOnClickListener{
+                webview.loadUrl("javascript:foo3('p1')")
+            }
+
         }
 
     }
 
-
-    inner class WebAppInterface {
-        @JavascriptInterface
-        fun getDoubleNum(num: Int) {
-            binding.textview.text = num.toString()
-        }
-
-        @JavascriptInterface
-        fun getResetNum() {
-            binding.textview.text = "0"
-        }
-    }
 }
 ```
 
 ### html
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
+    <meta charset="UTF-8" />
 </head>
-<body>
-화면에 입력한 숫자의 곱하기 2의 값이 화면에 출력됩니다.
-<input type="button" value="Send Toast Message" onClick="plus_num(2)"/>
 
-<script type="text/javascript" src="exam_script.js"></script>
+<body>
+<button id="btn">Click me</button>
+<p>
+    Token
+    <button id="token">TOKEN</button>
+</p>
+
+<p>
+    User ID
+    <button id="user_id">USER ID</button>
+</p>
+
+<p>
+    EMAIL
+    <button id="email">EMAIL</button>
+</p>
+
+
+<script src="index.js"></script>
 </body>
 </html>
 ```
 
 ### js
 ``` javascript
-var test_script = {
-    function plus_num(num) {
-        var result = num * 2
-        BlackJin.getDoubleNum(result)
-    }
-    plus_num: function(num){
-        try{
-            var result = num * 2
-            BlackJin.getDoubleNum(result)
-        }catch(err){
-            console.log(">> [exam_script.plus_num()] " + err)
-        }
-    }
+const btn = document.getElementById('btn');
+const token = document.getElementById('token');
+const user_id = document.getElementById('user_id');
+const email = document.getElementById('email');
+
+// ✅ Change button text on click
+btn.addEventListener('click', function handleClick() {
+  btn.textContent = 'Button clicked';
+});
+
+function foo(){
+  btn.textContent = 'Button clicked';
+}
+
+function foo2(){
+  btn.textContent = 'Click me';
+}
+
+function foo3(p1){
+  btn.textContent = 'Button clicked';
+}
+
+function test_foo(_token, _user_id, _email){
+     token.textContent = _token;
+     user_id.textContent = 'Button clicked';
+     email.textContent = 'Button clicked';
+
+}
 ```
