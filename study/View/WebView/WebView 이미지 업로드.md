@@ -137,7 +137,22 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
+``` kotlin
+webView.webChromeClient = object : WebChromeClient() {
+            override fun onShowFileChooser(webView: WebView?, filePathCallback: ValueCallback<Array<Uri>>?, fileChooserParams: FileChooserParams?): Boolean {
+                this@MainActivity.filePathCallback = filePathCallback
+                navigateGallery(this@MainActivity)
+                return true
+            }
+        }
+```
+- 웹에서의 `<input>` 파일 첨부 태그에 반응하는 함수 `onShowFileChooser()`를 재정의한다.
+- `webView: WebView`: 해당 웹뷰 객체를 의미한다.
+
 - `checkPermission()`: 갤러리 접근 권한 요청
 - `showGalleryPick()`: 갤러리 접근 함수
 - `onActivityResult()`: 이미지 선택 후 동작
-- `chooseFileUriParseToSend()`: ...
+- `chooseFileUriParseToSend()`: 이미지 선택 후 `onActivityReult()`에서 호출해서 웹에 데이터를 전송한다.
+    - parameters
+        - `resultCode: Int`  
+        - `data
