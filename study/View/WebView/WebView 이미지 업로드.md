@@ -1,15 +1,42 @@
 # WebView 이미지 업로드
+### To do
+- [ ] activityStartForResult 변경
+- [ ] 권한 확인 팝업을 dismiss 한 경우 처리
+- [ ] 권한 Granted 확인 함수 작성
+- [ ] Web-Html 작성
+- [ ] 실행화면
 
 ## 개요 - WebChromeClient
-<strong>WebCrhomeClient</strong> 이란...
 
-### WebChromeClient.onShowFileChooser()
- - params
-    - `webView`:
-    - `filePathCallback`:
-    - `fileChooserParams`:
- - 정의(동작방식)
- 
+<strong>WebCrhomeClient</strong>는 웹 페이지에서 일어나는 액션들에 대한 콜백함수들로 구성되어 있다. 예를 들면 웹에서 새 창을 띄우려거나 파일을 첨부하는 경우가 있다.
+
+``` kotlin
+webView.webViewClient = WebViewClient()
+```
+
+## WebchromeClient.onShowFileChooser()
+``` kotlin
+webView.webChromeClient = object : WebChromeClient() {
+            override fun onShowFileChooser(webView: WebView?, filePathCallback: ValueCallback<Array<Uri>>?, fileChooserParams: FileChooserParams?): Boolean {
+                this@MainActivity.filePathCallback = filePathCallback
+                navigateGallery(this@MainActivity)
+                return true
+            }
+        }
+```
+
+파일 첨부와 같은 액션에 반응하기 위해서는 웹에서의 `<input>` 파일 첨부 태그에 반응하는 함수 `onShowFileChooser()`를 재정의해야한다.
+- `onShowFileChooser()` 이란
+    - HTML에서 'file' 형태를 갖는 `<input>` 태그에 대한 액션에 반응하는 함수이다.
+    - 파일 선택을 취소하기 위해서는 `filePathCallback.onReceiveValue(null)`를 호출해야한다.
+    - 반환값은 `true` 를 반환해야한다.   
+    
+- 파라미터
+    - `webView: WebView`: 해당 웹뷰 객체를 의미한다.
+    - `fildPathCallback: ValueCallback<Array<Uri>>?`: 업로드 하려는 파일들의 path 리스트를 받아 콜백함수(`filePathCallback.onReceiveValue(value)`를 호출할 수 있다.(단, 업로드를 취소할 경우 `null`을 담아서 콜백함수를 호출해야한다. 그렇지 않으면 이후에 `<input>` 태그의 액션이 반응하지 않는다.
+    - `fileChooserParam`: `<input>` 액션을 통해서 선택할 파일의 유형을 명시한다.
+
+
 ### 앱 실행화면
 
 ## Code
@@ -136,23 +163,5 @@ class MainActivity : AppCompatActivity() {
     }
 }
 ```
-
-``` kotlin
-webView.webChromeClient = object : WebChromeClient() {
-            override fun onShowFileChooser(webView: WebView?, filePathCallback: ValueCallback<Array<Uri>>?, fileChooserParams: FileChooserParams?): Boolean {
-                this@MainActivity.filePathCallback = filePathCallback
-                navigateGallery(this@MainActivity)
-                return true
-            }
-        }
-```
-- 웹에서의 `<input>` 파일 첨부 태그에 반응하는 함수 `onShowFileChooser()`를 재정의한다.
-- `webView: WebView`: 해당 웹뷰 객체를 의미한다.
-
-- `checkPermission()`: 갤러리 접근 권한 요청
-- `showGalleryPick()`: 갤러리 접근 함수
-- `onActivityResult()`: 이미지 선택 후 동작
-- `chooseFileUriParseToSend()`: 이미지 선택 후 `onActivityReult()`에서 호출해서 웹에 데이터를 전송한다.
-    - parameters
-        - `resultCode: Int`  
-        - `data
+`onActivityResult()`에서 이미지를 선택한 후, 이미지 데이터를 담아
+`chooseFileUriParseToSend()` 함수를 호출해서 선택한 이미지들을 `filePathCallback.onReceivedValue()`를 통해 웹에 데이터를 전송할 수 있다.
