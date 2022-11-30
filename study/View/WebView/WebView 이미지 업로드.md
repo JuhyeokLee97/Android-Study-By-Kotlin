@@ -1,8 +1,8 @@
 # WebView 이미지 업로드
 ### To do
-- [ ] activityStartForResult 변경
-- [ ] 권한 확인 팝업을 dismiss 한 경우 처리
-- [ ] 권한 Granted 확인 함수 작성
+- [x] activityStartForResult 변경
+- [x] 권한 확인 팝업을 dismiss 한 경우 처리
+- [x] 권한 Granted 확인 함수 작성
 - [ ] Web-Html 작성
 - [ ] 실행화면
 
@@ -42,7 +42,27 @@ webView.webChromeClient = object : WebChromeClient() {
 ## Code
 
 ### 프로젝트 구조
+### AndroidManifest.xml: 권한 설정 추가
+``` xml
+<manifest ...>
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application... >
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+```
 ### MainActivity.kt
 ``` kotlin
 class MainActivity : AppCompatActivity() {
