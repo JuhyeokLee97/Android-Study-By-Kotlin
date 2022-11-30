@@ -52,11 +52,20 @@ class MainActivity : AppCompatActivity() {
     }
     private var filePathCallback: ValueCallback<Array<Uri>>? = null
 
+    /** 파일 업로드를 위해 갤러리 접근 하여 사진 선택 후 동작([startActivityForeResult] 대체) */
+    private val chooseFileLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == RESULT_OK) {
+            result.run {
+                chooseFileUriParseToSend(resultCode, data, filePathCallback)
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.webView.run{
+        binding.webView.run {
             settings.javaScriptEnabled = true
             webChromeClient = object : WebChromeClient() {
                 override fun onShowFileChooser(
@@ -65,52 +74,71 @@ class MainActivity : AppCompatActivity() {
                     fileChooserParams: FileChooserParams?
                 ): Boolean {
                     this@MainActivity.filePathCallback = filePathCallback
-                    checkPermission(this@MainActivity)
+                    showGalleryPick()
                     return true
                 }
             }
         }
     }
 
-    private fun checkPermission(context: Context) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            val permission = android.Manifest.permission.READ_EXTERNAL_STORAGE
-
-            if (ContextCompat.checkSelfPermission(
-                    context,
-                    permission
-                ) == PackageManager.PERMISSION_GRANTED
-            ) {
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (isGrantedPermissions(grantResults)) {
                 showGalleryPick()
             } else {
-                requestPermissions(arrayOf(permission), PERMISSION_REQUEST_CODE)
+                // null 처리를 하지 않으면 담부터 input 태그를 눌러도 반응이 없다
+                filePathCallback?.onReceiveValue(null)
             }
-        } else {
-            showGalleryPick()
         }
     }
 
+    /** 권한 허용을 확인하는 함수 */
+    private fun isGrantedPermissions(grantResults: IntArray): Boolean {
+        if (grantResults.isEmpty()) {
+            return false
+        }
+        for (result in grantResults) {
+            if (result != PackageManager.PERMISSION_GRANTED) {
+                return false
+            }
+        }
+        return true
+    }
+
+    /** 권한 허용 상태를 확인하는 함수 */
+    private fun checkPermissions(context: Context, permissions: Array<String>): Boolean {
+        for (permission in permissions) {
+            if (ContextCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                return false
+            }
+        }
+        return true
+    }
+
+    /**
+     * 이미지 픽커 호출하는 함수.
+     *
+     * 마시멜로 버전 이상을 사용하는 앱부터는 접근 권한을 확인하고 허용해야만 사용할 수 있으므로
+     * 버전에 따라 미디어 접근 권한 승인 확인 후 이미지 픽거킄 호출한다.을
+     * 권한이 거절된 경우에는 권한을 요청한다.
+     */
     private fun showGalleryPick() {
-        Intent().apply {
-            type = "image/*"
-            action = Intent.ACTION_GET_CONTENT
-            addCategory(Intent.CATEGORY_OPENABLE)
-            putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
-        }.let {
-            (this as? Activity)?.startActivityForResult(it, FILE_CHOOSER_REQUEST_CODE)
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        when (requestCode) {
-            FILE_CHOOSER_REQUEST_CODE -> {
-                chooseFileUriParseToSend(resultCode, data, filePathCallback)
+        val permissions = arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE)
+        // 마시멜로 버전 이상 && 권한 허용 X
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+            && !checkPermissions(this, permissions)
+        ) {
+            requestPermissions(permissions, PERMISSION_REQUEST_CODE)
+        } else {
+            val intent = Intent().apply {
+                type = "image/*"
+                action = Intent.ACTION_GET_CONTENT
+                addCategory(Intent.CATEGORY_OPENABLE)
+                putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
             }
-            else -> {
-
-            }
+            // startActivityForResult 대체
+            chooseFileLauncher.launch(intent)
         }
     }
 
@@ -153,13 +181,12 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        // null 처리를 하지 않으면 담부터 input 태그를 눌러도 반응이 없음.
+        // null 처리를 하지 않으면 담부터 input 태그를 눌러도 반응이 없다
         filePathCallback.onReceiveValue(null)
     }
 
     companion object {
         const val PERMISSION_REQUEST_CODE = 2001
-        const val FILE_CHOOSER_REQUEST_CODE = 2002
     }
 }
 ```
