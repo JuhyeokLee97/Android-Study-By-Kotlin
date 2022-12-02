@@ -1,12 +1,6 @@
 # WebView 이미지 업로드
-### To do
-- [x] activityStartForResult 변경
-- [x] 권한 확인 팝업을 dismiss 한 경우 처리
-- [x] 권한 Granted 확인 함수 작성
-- [ ] Web-Html 작성
-- [ ] 실행화면
 
-## 개요 - WebChromeClient
+## WebChromeClient
 
 <strong>WebCrhomeClient</strong>는 웹 페이지에서 일어나는 액션들에 대한 콜백함수들로 구성되어 있다. 예를 들면 웹에서 새 창을 띄우려거나 파일을 첨부하는 경우가 있다.
 
@@ -36,12 +30,8 @@ webView.webChromeClient = object : WebChromeClient() {
     - `fildPathCallback: ValueCallback<Array<Uri>>?`: 업로드 하려는 파일들의 path 리스트를 받아 콜백함수(`filePathCallback.onReceiveValue(value)`를 호출할 수 있다.(단, 업로드를 취소할 경우 `null`을 담아서 콜백함수를 호출해야한다. 그렇지 않으면 이후에 `<input>` 태그의 액션이 반응하지 않는다.
     - `fileChooserParam`: `<input>` 액션을 통해서 선택할 파일의 유형을 명시한다.
 
-
-### 앱 실행화면
-
 ## Code
 
-### 프로젝트 구조
 ### AndroidManifest.xml: 권한 설정 추가
 ``` xml
 <manifest ...>
