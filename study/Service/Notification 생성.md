@@ -51,3 +51,63 @@ class MyApplication : Application() {
     }
 }
 ```
+
+### NotificationHelper.kt: 노티피케이션 생성
+``` kotlin
+class NotificationHelper(private val context: Context) {
+
+    companion object {
+        const val NOTIFICATION_CHANNEL = "notification_channel"
+        const val CHAT_TYPE = "chat"
+    }
+
+    /**
+     * 노티피케이션에 사용될 데이터를 받아 푸시 알림(노티피케이션)을 생성한다.
+     *
+     * @channel: Android M 이상을 타겟팅 하는 앱에서 사용되는 노티피케이션 channel 이름
+     * @notificationId: 생성될 노티피케이션의 ID
+     * @title: 생성될 노티피케이션의 타이틀
+     * @message: 생성될 노티피케이션의 메시지
+     * @intent: 노티피케이션 클릭 이벤트에 반응해 생성될 예약 인텐트(PendingIntent)에 사용될 intent
+     */
+    fun send(channel: String, notificationId: Int, title: String, message: String, intent: Intent) {
+        val pendingIntent = getPendingIntent(context, intent)
+        val builder = NotificationCompat.Builder(context, channel)
+            .setSmallIcon(R.mipmap.app_icon)
+            .setContentTitle(title)
+            .setContentText(message)
+            .setAutoCancel(true)
+            .setVibrate(longArrayOf(0L))
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setContentIntent(pendingIntent)
+            .setFullScreenIntent(pendingIntent, true)
+
+        NotificationManagerCompat.from(context).run {
+            notify(notificationId, builder.build())
+        }
+    }
+
+    /**
+     * 노티피케이션에 사용될 예약 인텐트(PendingIntent)를 생성한다.
+     *
+     * @context:
+     * @intent:
+     */
+    private fun getPendingIntent(context: Context, intent: Intent): PendingIntent? {
+        val randomRequestCode = (Math.random() * 10000).toInt()
+        return PendingIntent.getActivity(context, randomRequestCode, intent, getPendingIntentFlag(PendingIntent.FLAG_UPDATE_CURRENT))
+    }
+
+    private fun getPendingIntentFlag(flag: Int): Int {
+        return getPendingIntentFlag(flag, Build.VERSION_CODES.S)
+    }
+
+    private fun getPendingIntentFlag(flag: Int, minSdkVersion: Int): Int {
+        return if (Build.VERSION.SDK_INT >= minSdkVersion) {
+            flag or PendingIntent.FLAG_IMMUTABLE
+        } else {
+            flag
+        }
+    }
+}
+```
