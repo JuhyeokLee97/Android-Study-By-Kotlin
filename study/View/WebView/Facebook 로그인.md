@@ -10,8 +10,13 @@ Android 임베디드 브라우저(웹 보기)에서 피싱 시도가 증가하�
 여러분의 파트너십에 감사드리며 Facebook은 앞으로도 플랫폼 보안에 계속 투자할 것입니다.
 
 ## 목차
-1. 페이스북 앱 만들기
-  1.1 
+1. [페이스북 앱 만들기](#1-페이스북-앱-만들기)</br>
+  1.1. [앱 만들기](#1-앱-만들기)</br>
+  1.2. [앱 유형 입력](#2-앱-유형-입력)</br>
+  1.3. [앱 상세정보 입력](#3-앱-상세정보-입력)</br>
+  1.4. [앱 상세 이동](#4-앱-상세-이동)</br>
+  1.5. [페이스북 로그인 설정](#5-페이스북-로그인-설정)</br>
+2. [Facebook SDK 등록](#2-facebook-sdk-등록)</br>
   
   
 ## 1. 페이스북 앱 만들기
@@ -153,6 +158,28 @@ dependencies {
     ```
 
 이렇게 **리소스 및 Manifest**를 설정하고 앱을 빌드해본다.
+
+### 4. 패키지 이름 및 기본 Activity, 페이스북 앱과 연결
+1. 프로젝트의 패키지 이름을 등록한다.
+프로젝트 패키지 이름과 Activity를 등록하기 위해서는 <strong>[페이스북 앱] > [설정] > [기본 설정] </strong>에서 아래와 같이 <strong>+ 플랫폼 추가</strong> 버튼을 이용하여 Google Play를 추가한다.
+<img src="https://user-images.githubusercontent.com/40654227/205625891-ab80cd3f-bb51-4e13-a9e3-5352e517b75a.png" width=600/>
+<img src="https://user-images.githubusercontent.com/40654227/205626467-bbe3c290-e1d2-49de-b2aa-5831fee8ff11.png" width=600/>
+<img src="https://user-images.githubusercontent.com/40654227/205626577-b7b94f8e-43c0-4f8f-a9d5-5065acb2b014.png" width=600/>
+
+
+
+프로젝트에서 `AndroidManifest.xml`에서 `<manifest package="..."/>` package를 가져와 다음과 같이 저장한다.</br>
+그리고 앱 시작의 기본 Activity인 `MainActivity`를 패키지명 뒤에 붙여 저장한다.</br>
+<img src="https://user-images.githubusercontent.com/40654227/205626905-cbbdb68e-407e-4e8d-82dd-a60e19cbe5dc.png" width=600/>
+
+### 5. 개발용(디버그) 해시 키 등록
+
+
+### 6. 페이스북 로그인 콜백 추가
+
+## Reference
+https://developers.facebook.com/docs/facebook-login/android/
+
 
 
 
