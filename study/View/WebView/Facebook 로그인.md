@@ -8,3 +8,168 @@ Android 임베디드 브라우저(웹 보기)에서 피싱 시도가 증가하�
 이러한 접근 방식으로도 대체 방법을 통해 사용자를 인증하지 못하는 경우가 있을 수 있습니다. 이 경우 사용자는 Android 웹 보기에서의 로그인이 차단됩니다. 이때 다른 기기를 사용하여 로그인하는 것이 좋습니다.
 
 여러분의 파트너십에 감사드리며 Facebook은 앞으로도 플랫폼 보안에 계속 투자할 것입니다.
+
+## 목차
+1. 페이스북 앱 만들기
+  1.1 
+  
+  
+## 1. 페이스북 앱 만들기
+페이스북 로그인을 구현하기 위해서는 [Meta for Developers](https://developers.facebook.com/)페이지에서 개발자 계정으로 **페이스북 앱**을 만들어야 한다.</br>
+페이스북 앱 만들기 과정은 간단하니 아래 과정을 천천히 따라하면 된다.
+
+### 1. 앱 만들기
+[Meta for Developers](https://developers.facebook.com/)에 접속하여 먼저 로그인을 한다.</br>
+그리고 아래 이미지에서와 같이 오른쪽 상단 <strong>[내 앱]</strong>으로 접속한다.</br>
+
+<img src="https://user-images.githubusercontent.com/40654227/205607411-daf63644-149b-4ae3-9b85-b12cab14478c.png" width=600 /></br>
+
+그러면 다음 이미지처럼 내 앱의 목록과 <strong>[앱 만들기]</strong> 버튼을 확인할 수 있다.</br>
+기존에 만든 앱을 사용할 수 있지만, 새로운 앱을 만들어 사용하도록 한다.</br>
+<strong>[앱 만들기]</strong> 버튼을 클릭한다.</br>
+<img src="https://user-images.githubusercontent.com/40654227/205608729-fe44d286-cade-4d7a-a70b-024f3b3490c0.png" width=600/>
+
+### 2. 앱 유형 입력
+
+아래와 같은 앱 유형 선택 화면에서는 페이스북 로그인을 위한 간단한 앱이기 때문에, <strong>[없음]</strong>을 선택한다.</br>
+<img src="https://user-images.githubusercontent.com/40654227/205609114-3bd9dc19-8d3f-4477-9f32-fe1d78cdaee2.png" width=600/></br>
+
+
+### 3. 앱 상세정보 입력
+다음으로는 앱 상세 정보를 입력한다. </br>
+[앱 이름], [앱 연락처 이메일]에 정보를 입력하고 [비지니스 계정]은 특별히 작성할 필요는 없다.</br>
+<img src="https://user-images.githubusercontent.com/40654227/205609638-bd257bf4-b412-4415-9260-569354f1d6c7.png" width=600/></br>
+
+### 4. 앱 상세 이동
+다시 개발제 폐이지로 이동하여 <strong>[내 앱]</strong>을 클릭한다.</br>
+<img src="https://user-images.githubusercontent.com/40654227/205610116-680893de-8cb8-4fe9-93ac-23657a4a82bb.png" width=600/></br>
+
+그러면 다음과 같이 위 과정에 생성한 앱을 확인할 수 있다.</br>
+해당 앱을 클릭하여 <strong>앱 대시보드</strong>로 이동한다.</br>
+<img src="https://user-images.githubusercontent.com/40654227/205610546-770f9afa-93a1-4640-816a-47e2f9cf5efa.png" width=600/></br>
+
+### 5. 페이스북 로그인 설정
+아래 이미지처럼 만든 앱에 대한 대시정보를 확인할 수 있다.</br>
+<strong>[제품 추가]</strong> 카테고리에서 <strong>[Facebook 로그인] > [설정]</strong>으로 이동한다.</br>
+<img src="https://user-images.githubusercontent.com/40654227/205610732-5d49e446-d50c-4703-834c-e33938fe5016.png" width=600/></br>
+
+그리고 <strong>[Android]</strong>을 선택해준다.</br>
+<img src="https://user-images.githubusercontent.com/40654227/205611105-5e9d7d76-2a60-4261-98a9-1c840240ba96.png" width=600/></br>
+
+## 2. Facebook SDK 등록
+
+<p>
+  페이스북 로그인을 사용할 프로젝트에 Facebook SDK를 등록한다.
+</p>
+
+1. 프로젝트에서 `build.gradle(Project:..)` 또는 `settings.gradle`에서 다음과 같이 `repositories {}` 섹션에 `mavenCentral()` 저장소가 입력되어 있는지 확인한다.
+``` kotlin
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "FbLoginWebViewSample"
+include ':app'
+
+```
+
+2. 프로젝트에서 `build.gradle(Module:..)`에서 `dependencies{}` 섹션에 ` implementation 'com.facebook.android:facebook-login:latest.release'
+` 구현문을 추가하여 최신 버전의 Facebook 로그인 SDK 종속성을 추가한다. [최신버전확인](https://developers.facebook.com/docs/android/)
+``` kotlin
+
+dependencies {
+    ...
+    // Facebook Login SDK
+    implementation 'com.facebook.android:facebook-login:15.1.0'
+}
+```
+
+## 3. 리소스 및 Manifest 설정
+
+1. `/app/res/values/strings.xml`에 다음과 같이 문자열을 저장한다.
+
+``` xml
+    <string name="facebook_app_id">534473875260631</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">de63a367348bba44f51fbf1ae48ce9d2</string>
+```
+
+각각의 정보는 아래 이미지처럼 페이스북 개발자 계정으로 만든 앱의 <strong>[설정] > [고급 설정]</strong>에서 확인할 수 있다.
+<img src="https://user-images.githubusercontent.com/40654227/205615647-b018b22d-ede3-4d65-b732-2b47f7aa1f52.png" width=600/>
+
+2. `/app/manifest/AndroidManifest.xml`설정
+2.1. `meta-data` 요소를 `앱 ID`와 `클라이언트 토큰`을 `application` 요소에 다음과 같이 추가한다.
+``` xml
+
+<application android:label="@string/app_name" ...>
+    ...
+   	<meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+   	<meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
+    ...
+</application>
+
+```
+
+  2.2. Facebook Login 관련 Activity와 Chrome Custom Tab 관련 Activity를 추가한다.
+    
+    ``` xml
+    <application ...>
+        <activity android:name="com.facebook.FacebookActivity"
+            android:configChanges=
+                    "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+    </applicaton>
+    ```
+
+  2.3. 인터넷 권한 설정을 추가한다.
+    
+    ``` xml
+    <manifest ...>
+
+        <uses-permission android:name="android.permission.INTERNET"/>
+        <application...>
+        </application>
+    </manifest>
+    ```
+
+이렇게 **리소스 및 Manifest**를 설정하고 앱을 빌드해본다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
