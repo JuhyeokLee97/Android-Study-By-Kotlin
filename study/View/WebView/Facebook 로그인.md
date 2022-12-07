@@ -17,7 +17,11 @@ Android 임베디드 브라우저(웹 보기)에서 피싱 시도가 증가하�
   1.4. [앱 상세 이동](#4-앱-상세-이동)</br>
   1.5. [페이스북 로그인 설정](#5-페이스북-로그인-설정)</br>
 2. [Facebook SDK 등록](#2-facebook-sdk-등록)</br>
-  
+3. [리소스 및 Manifest 설정](#3-리소스-및-manifest-설정)</br>
+4. [패키지 이름 및 기본 Activity, 페이스북 앱과 연결](#4-패키지-이름-및-기본-activity-페이스북-앱과-연결)</br>
+5. [개발용(디버그) 해시 키 등록](#5-개발용디버그-해시-키-등록)</br>
+6. [페이스북 로그인 콜백 추가(FacebookLoginProvider.kt)](#6-페이스북-로그인-콜백-추가facebookloginproviderkt)</br>
+7. [페이스북 로그인 구현(MainActivity.kt)](#7-페이스북-로그인-구현mainactivitykt)</br>
   
 ## 1. 페이스북 앱 만들기
 페이스북 로그인을 구현하기 위해서는 [Meta for Developers](https://developers.facebook.com/)페이지에서 개발자 계정으로 **페이스북 앱**을 만들어야 한다.</br>
@@ -183,16 +187,18 @@ keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore |
 ```
 
 </br>
+
 <strong>[Windows]</strong>
 - Java Development Kit의 키 및 인증 관리 도구 Keytool이 필요하다.
 - Google Code Archive의 Windows용 OpenSSL 라이브러리 [openssl-for-windows](https://code.google.com/archive/p/openssl-for-windows/downloads)가 필요하다.
 - 개발 키 해시 생성을 위해서는 Android Studio에서 터미널 창을 열고 다음 명령어를 입력하여 실행한다.
+
 ``` terminal    
 keytool -exportcert -alias androiddebugkey -keystore "C:\Users\USERNAME\.android\debug.keystore" | "PATH_TO_OPENSSL_LIBRARY\bin\openssl" sha1 -binary | "PATH_TO_OPENSSL_LIBRARY\bin\openssl" base64     
 ```
 
 명령어를 실행하면 개발 환경에 고유한 <strong>28자 키 해시</strong>가 생성된다.</br>
-생성된 해시를 복사하여 다음과 같이 페이스북 앱 <strong>[설정] > [기본 설정]</strong>에서 <strong>[Android] > [키 해시]</strong>에 등록한다.
+생성된 해시를 복사하여 다음과 같이 페이스북 앱 <strong>[설정] > [기본 설정]</strong>에서 <strong>[Android] > [키 해시]</strong>에 등록한다.</br></br>
 <img src="https://user-images.githubusercontent.com/40654227/206138409-5e47b8ed-a94b-4d9e-8c73-efd1ca4ec801.png" width=600/>
 
 
