@@ -173,6 +173,27 @@ dependencies {
 <img src="https://user-images.githubusercontent.com/40654227/205626905-cbbdb68e-407e-4e8d-82dd-a60e19cbe5dc.png" width=600/>
 
 ### 5. 개발용(디버그) 해시 키 등록
+안드로이드 앱과 Facebook 간의 통신의 진실성 보장을 위해 개발 환경(ex. Android Studio)에 대한 Android 키 해시를 제공해야한다.</br>
+개발(디버그) 키 해시 생성을 위해서는 개발 환경의 운영체제에 따라 다음과 같다.</br>
+<strong>[Mac OS]</strong>
+- Java Development Kit의 키 및 인증 관리 도구인 Keytool이 필요하다.
+- 개발(디버그) 키 해시 생성을 위해서는 Android Studio에서 터미널 창을 열고 다음 명령어를 입력하여 실행한다.
+``` terminal    
+keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64
+```
+
+</br>
+<strong>[Windows]</strong>
+- Java Development Kit의 키 및 인증 관리 도구 Keytool이 필요하다.
+- Google Code Archive의 Windows용 OpenSSL 라이브러리 [openssl-for-windows](https://code.google.com/archive/p/openssl-for-windows/downloads)가 필요하다.
+- 개발 키 해시 생성을 위해서는 Android Studio에서 터미널 창을 열고 다음 명령어를 입력하여 실행한다.
+``` terminal    
+keytool -exportcert -alias androiddebugkey -keystore "C:\Users\USERNAME\.android\debug.keystore" | "PATH_TO_OPENSSL_LIBRARY\bin\openssl" sha1 -binary | "PATH_TO_OPENSSL_LIBRARY\bin\openssl" base64     
+```
+
+명령어를 실행하면 개발 환경에 고유한 <strong>28자 키 해시</strong>가 생성된다.</br>
+생성된 해시를 복사하여 다음과 같이 페이스북 앱 <strong>[설정] > [기본 설정]</strong>에서 <strong>[Android] > [키 해시]</strong>에 등록한다.
+<img src="https://user-images.githubusercontent.com/40654227/206138409-5e47b8ed-a94b-4d9e-8c73-efd1ca4ec801.png" width=600/>
 
 
 ### 6. 페이스북 로그인 콜백 추가
