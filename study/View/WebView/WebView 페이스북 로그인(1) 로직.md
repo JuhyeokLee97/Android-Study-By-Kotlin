@@ -1,4 +1,4 @@
-# WebView 페이스북 로그인(1) 로직
+# WebView 페이스북 로그인(2) 로직
 
 ### 6. 페이스북 로그인 콜백 추가(FacebookLoginProvider.kt)
 ``` kotlin
