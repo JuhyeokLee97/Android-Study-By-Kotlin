@@ -89,38 +89,63 @@
   
   <summary>Click to toggle contents of <strong>View</strong></summary>
  
-## [🎨 extension](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/View/RecyclerView)
-#### [Spannable 이란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/extension/Spannable%20%EC%9D%B4%EB%9E%80.md)
-#### [Spannable Click Event Example](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/extension/Spannable%20Click%20Event%20Example.md)
+## [♻️ RecyclerView](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/View/RecyclerView)
 
-----
+<details>
 
-## [🎨 RecyclerView](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/View/extension)
-
+  <summary>Click to toggle contents of <strong>RecyclerView</strong></summary>
+  
 #### [DataBinding Example](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/RecyclerView/DataBinding%20Example.md)
+#### [GridSpaceItemDecoration](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/RecyclerView/GridSpaceItemDecoration.md)
 #### [ItemDecoration Basic Sample](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/RecyclerView/ItemDecoration%20Basic%20Sample.md)
 #### [ItemDecoration 이란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/RecyclerView/ItemDecoration%20%EC%9D%B4%EB%9E%80.md)
 #### [ItemDecoration.getItemOffsets](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/RecyclerView/ItemDecoration.getItemOffsets.md)
 #### [Multi-ViewHolder Basic Sample](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/RecyclerView/Multi-ViewHolder%20Basic%20Sample.md)
 #### [RecyclerView Example](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/RecyclerView/RecyclerView%20Example.md)
-----
-  
-#### [WebView](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/WebView.md)
-#### [Android EditText 키보드 내리기](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/Android%20EditText%20%ED%82%A4%EB%B3%B4%EB%93%9C%20%EB%82%B4%EB%A6%AC%EA%B8%B0%20(kotlin).md)
-#### [RecyclerView](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/Android(Kotlin)%20RecyclerView%20Example.md)
-#### [RecyclerView with DataBinding Example](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/Android%20RecyclerView%20with%20%20DataBinding%20Example.md)
-#### [Android Splash Screen 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/Android%20Splash%20Screen%20%EC%98%88%EC%A0%9C(Kotlin).md)
-#### [TextView 말줄임(...)](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/Android%20TextView%20%EB%A7%90%EC%A4%84%EC%9E%84(...)%20Kotlin,%20DataBinding.md)
-#### [원형 버튼 만들기](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/%EC%9B%90%ED%98%95%20%EB%B2%84%ED%8A%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0.md)
-#### [바텀 내비게이션 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/%EB%B0%94%ED%85%80%20%EB%82%B4%EB%B9%84%EA%B2%8C%EC%9D%B4%EC%85%98%20%EC%98%88%EC%A0%9C.md)
-#### [SwipeRefreshLayout - 당겨서 새로고침](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/SwipeRefreshLayout%20-%20%EB%8B%B9%EA%B2%A8%EC%84%9C%20%EC%83%88%EB%A1%9C%EA%B3%A0%EC%B9%A8.md)
-#### [Fragment Lifecycle](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/Fragment%20%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0.md)
-#### [ProgressBar 란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/ProgressBar%20in%20Kotlin.md)
-#### [Indeterminate ProgressBar(원형 프로그레스바)](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/Indeterminate%20ProgressBar%20In%20Kotlin.md)
-#### [달력 예제](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/%5BAndroid%5D%20%EB%8B%AC%EB%A0%A5%20%EC%98%88%EC%A0%9C.md)
-#### [ViewPager2 and TabLayout Sample](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/ViewPager2%20and%20TabLayout%20Sample.md)
   
 </details>
+
+## [🌐 WebView](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/View/WebView)
+
+<details>
+
+  <summary>Click to toggle contents of <strong>WebView</strong></summary>
+  
+#### [Facebook 로그인](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/WebView/Facebook%20%EB%A1%9C%EA%B7%B8%EC%9D%B8.md)
+
+#### [ProgressBar 구현](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/WebView/ProgressBar%20%EA%B5%AC%ED%98%84.md)
+
+#### [WebView Bridge And JS Call](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/WebView/WebView%20Bridge%20And%20JS%20Call.md)
+
+#### [WebView Bridge](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/WebView/WebView%20Bridge.md)
+
+#### [WebView JS 호출](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/WebView/WebView%20JS%20%ED%98%B8%EC%B6%9C.md)
+
+#### [WebView 디버깅](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/WebView/WebView%20%EB%94%94%EB%B2%84%EA%B9%85.md)
+
+#### [WebView 란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/WebView/WebView%20%EB%9E%80.md)
+
+#### [WebView 맞춤설정](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/WebView/WebView%20%EB%A7%9E%EC%B6%A4%EC%84%A4%EC%A0%95.md)
+
+#### [WebView 이미지 업로드](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/WebView/WebView%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%97%85%EB%A1%9C%EB%93%9C.md)
+
+#### [WebView 페이스북 로그인(1) 셋팅](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/WebView/WebView%20%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%B6%81%20%EB%A1%9C%EA%B7%B8%EC%9D%B8(1)%20%EC%85%8B%ED%8C%85.md)
+
+#### [WebView 페이스북 로그인(2) 로직](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/WebView/WebView%20%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%B6%81%20%EB%A1%9C%EA%B7%B8%EC%9D%B8(1)%20%EB%A1%9C%EC%A7%81.md)
+
+  </details>
+  
+## [⚙️ extension](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/tree/main/study/View/extension)
+
+<details>
+
+  <summary>Click to toggle contents of <strong>Extension</strong></summary>
+  
+#### [Spannable Click Event Example](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/extension/Spannable%20Click%20Event%20Example.md)
+#### [Spannable 이란](https://github.com/JuhyeokLee97/Android-Study-By-Kotlin/blob/main/study/View/extension/Spannable%20%EC%9D%B4%EB%9E%80.md)
+
+</details>
+
 
 
 
