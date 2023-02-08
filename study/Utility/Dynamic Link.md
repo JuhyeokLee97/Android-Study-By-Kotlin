@@ -1,3 +1,32 @@
+# DynamicLink 생성 및 DeepLink 처리
+## 개요
+### 사용용도
+
+### 앱 개요
+<p>
+    1. <strong>CREATE DYNAMIC LINK</strong> 버튼을 클릭하면 화면 중앙에 위치한 EditText에 Short-DynamicLink를 확인할 수 있다.
+    2. <strong>ADD PATH</strong> 버튼을 클릭하면 해당 Path가 추가된 딥링크를 바탕으로 한 Short-DynamicLink를 생성한다.
+    3. <strong>ADD QUERYPARAM</strong> 버튼을 클릭하면 해당 Query Param이 추가된 딥링크를 바탕으로 한 Short-DynamicLink를 생성한다.
+    
+    생성된 동적링크를 통해 앱에 진입한 경우, 각 화면으로 이동하며 딥링크를 보여준다.
+</p>
+
+### 실행영상
+
+### Dynamic Link란
+
+### Deep Link란
+
+### Dynamic Link vs Deep Link
+
+### AOS <-> Firebase
+
+## 셋팅
+
+### 프로젝트 셋팅
+
+### Firebase 셋팅
+
 ## Code
 
 ### FirebaseDynamicLinkUtils.kt
