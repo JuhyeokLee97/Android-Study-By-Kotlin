@@ -16,9 +16,16 @@
 
 ### 실행영상
 
+### Deep Link란
+
+딥링크란 사용자로 하여금 정확한 웹에서 페이지나 앱에서 메인화면을 여는 것이 아니라 특정 콘텐츠를 나타내는 화면으로 이동할 수 있는 하이퍼 링크 중 하나이다.</br>
+딥링크를 사용함으로써 원하는 화면으로 이동을 위해서 탭 이동이나 클릭 횟수를 줄이게 되고 최종적으로 사용자의 앱 사용자의 경험을 향상시킬 수 있다.</br>
+하지만 딥링크는 플랫폼이나 사용중인 앱에 대하여 제한될 수 있다.
+
 ### Dynamic Link란
 
-### Deep Link란
+A dynamic link is a type of link that allows you to direct users to different destinations based on various conditions, such as the user's platform, language, or location. Unlike a static link, which always leads to the same destination, a dynamic link can be updated to point to different content or locations without changing the link itself. Dynamic links are often used for marketing campaigns, referral programs, or app installation, and they can also be used to track user behavior and measure the effectiveness of different campaigns. Additionally, dynamic links can work across different platforms and devices, making them more versatile than traditional links.
+다이나믹 링크는 
 
 ### Dynamic Link vs Deep Link
 
